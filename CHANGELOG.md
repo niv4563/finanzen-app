@@ -2,6 +2,15 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.13.0
+- **Daueraufträge & Lohn** (Menü → Geplante Zahlungen): Miete, Krankenkasse, Abos und deinen Lohn mit Rhythmus erfassen. Kommt die Zahlung per Bank-Import, gilt sie automatisch als erledigt.
+- **Abo-Erkennung:** Die App findet wiederkehrende Zahlungen in deinen Buchungen und schlägt sie mit «Übernehmen» als Dauerauftrag vor.
+- **Glocke mit Hinweisen** oben rechts: fällige Rechnungen, Budget überschritten oder zu schnell aufgebraucht, ungewöhnlich hohe Ausgaben, Konto droht ins Minus, fehlende Daueraufträge.
+- **«Bis zum Lohn»** auf der Startseite: wie viel pro Tag bis zum nächsten Lohn frei bleibt.
+- **Kalender** (Menü): Ausgaben und Einnahmen pro Tag, geplante Zahlungen als Punkt.
+- **Schnell erfassen:** Häufige eigene Buchungen erscheinen als Vorlagen im Plus-Menü.
+- Ausblick zählt jetzt auch Lohn und Einnahmen mit.
+
 ## 1.12.0
 - Vermögen in CHF (Startseite und Statistik → Saldo): alle Konten mit Stand, Kurs und Wert in CHF. Oben Saldo (wie bei Wallet nur Konten «in Statistik»), Guthaben total, Schulden und Netto.
 - Fremdwährungen (EUR, USD, CAD …) werden zum Tageskurs der Europäischen Zentralbank in CHF umgerechnet und zählen mit. Eigener Kurs pro Währung möglich (Kurs antippen).
