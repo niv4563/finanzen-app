@@ -2,6 +2,10 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.2.1
+- App-Sperre einstellbar: Wenn du die App kurz verlässt, musst du die PIN nicht mehr jedes Mal eingeben. Standard: erst nach 30 Minuten. Wählbar von 1 Minute bis «erst wenn die App neu startet» (Daten & Backup → App-Sperre).
+- Sperre bei Nichtbenutzung (App offen) ebenfalls bis 1 Stunde oder «nie» einstellbar.
+
 ## 1.2.0
 - Neues Aussehen im Stil von Wallet: farbige Kontenkacheln, grüne Kopfzeile, runder Plus-Knopf.
 - Startseite mit Kontostand-Verlauf der letzten 30 Tage (antippen zeigt den Stand des Tages), Ausgaben-Ring nach Bereich, letzten Buchungen und Budgets.
