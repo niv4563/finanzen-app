@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.2.0
+- Neues Aussehen im Stil von Wallet: farbige Kontenkacheln, grüne Kopfzeile, runder Plus-Knopf.
+- Startseite mit Kontostand-Verlauf der letzten 30 Tage (antippen zeigt den Stand des Tages), Ausgaben-Ring nach Bereich, letzten Buchungen und Budgets.
+- Buchungen zeigen pro Tag die Summe.
+- Unten in der Leiste neu «Statistik»; «Wünsche» findest du unter «Mehr».
+
 ## 1.1.0
 - Neue Startseite wie bei Wallet: Kontostände, letzte Buchungen nach Tag, Monatsbudget und offene Rechnungen auf einen Blick.
 - Bankdateien hochladen: CSV von PostFinance (Privatkonto, Sparkonto, Kreditkarte), Wallet und anderen Banken – unverändert, so wie von der Bank geladen. Mehrere Dateien auf einmal.
