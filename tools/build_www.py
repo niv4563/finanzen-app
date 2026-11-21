@@ -37,7 +37,7 @@ info = {'version': version, 'channel': channel, 'repo': repo, 'build': build}
 (out / 'build-info.js').write_text('window.APP_BUILD = Object.freeze(' + json.dumps(info) + ');\n', encoding='utf-8')
 html = (src / 'index.html').read_text(encoding='utf-8')
 csp = ("default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; "
-       "connect-src 'self' https://api.github.com https://rest.budgetbakers.com; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'none'")
+       "connect-src 'self' https://api.github.com https://rest.budgetbakers.com https://api.frankfurter.dev; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'none'")
 csp = csp.replace("script-src 'self';", "script-src 'self' 'wasm-unsafe-eval';")
 html = html.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n<meta http-equiv="Content-Security-Policy" content="' + csp + '">\n<meta name="referrer" content="no-referrer">')
 html = re.sub(r'<link rel="(manifest|apple-touch-icon|icon)"[^>]*>\n?', '', html)
