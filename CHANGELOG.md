@@ -2,6 +2,13 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.9.0
+- Startseite wie die Wallet-App: oben Reiter «Konten» und «Budgets & Ziele», Konten als kompakte Kacheln mit Symbol (3 pro Reihe), Schnellzugriffe (Ausgaben, Geplante Zahlungen, Budgets, Ziele, Konten).
+- Übersicht mit Anzeigen wie im Wallet-Dashboard: Verfügbar, Cashflow, Ausblick 7 Tage, Ausgaben, Kredit und Schuld.
+- Auf der Startseite: Ausgabenstruktur der letzten 30 Tage, letzte Einträge mit Datum, Kontostand-Trend und bevorstehende geplante Zahlungen (offene Rechnungen, feste Kosten am üblichen Tag, Jahreskosten).
+- Statistik wie in der Wallet-App: Reiter Saldo, Ausblick, Cashflow, Ausgaben und Kredit. Unten eine Leiste für den Zeitraum (7T, 30T, 12W, 6M, 1J, blättern oder eigene Daten) sowie Konten und Filter.
+- Neu: Kontostand nach Konten, erwarteter Kontostand der nächsten 30 Tage, Schulden mit ungefähren Zinsen pro Monat.
+
 ## 1.8.1
 - Schriftgrössen überarbeitet: ruhiger und einheitlich. Grosse Beträge, Überschriften, Kacheln, Listen und Knöpfe sind kleiner, damit mehr auf den Bildschirm passt.
 
