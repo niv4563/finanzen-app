@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.11.0
+- Woche · Monat · Jahr: Buchungen und Statistik lassen sich wochenweise (Mo–So), monatsweise oder jahresweise anschauen und mit ‹ › blättern. Die gleitenden Zeiträume (7T, 30T, 12W, 6M, 1J) bleiben.
+- Kategorien wie in Wallet (Menü → Import): Die App liest deine Wallet-Kategorien aus den Wallet-Buchungen, ordnet sie den Wallet-Hauptkategorien zu (Essen & Getränke, Wohnen, Finanzausgaben …) und legt sie an. Passt eine bestehende Kategorie, wird sie umbenannt – dein Budget bleibt erhalten. Alle Wallet-Buchungen werden neu zugeordnet.
+- Ausgabenstruktur wahlweise nach Kategorien oder nach Hauptkategorien wie bei Wallet.
+- Automatische Regeln aus deinen Wallet-Buchungen (Menü → Import oder Automatische Regeln): Händler, die in Wallet immer gleich zugeordnet waren, werden zu Regeln für deine Bankdateien.
+
 ## 1.10.0
 - Konten wie in Wallet übernehmen (Startseite → Kachel «Konten wie in Wallet», oder Seite Konten): Anzahl, Namen, Reihenfolge, Farben, Kontoart und Währung.
 - Quelle: deine Wallet-Verbindung (mit Farben und Reihenfolge) oder ein Wallet-Export (CSV). Die App schlägt vor, welches Wallet-Konto zu welchem bestehenden Konto gehört – du kannst alles anpassen, mit ▲▼ sortieren und Konten ohne Buchungen (z. B. Bargeld USD) hinzufügen.
