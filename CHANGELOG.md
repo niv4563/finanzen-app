@@ -2,6 +2,13 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.10.0
+- Konten wie in Wallet übernehmen (Startseite → Kachel «Konten wie in Wallet», oder Seite Konten): Anzahl, Namen, Reihenfolge, Farben, Kontoart und Währung.
+- Quelle: deine Wallet-Verbindung (mit Farben und Reihenfolge) oder ein Wallet-Export (CSV). Die App schlägt vor, welches Wallet-Konto zu welchem bestehenden Konto gehört – du kannst alles anpassen, mit ▲▼ sortieren und Konten ohne Buchungen (z. B. Bargeld USD) hinzufügen.
+- Nichts wird gelöscht: Konten, die es nur in dieser App gibt (z. B. für die Planung), kommen ans Ende.
+- Konten in Fremdwährung (EUR, USD …) zeigen ihren Stand in der eigenen Währung. Konten «nicht in Statistik» erscheinen grau wie bei Wallet und zählen nicht in Summen und Anzeigen.
+- Neue Wallet-Importe landen automatisch auf dem zugeordneten Konto.
+
 ## 1.9.0
 - Startseite wie die Wallet-App: oben Reiter «Konten» und «Budgets & Ziele», Konten als kompakte Kacheln mit Symbol (3 pro Reihe), Schnellzugriffe (Ausgaben, Geplante Zahlungen, Budgets, Ziele, Konten).
 - Übersicht mit Anzeigen wie im Wallet-Dashboard: Verfügbar, Cashflow, Ausblick 7 Tage, Ausgaben, Kredit und Schuld.
