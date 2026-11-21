@@ -2,6 +2,15 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.8.0
+- Neue Seite «Analyse» wie bei Wallet (Menü → Analyse): Zeitraum wählbar (7 Tage, 30 Tage, Monat, 3 Monate, Jahr) und mit den Pfeilen blättern.
+- Kennzahlen mit Vergleich zum vorherigen Zeitraum: Einnahmen, Ausgaben, Cashflow, Sparquote, Ø Ausgaben pro Tag.
+- Kontostandtrend, Periodenvergleich (aktuell, vorheriger Zeitraum, vor einem Jahr – für Cashflow, Ausgaben oder Einnahmen), Cashflow-Trend und Ausgabenstruktur. Antippen zeigt die Werte des Tages.
+- Muss · Brauch · Will: Jede Kategorie ist eingeteilt (änderbar unter Budgets & Ziele → Muss · Brauch · Will). Die Karte «Art der Ausgaben» zeigt, wie viel du wofür ausgibst.
+- Nutzung der Kreditlimits, Top-Händler und letzte Einträge.
+- Bericht: Einnahmen und Ausgaben pro Kategorie, gruppiert nach Muss, Brauch und Will, mit Vergleich zum vorherigen Zeitraum.
+- Filter wie bei Wallet: Suche, Konto, Kategorie, Muss/Brauch/Will, Betrag von–bis, Überträge ein- oder ausschliessen.
+
 ## 1.7.0
 - Fingerabdruck schaltet sich automatisch ein: Nach dem Festlegen oder Eingeben der PIN fragt Android einmal nach dem Finger – danach öffnest du die App nur noch mit dem Finger. Ausschalten weiterhin in den Einstellungen.
 - Buchungen wie bei Wallet: Symbol pro Kategorie, Kategorie fett, Händler darunter, Konto rechts, Ausgaben rot und Einnahmen grün, Tage mit «Heute» und «Gestern».
