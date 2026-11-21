@@ -19,6 +19,7 @@ public class MainActivity extends BridgeActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             getWindow().setHideOverlayWindows(true);              // fremde Overlays ausblenden (Tapjacking)
         }
+        registerPlugin(BioLockPlugin.class);                     // Entsperren mit Fingerabdruck (eigener Code, keine Fremdbibliothek)
         super.onCreate(savedInstanceState);
         hardenWebView();
         deleteOldPhotos();

@@ -17,3 +17,8 @@ Kontakt: über die E-Mail-Adresse im Play-Store-Eintrag bzw. im GitHub-Projekt.
 - Hochgeladene Bankdateien (CSV) werden nur auf dem Gerät gelesen. Gespeichert werden die einzelnen Buchungen – verschlüsselt wie alle anderen Daten. Die Datei selbst wird nicht aufbewahrt.
 - Fotos von Rechnungen und Belegen werden nur auf dem Gerät ausgewertet (QR-Code-Leser und Texterkennung sind in der App enthalten, nichts wird aus dem Internet nachgeladen). Die App speichert das Foto nicht; Android legt es kurz im privaten App-Ordner ab, und die App löscht es dort nach spätestens 30 Minuten.
 - Die App braucht dafür keine Kamera-Berechtigung: Android öffnet die Kamera-App, und nur das eine Foto kommt zurück.
+
+## Fingerabdruck (ab Version 1.3)
+- Wenn du «Mit Fingerabdruck entsperren» einschaltest, wird deine PIN mit einem Schlüssel im Sicherheitschip des Handys verschlüsselt. Der Schlüssel verlässt den Chip nie und funktioniert nur nach einem erkannten Fingerabdruck.
+- Die App sieht deinen Fingerabdruck nie – Android meldet nur «erkannt» oder «nicht erkannt». Dafür braucht die App die Berechtigung «Biometrie verwenden».
+- Kommt im Handy ein neuer Fingerabdruck dazu, wird der Schlüssel automatisch ungültig; dann ist wieder die PIN nötig.

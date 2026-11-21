@@ -48,4 +48,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- Erlaubt der App, fremde Overlays über sich auszublenden (Schutz vor Tapjacking, Android 12+). -->
     <uses-permission android:name="android.permission.HIDE_OVERLAY_WINDOWS" />
+    <!-- Fingerabdruck-Abfrage über Android (die App sieht nie den Fingerabdruck selbst, nur «erkannt / nicht erkannt»). -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
 </manifest>
