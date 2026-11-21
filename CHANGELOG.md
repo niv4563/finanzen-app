@@ -2,6 +2,13 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.7.0
+- Fingerabdruck schaltet sich automatisch ein: Nach dem Festlegen oder Eingeben der PIN fragt Android einmal nach dem Finger – danach öffnest du die App nur noch mit dem Finger. Ausschalten weiterhin in den Einstellungen.
+- Buchungen wie bei Wallet: Symbol pro Kategorie, Kategorie fett, Händler darunter, Konto rechts, Ausgaben rot und Einnahmen grün, Tage mit «Heute» und «Gestern».
+- Oben auf der Buchungsseite: Ausgaben, Einnahmen und Saldo des Monats; Suche und Kontofilter in einer Zeile.
+- Runder Plus-Knopf öffnet wie bei Wallet ein Auswahlblatt: Buchung erfassen, Rechnung fotografieren, Bankdatei hochladen. Die grossen Knopf-Reihen sind weg.
+- Einheitliche, gut antippbare Knöpfe und Eingabefelder; doppelte Seitenüberschriften auf dem Handy entfernt.
+
 ## 1.6.0
 - Neu: Geräte-Sync. Handy, Tablet und PC haben den gleichen Stand. Beim Öffnen holt die App die neuesten Daten, Änderungen werden nach wenigen Sekunden gespeichert.
 - Ablage nur als verschlüsselte Datei (AES-256) in deinem eigenen privaten GitHub-Repository. Der Schlüssel liegt nur auf deinen Geräten. Öffentliche Repositories werden abgelehnt.
