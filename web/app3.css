@@ -1,0 +1,49 @@
+/* ---- 1.2: Oberfläche im Stil von Wallet ---- */
+:root{--acc:#1E8A50;--acc-soft:#E2F3E9;--bar:#1E8A50;--bar-ink:#fff;
+  --fix:#2a78d6;--leben:#1baf7a;--frei:#eb6834;--sch:#6250d6;--spar:#008300;--other:#9a9a96}
+@media (prefers-color-scheme:dark){
+  :root{--acc:#3FBF73;--acc-soft:#16301F;--bar:#17241C;--bar-ink:#E6ECF1;
+  --fix:#3987e5;--leben:#199e70;--frei:#d95926;--sch:#9085e9;--spar:#0ca30c;--other:#8a8a85}
+}
+header{background:var(--bar);color:var(--bar-ink);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+header h1{color:var(--bar-ink)}
+header .mnav{background:rgba(255,255,255,.14);border-color:transparent;color:var(--bar-ink)}
+header .mnav .ibtn,header .mnav b{color:var(--bar-ink)}
+.fab{border-radius:50%;width:58px;height:58px;padding:0;font-size:0;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.fab::before{content:'+';font-size:32px;line-height:58px;font-weight:400}
+
+/* Kontenkacheln */
+.wtiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:4px 0 12px}
+.wtile{border-radius:10px;padding:10px 12px;color:#fff;cursor:pointer;min-height:64px;display:flex;flex-direction:column;justify-content:space-between}
+.wtile .n{font-size:13px;opacity:.95;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wtile b{font-size:17px;font-weight:700}
+.wtile .s{font-size:11px;opacity:.85}
+.wtile.add{background:transparent;border:1.5px dashed var(--line);color:var(--muted);align-items:center;justify-content:center;font-weight:600}
+.wtotal{display:flex;align-items:baseline;gap:8px;margin:2px 2px 6px}
+.wtotal b{font-size:26px;letter-spacing:-.01em}
+
+/* Karten im Wallet-Stil */
+.wcard{background:var(--card);border-radius:12px;padding:14px 16px;margin-top:12px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.wcard h3{margin:0 0 2px;font-size:15px}
+.wcard .wsub{font-size:12px;color:var(--muted);margin-bottom:8px}
+.wcard .wmore{display:block;text-align:center;color:var(--acc);font-weight:650;padding:10px 0 0;cursor:pointer;border-top:1px solid var(--line);margin-top:8px}
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px;align-items:start}
+@media (max-width:820px){.wgrid{grid-template-columns:1fr}}
+
+/* Buchungszeilen: runde Kategorie-Symbole */
+.txi{flex:0 0 40px;height:40px;font-size:15px}
+.dayh{display:flex;justify-content:space-between;font-weight:600;color:var(--muted)}
+
+/* Ausgaben-Ring */
+.donut{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.donut svg{flex:0 0 150px}
+.dleg{flex:1;min-width:170px}
+.dleg div{display:flex;align-items:center;gap:8px;padding:4px 0;font-size:13.5px}
+.dleg i{width:10px;height:10px;border-radius:50%;flex:none}
+.dleg span.sp{color:var(--ink)}
+.dleg .p{color:var(--muted);width:38px;text-align:right}
+
+/* Verlauf */
+.trend{position:relative}
+.trend svg{width:100%;height:150px;display:block}
+.trend .tip{position:absolute;top:0;pointer-events:none;background:var(--ink);color:var(--card);font-size:12px;padding:4px 8px;border-radius:6px;white-space:nowrap;transform:translateX(-50%);display:none}
