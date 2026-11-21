@@ -2,6 +2,13 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.4.0
+- Menü links wie bei Wallet: über ☰ oben links, Gruppen einklappbar (Geplante Zahlungen, Budgets & Ziele, Konten, Planung, Import, Einstellungen). Auf dem PC lässt sich das Menü schmal stellen.
+- Seitentitel oben in der grünen Leiste.
+- Automatische Regeln wie bei Wallet: «Text enthält …», nur Ausgabe/Einnahme, Konto, Betrag von–bis → Kategorie, Übertrag oder ignorieren. Reihenfolge änderbar, auf alte Buchungen anwendbar.
+- Wallet-Verbindung: Buchungen direkt aus Wallet by BudgetBakers übernehmen – einmalig alles oder automatisch beim Öffnen. Was schon per Bankdatei da ist, wird nicht doppelt übernommen.
+- Screenshots lassen sich für 10 Minuten erlauben (Einstellungen → Daten & Sicherheit).
+
 ## 1.3.0
 - Entsperren mit Fingerabdruck (Daten & Sicherheit → «Mit Fingerabdruck entsperren»). Die PIN liegt dafür verschlüsselt im Sicherheitschip des Handys.
 - Neue Seite «Budget» wie bei Wallet: pro Kategorie ausgegeben, geplant und «noch übrig», dazu Betrag pro Tag.
