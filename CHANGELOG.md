@@ -2,6 +2,21 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.14.0
+- **Finanz-Assistent** (Menü → Finanz-Assistent): rechnet direkt auf dem Handy, ohne KI-Dienst im Internet.
+  - **Prognose Monatsende:** Was du bis Ende Monat voraussichtlich ausgibst, was übrig bleibt und welche Budgets kippen.
+  - **Prognose 12 Monate:** Erwarteter Kontostand mit Bandbreite «Vorsichtig» bis «Gut», inkl. Saison (Steuern, Ferien).
+  - **Kaufverhalten:** teuerster Wochentag, Wochenende, Kleinbeträge, Monatsanfang vs. Ende, Muss · Brauch · Will, wo du am meisten kaufst, was gestiegen oder gesunken ist, Preiserhöhungen bei wiederkehrenden Zahlungen.
+  - **Spartipps** aus deinen eigenen Zahlen.
+  - **KI-Zuordnung:** Schlägt für Buchungen ohne Kategorie die passende vor – gelernt aus deinen bisherigen Buchungen.
+  - **Frag die App:** z. B. «Wie viel habe ich im Oktober für Restaurant ausgegeben?» oder «Wie viel bleibt bis Monatsende?».
+  - Kurzer Blick auf der Startseite.
+- **Labels:** Buchungen mit eigenen Labels versehen (z. B. ferien-2026, geschenk) und unter Menü → Labels zusammen anschauen.
+- **Buchung aufteilen:** Einen Einkauf auf mehrere Kategorien verteilen (Buchung antippen → «Auf mehrere Kategorien aufteilen»). Der Kontostand bleibt gleich.
+- **Mitteilungen aufs Handy** (bei der Glocke einschalten): fällige Rechnungen, geplante Zahlungen, Warnung bei Minus, Monatsrückblick. Standard ohne Namen und Beträge.
+- **Konto-Aussehen:** Name, Farbe, Symbol und Kontoart ändern (Konto-Kachel antippen → «Name, Farbe & Symbol ändern»).
+- **Web-Version:** Entsperren mit Fingerabdruck, Gesichtserkennung oder Windows Hello.
+
 ## 1.13.0
 - **Daueraufträge & Lohn** (Menü → Geplante Zahlungen): Miete, Krankenkasse, Abos und deinen Lohn mit Rhythmus erfassen. Kommt die Zahlung per Bank-Import, gilt sie automatisch als erledigt.
 - **Abo-Erkennung:** Die App findet wiederkehrende Zahlungen in deinen Buchungen und schlägt sie mit «Übernehmen» als Dauerauftrag vor.
