@@ -25,6 +25,7 @@ public class MainActivity extends BridgeActivity {
         }
         registerPlugin(BioLockPlugin.class);                     // Entsperren mit Fingerabdruck (eigener Code, keine Fremdbibliothek)
         registerPlugin(ScreenPlugin.class);                      // Screenshots auf Wunsch kurz erlauben
+        registerPlugin(NotifyPlugin.class);                      // Mitteilungen, von der App selbst geplant (kein Push-Server)
         super.onCreate(savedInstanceState);
         hardenWebView();
         handleSystemBars();
