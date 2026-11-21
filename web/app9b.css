@@ -1,0 +1,14 @@
+/* ===== 1.10.0 – Konten wie in Wallet ===== */
+.wbl{display:flex;flex-direction:column;gap:8px;max-height:58vh;overflow:auto;margin:4px 0 8px}
+.wbr{border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.wbr .chk{gap:8px;font-size:14px}
+.wbr .sw{width:14px;height:14px;border-radius:4px;flex:0 0 14px}
+.wbg{display:grid;grid-template-columns:1.3fr 1fr;gap:0 8px}
+.wbg label.f{font-size:12px;margin:2px 0}
+.wbg select{padding:7px 8px!important;font-size:14px!important}
+.wbh{display:flex;align-items:center;gap:6px}
+.wbh input[type=checkbox]{width:20px;height:20px;flex:0 0 20px}
+.wbh .wbn{flex:1;min-width:0;min-height:36px!important;padding:6px 8px!important;font-weight:600}
+.wbh .ibtn{width:32px;height:32px;flex:0 0 32px}
+.wbh .ibtn[disabled]{opacity:.3}
+.wbg{grid-template-columns:1.4fr 1fr .6fr}
