@@ -1,0 +1,60 @@
+# Veröffentlicht die Web-Version der Finanzen-App auf GitHub Pages (für PC, Tablet, iPad).
+# Die Seite enthält NUR den Programmcode – keine Daten. Deine Daten liegen verschlüsselt
+# im Browser und (mit Geräte-Sync) verschlüsselt in deinem privaten Repository.
+name: Web-Version
+
+on:
+  push:
+    branches: [main]
+    paths: ['web/**', 'tools/build_www.py', 'CHANGELOG.md', 'package.json', '.github/workflows/pages.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Schutz – keine persönlichen Daten im Projekt
+        run: |
+          bad=$(git ls-files | grep -Ei '(Finanzen_Daten|\.xlsx$|\.xls$|backup.*\.json$|\.jks$|\.keystore$|\.p12$|walletToken)' || true)
+          if [ -n "$bad" ]; then echo "::error::Diese Dateien gehören nicht ins Projekt: $bad"; exit 1; fi
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - name: Web-Version bauen
+        run: |
+          npm install --no-fund --no-audit
+          npm audit --omit=dev --audit-level=high
+          V=$(grep -m1 -E '^## [0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | awk '{print $2}')
+          python3 tools/build_www.py web "$V" web "$GITHUB_REPOSITORY" "$GITHUB_RUN_NUMBER"
+          node --check www/app.js
+          touch www/.nojekyll
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: www
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
