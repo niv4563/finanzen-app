@@ -12,3 +12,13 @@
 .wbh .ibtn{width:32px;height:32px;flex:0 0 32px}
 .wbh .ibtn[disabled]{opacity:.3}
 .wbg{grid-template-columns:1.4fr 1fr .6fr}
+/* ===== 1.11.0 – Woche/Monat/Jahr, Kategorien & Regeln wie Wallet ===== */
+.bper{display:grid;gap:8px;margin-bottom:10px}
+.bper .psrange{display:flex;align-items:center;justify-content:center}
+.psheet .pspre.cal{margin-bottom:-2px}
+.wcp{border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.wcp > b{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
+.wcr{display:grid;grid-template-columns:1fr;gap:4px;padding:6px 0;border-top:1px solid var(--line)}
+.wcr select{min-height:38px!important;padding:6px 8px!important;font-size:13.5px!important}
+@media (min-width:640px){.wcr{grid-template-columns:1.2fr 1.2fr 1fr;align-items:center}}
+.wrr{align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line);font-size:14px}
