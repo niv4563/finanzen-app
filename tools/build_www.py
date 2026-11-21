@@ -7,7 +7,7 @@ src, version, channel = pathlib.Path(sys.argv[1]), sys.argv[2], sys.argv[3]
 repo = sys.argv[4] if len(sys.argv) > 4 else ''
 build = sys.argv[5] if len(sys.argv) > 5 else ''
 assert re.fullmatch(r'\d+\.\d+\.\d+', version), 'Version muss so aussehen: 1.2.3'
-assert channel in ('direct', 'play')
+assert channel in ('direct', 'play', 'web')
 assert repo == '' or re.fullmatch(r'[\w.-]+/[\w.-]+', repo)
 out = pathlib.Path(__file__).resolve().parent.parent / 'www'
 shutil.rmtree(out, ignore_errors=True); out.mkdir()
