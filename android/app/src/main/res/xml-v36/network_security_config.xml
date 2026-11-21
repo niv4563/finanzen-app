@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 16+: zusätzlich Certificate Transparency erzwingen
+     (falsch oder heimlich ausgestellte Zertifikate werden erkannt und abgelehnt). -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <certificateTransparency enabled="true" />
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

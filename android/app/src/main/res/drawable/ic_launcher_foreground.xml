@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- App-Symbol: Fortschrittsleiste mit drei Stufen (zwei erreicht, eine offen) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+    <group
+        android:scaleX="0.62"
+        android:scaleY="0.62"
+        android:translateX="97.3"
+        android:translateY="97.3">
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M126,245 L342,245 L342,267 L126,267 Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M82,256 A44,44 0 1,0 170,256 A44,44 0 1,0 82,256 Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M212,256 A44,44 0 1,0 300,256 A44,44 0 1,0 212,256 Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:fillType="evenOdd"
+            android:pathData="M342,256 A44,44 0 1,0 430,256 A44,44 0 1,0 342,256 Z M356,256 A30,30 0 1,1 416,256 A30,30 0 1,1 356,256 Z" />
+    </group>
+</vector>
