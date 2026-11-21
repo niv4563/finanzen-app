@@ -26,3 +26,11 @@ Kontakt: über die E-Mail-Adresse im Play-Store-Eintrag bzw. im GitHub-Projekt.
 ## Wallet-Verbindung und Screenshots (ab Version 1.4)
 - Nur wenn du die Wallet-Verbindung einrichtest: Die App holt deine Buchungen direkt bei BudgetBakers (rest.budgetbakers.com) ab – lesend, sie ändert nichts in Wallet. Der API-Token liegt verschlüsselt in deinen App-Daten und im verschlüsselten Backup. Mit «Verbindung trennen» wird er gelöscht.
 - Screenshots sind gesperrt. Du kannst sie bei Bedarf für 10 Minuten erlauben; danach und beim Sperren der App ist der Schutz automatisch wieder aktiv.
+
+## Geräte-Sync (ab Version 1.6)
+- Freiwillig. Ohne Einrichtung verlassen deine Daten das Gerät nicht.
+- Die App legt nur eine Datei «finanzen.enc.json» in **deinem eigenen privaten** GitHub-Repository ab. Inhalt: komprimiert und mit AES-256-GCM verschlüsselt. Der Schlüssel (32 Zufallsbytes) wird auf dem Gerät erzeugt und nie an GitHub geschickt.
+- GitHub sieht nur unlesbare Daten, Zeitpunkt und Grösse. Ohne Verbindungscode kann niemand die Daten lesen – auch GitHub und der Entwickler nicht.
+- Der Verbindungscode enthält Repository, Zugangs-Token und Schlüssel. Er wird in der App verschlüsselt gespeichert (mit deiner PIN). Behandle ihn wie ein Passwort.
+- Der Token sollte nur für dieses eine Repository und nur «Contents» gelten. So kann er nichts anderes in deinem GitHub-Konto ändern.
+- Die App spricht dafür nur mit api.github.com (in der Sicherheitsregel der App fest eingetragen).
