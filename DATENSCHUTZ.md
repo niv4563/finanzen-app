@@ -1,0 +1,14 @@
+# Datenschutzerklärung – Finanzen (Android-App)
+
+Stand: November 2026
+
+**Kurz:** Die App sammelt keine Daten über dich und schickt deine Finanzdaten nirgendwohin.
+
+1. **Deine Finanzdaten** (Budget, Buchungen, Konten, Wünsche) werden nur auf deinem Gerät gespeichert, verschlüsselt mit deiner PIN (AES-256-GCM, Schlüssel aus PBKDF2 mit 310 000 Durchläufen). Niemand ausser dir kann sie lesen – auch nicht der Entwickler.
+2. **Keine Konten, keine Werbung, keine Analyse- oder Tracking-Dienste**, keine Drittanbieter-Bibliotheken für Statistik oder Absturzberichte.
+3. **Backups von Android/Google** sind für diese App ausgeschaltet. Ein Backup entsteht nur, wenn du selbst «Backup speichern» wählst. Es ist mit deinem Passwort verschlüsselt, du bestimmst, wo es liegt.
+4. **Update-Prüfung** (nur bei der Version ausserhalb des Play Store): Die App fragt höchstens alle 12 Stunden bei GitHub (api.github.com) nach, ob eine neue Version da ist. Dabei werden keine Finanzdaten übertragen. GitHub sieht wie bei jedem Webseitenaufruf deine IP-Adresse (Datenschutz von GitHub: https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement).
+5. **Berechtigungen:** nur «Internet» (für die Update-Prüfung) und «fremde Overlays ausblenden» (Schutz vor Klick-Betrug). Kein Zugriff auf Kontakte, Standort, Kamera, Mikrofon oder Dateien.
+6. **Löschen:** In der App unter «Daten & Backup → Alle Daten löschen» oder durch Deinstallieren der App werden alle Daten entfernt.
+
+Kontakt: über die E-Mail-Adresse im Play-Store-Eintrag bzw. im GitHub-Projekt.

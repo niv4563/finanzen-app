@@ -1,0 +1,22 @@
+{
+  "name": "finanzen-android",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Private Finanzen-App für Android (Capacitor). Enthält keine persönlichen Daten.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "www": "python3 tools/build_www.py web",
+    "sync": "cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.6.2",
+    "@capacitor/app": "8.1.2",
+    "@capacitor/core": "8.6.2",
+    "@capacitor/filesystem": "8.1.5",
+    "@capacitor/share": "8.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.6.2"
+  },
+  "engines": { "node": ">=22" }
+}

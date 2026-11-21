@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A5CA8">
+<title>Finanzen</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header>
+  <h1>Finanzen</h1>
+  <div class="mnav" id="mnav">
+    <button class="ibtn" data-act="prev" title="Zurück">‹</button>
+    <b id="mlabel"></b>
+    <button class="ibtn" data-act="next" title="Weiter">›</button>
+  </div>
+</header>
+<div class="layout">
+  <nav class="side" id="nav1"></nav>
+  <main id="main"></main>
+</div>
+<nav class="bottom" id="nav2"></nav>
+<button class="fab hide" id="fab" data-act="addtx">+ Buchung</button>
+<dialog id="dlg"><div class="dlg" id="dlgbody"></div></dialog>
+<input type="file" id="file" accept=".json,application/json" class="hide">
+<input type="file" id="csvfile" accept=".csv,text/csv,text/plain" class="hide">
+
+<script src="app.js" defer></script>
+</body>
+</html>
