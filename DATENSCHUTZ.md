@@ -22,3 +22,7 @@ Kontakt: über die E-Mail-Adresse im Play-Store-Eintrag bzw. im GitHub-Projekt.
 - Wenn du «Mit Fingerabdruck entsperren» einschaltest, wird deine PIN mit einem Schlüssel im Sicherheitschip des Handys verschlüsselt. Der Schlüssel verlässt den Chip nie und funktioniert nur nach einem erkannten Fingerabdruck.
 - Die App sieht deinen Fingerabdruck nie – Android meldet nur «erkannt» oder «nicht erkannt». Dafür braucht die App die Berechtigung «Biometrie verwenden».
 - Kommt im Handy ein neuer Fingerabdruck dazu, wird der Schlüssel automatisch ungültig; dann ist wieder die PIN nötig.
+
+## Wallet-Verbindung und Screenshots (ab Version 1.4)
+- Nur wenn du die Wallet-Verbindung einrichtest: Die App holt deine Buchungen direkt bei BudgetBakers (rest.budgetbakers.com) ab – lesend, sie ändert nichts in Wallet. Der API-Token liegt verschlüsselt in deinen App-Daten und im verschlüsselten Backup. Mit «Verbindung trennen» wird er gelöscht.
+- Screenshots sind gesperrt. Du kannst sie bei Bedarf für 10 Minuten erlauben; danach und beim Sperren der App ist der Schutz automatisch wieder aktiv.
