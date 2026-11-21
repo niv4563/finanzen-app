@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.6.0
+- Neu: Geräte-Sync. Handy, Tablet und PC haben den gleichen Stand. Beim Öffnen holt die App die neuesten Daten, Änderungen werden nach wenigen Sekunden gespeichert.
+- Ablage nur als verschlüsselte Datei (AES-256) in deinem eigenen privaten GitHub-Repository. Der Schlüssel liegt nur auf deinen Geräten. Öffentliche Repositories werden abgelehnt.
+- Einrichten: Menü → Einstellungen → Daten & Sicherheit → Geräte-Sync. Weitere Geräte verbinden sich mit dem Verbindungscode (auch direkt auf dem Startbildschirm).
+- Fingerabdruck: Nach dem Entsperren mit PIN bietet die App jetzt direkt an, künftig mit dem Fingerabdruck zu öffnen. Fehler werden genau angezeigt.
+
 ## 1.5.0
 - Wallet-Export (CSV): Die Wallet-Kategorien werden jetzt automatisch den Kategorien der App zugeordnet (z. B. Restaurant, Lebensmittel, Öffentliche Verkehrsmittel → Arbeitsweg, Einkommen, Überträge).
 - Besserer Text bei Wallet-Buchungen (Bankbeschreibung statt nur «Buchung»), Fremdwährungen werden in CHF übernommen.
