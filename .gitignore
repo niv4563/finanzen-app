@@ -1,0 +1,19 @@
+# Abhängigkeiten und Build-Ergebnisse
+node_modules/
+www/
+dist/
+android/app/src/main/assets/public/
+android/app/build/
+android/build/
+android/.gradle/
+
+# NIE ins Projekt: persönliche Daten und Schlüssel
+Finanzen_Daten.json
+*.xlsx
+*.xls
+*backup*.json
+*.jks
+*.keystore
+*.p12
+GITHUB-SECRETS.txt
+local.properties
