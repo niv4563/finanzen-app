@@ -18,3 +18,7 @@ dialog{max-height:calc(100dvh - var(--st) - var(--sb) - 24px)}
 nav.side .dhead{flex-wrap:wrap}
 nav.side .dhead .ver{flex-basis:100%;color:var(--muted)}
 .welcome{padding-top:calc(var(--st) + 10px)}
+.zrow{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.zrow:last-child{border-bottom:0}
+.zrow .sp{min-width:160px}
+.zrow select{flex:1 1 180px;max-width:100%}
