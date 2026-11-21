@@ -34,3 +34,25 @@ table.rep tr.dimr td{color:var(--muted)}
 .fxconv #fxa{width:120px} .fxconv #fxc{width:96px}
 .fxr{font-size:14px}
 @media (max-width:520px){#wealth .fxk{display:none} #wealth table.rep td,#wealth table.rep th{padding:8px 4px} #wealth table.rep td:first-child{max-width:130px}}
+/* ===== 1.13.0 – Daueraufträge, Glocke, Kalender, Bis zum Lohn, Vorlagen ===== */
+header .bell{position:relative;margin-left:auto;color:var(--bar-ink);background:none;border:0;width:44px;height:44px;display:grid;place-items:center;cursor:pointer}
+header .bell svg{width:22px;height:22px}
+header .bell i{position:absolute;top:6px;right:5px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:#e34948;color:#fff;font-size:11px;font-style:normal;font-weight:700;line-height:17px;text-align:center}
+.nrow2{display:flex;align-items:center;gap:12px;padding:10px 4px;border-bottom:1px solid var(--line);cursor:pointer;font-size:14px}
+.nrow2 > i{flex:0 0 10px;height:10px;border-radius:50%;background:var(--acc)}
+.nrow2.warn > i{background:#eda100} .nrow2.bad > i{background:#e34948} .nrow2.seen{opacity:.55}
+.payday .pdrow{display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.payday .pdrow b{display:block;font-size:22px} .payday .pdrow .r{text-align:right} .payday .pdrow .r b{font-size:15px}
+.cal .cwd,.cal .cgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cal .cwd span{text-align:center;font-size:11.5px;color:var(--muted);font-weight:600;padding-bottom:4px}
+.cday{position:relative;min-height:54px;border:0;border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;padding:4px 2px;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer}
+.cday span{font-size:12.5px;font-weight:600} .cday b{font-size:10px;font-weight:650;white-space:nowrap}
+.cday.oth{opacity:.35} .cday.tod{box-shadow:inset 0 0 0 2px var(--acc)} .cday.sel{background:var(--acc-soft)}
+.cday i{position:absolute;bottom:4px;width:5px;height:5px;border-radius:50%;background:#eda100}
+.tpls{margin-bottom:6px} .tpls > div{display:flex;gap:6px;overflow-x:auto;padding:6px 0 4px;scrollbar-width:none}
+.tpls button{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:1px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:7px 11px;font:inherit;cursor:pointer;max-width:150px}
+.tpls b{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:128px} .tpls span{font-size:12px;color:var(--muted)}
+.wrow.dimr{opacity:.55}
+header h1{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+header .bell{flex:0 0 44px}
+header .mnav[style*="hidden"]{display:none!important}
