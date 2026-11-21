@@ -2,6 +2,14 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.3.0
+- Entsperren mit Fingerabdruck (Daten & Sicherheit → «Mit Fingerabdruck entsperren»). Die PIN liegt dafür verschlüsselt im Sicherheitschip des Handys.
+- Neue Seite «Budget» wie bei Wallet: pro Kategorie ausgegeben, geplant und «noch übrig», dazu Betrag pro Tag.
+- Neue Seite «Statistik»: Einnahmen und Ausgaben pro Monat, Ausgaben nach Kategorie, Zeitraum wählbar.
+- Richtige Symbole in der Navigation statt Schriftzeichen; «Mehr» neu geordnet.
+- Breite Tabellen lassen sich auf dem Handy seitlich schieben, die erste Spalte bleibt stehen.
+- Überträge zwischen eigenen Konten werden überall lesbar angezeigt.
+
 ## 1.2.1
 - App-Sperre einstellbar: Wenn du die App kurz verlässt, musst du die PIN nicht mehr jedes Mal eingeben. Standard: erst nach 30 Minuten. Wählbar von 1 Minute bis «erst wenn die App neu startet» (Daten & Backup → App-Sperre).
 - Sperre bei Nichtbenutzung (App offen) ebenfalls bis 1 Stunde oder «nie» einstellbar.
