@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.5.0
+- Wallet-Export (CSV): Die Wallet-Kategorien werden jetzt automatisch den Kategorien der App zugeordnet (z. B. Restaurant, Lebensmittel, Öffentliche Verkehrsmittel → Arbeitsweg, Einkommen, Überträge).
+- Besserer Text bei Wallet-Buchungen (Bankbeschreibung statt nur «Buchung»), Fremdwährungen werden in CHF übernommen.
+- Neue Seite «Kategorien zuordnen» (Menü → Import): eine Zeile pro Wallet-Kategorie bzw. Händler, jede Wahl wird sofort gespeichert. Knopf «Automatisch zuordnen» für schon importierte Buchungen.
+- Datei nochmals hochladen ist sicher: Es entsteht nichts doppelt, schon importierte Buchungen werden nachträglich zugeordnet. Buchungen, die schon aus einer PostFinance-Datei da sind, werden aus Wallet nicht nochmals übernommen.
+
 ## 1.4.3
 - Wichtige Korrektur: Die Verbindung zu den Android-Funktionen war fehlerhaft. Jetzt funktionieren Wallet-Verbindung, Fingerabdruck, Zurück-Taste, Sperre beim Verlassen der App, Backup teilen und Screenshots erlauben.
 
