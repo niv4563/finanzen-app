@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.12.0
+- Vermögen in CHF (Startseite und Statistik → Saldo): alle Konten mit Stand, Kurs und Wert in CHF. Oben Saldo (wie bei Wallet nur Konten «in Statistik»), Guthaben total, Schulden und Netto.
+- Fremdwährungen (EUR, USD, CAD …) werden zum Tageskurs der Europäischen Zentralbank in CHF umgerechnet und zählen mit. Eigener Kurs pro Währung möglich (Kurs antippen).
+- Umrechner: Betrag eingeben, Währung wählen – sofort in CHF und zurück.
+- Konten-Datei: Beim Übernehmen der Wallet-Konten können jetzt auch Stand, Farbe, «in Statistik» und Kontoart mitkommen.
+
 ## 1.11.0
 - Woche · Monat · Jahr: Buchungen und Statistik lassen sich wochenweise (Mo–So), monatsweise oder jahresweise anschauen und mit ‹ › blättern. Die gleitenden Zeiträume (7T, 30T, 12W, 6M, 1J) bleiben.
 - Kategorien wie in Wallet (Menü → Import): Die App liest deine Wallet-Kategorien aus den Wallet-Buchungen, ordnet sie den Wallet-Hauptkategorien zu (Essen & Getränke, Wohnen, Finanzausgaben …) und legt sie an. Passt eine bestehende Kategorie, wird sie umbenannt – dein Budget bleibt erhalten. Alle Wallet-Buchungen werden neu zugeordnet.
