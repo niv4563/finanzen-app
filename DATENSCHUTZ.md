@@ -8,7 +8,7 @@ Stand: November 2026
 2. **Keine Konten, keine Werbung, keine Analyse- oder Tracking-Dienste**, keine Drittanbieter-Bibliotheken für Statistik oder Absturzberichte.
 3. **Backups von Android/Google** sind für diese App ausgeschaltet. Ein Backup entsteht nur, wenn du selbst «Backup speichern» wählst. Es ist mit deinem Passwort verschlüsselt, du bestimmst, wo es liegt.
 4. **Update-Prüfung** (nur bei der Version ausserhalb des Play Store): Die App fragt höchstens alle 12 Stunden bei GitHub (api.github.com) nach, ob eine neue Version da ist. Dabei werden keine Finanzdaten übertragen. GitHub sieht wie bei jedem Webseitenaufruf deine IP-Adresse (Datenschutz von GitHub: https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement).
-5. **Berechtigungen:** nur «Internet» (für die Update-Prüfung) und «fremde Overlays ausblenden» (Schutz vor Klick-Betrug). Kein Zugriff auf Kontakte, Standort, Kamera, Mikrofon oder Dateien.
+5. **Berechtigungen:** «Internet» (Update-Prüfung und freiwillige Dienste unten), «fremde Overlays ausblenden» (Schutz vor Klick-Betrug), «Biometrie verwenden» (Fingerabdruck) und «Mitteilungen» (nur wenn du sie einschaltest). Kein Zugriff auf Kontakte, Standort, Kamera, Mikrofon oder Dateien.
 6. **Löschen:** In der App unter «Daten & Backup → Alle Daten löschen» oder durch Deinstallieren der App werden alle Daten entfernt.
 
 Kontakt: über die E-Mail-Adresse im Play-Store-Eintrag bzw. im GitHub-Projekt.
@@ -35,7 +35,21 @@ Kontakt: über die E-Mail-Adresse im Play-Store-Eintrag bzw. im GitHub-Projekt.
 - Der Token sollte nur für dieses eine Repository und nur «Contents» gelten. So kann er nichts anderes in deinem GitHub-Konto ändern.
 - Die App spricht dafür nur mit api.github.com (in der Sicherheitsregel der App fest eingetragen).
 
+
 ## Wechselkurse (ab Version 1.12)
 - Nur wenn du Konten in Fremdwährung hast: Die App holt höchstens alle 12 Stunden die Referenzkurse der Europäischen Zentralbank bei api.frankfurter.dev.
 - Gesendet werden nur die Währungskürzel (z. B. «EUR,USD»), keine Beträge, keine Kontonamen, keine anderen Daten. Der Dienst sieht wie jede Webseite deine IP-Adresse.
 - Du kannst für jede Währung einen eigenen Kurs eintragen; dann wird dieser verwendet.
+
+## Finanz-Assistent (ab Version 1.14)
+- Prognosen, Kaufverhalten, Spartipps, KI-Zuordnung und «Frag die App» werden vollständig auf deinem Gerät berechnet. Es wird kein KI-Dienst im Internet verwendet, und es werden dafür keine Daten verschickt.
+- Die KI-Zuordnung lernt nur aus deinen eigenen, bereits zugeordneten Buchungen. Das gelernte Modell wird nicht gespeichert, sondern bei Bedarf neu berechnet.
+
+## Mitteilungen (ab Version 1.14)
+- Freiwillig. Erst wenn du sie bei der Glocke einschaltest, fragt Android nach der Berechtigung «Mitteilungen».
+- Die App plant die Mitteilungen selbst mit dem Android-Wecker. Es gibt keinen Push-Server und keine Verbindung ins Internet dafür.
+- Standard: Die Mitteilung zeigt keine Namen und Beträge (z. B. «Heute ist eine Zahlung fällig»). Auf dem Sperrbildschirm zeigt Android immer nur «Finanzen – Neuer Hinweis».
+
+## Fingerabdruck / Windows Hello im Browser (ab Version 1.14)
+- Freiwillig, nur in der Web-Version. Die PIN wird mit einem Schlüssel verschlüsselt, den nur der Passkey deines Geräts (Sicherheitschip) nach Fingerabdruck, Gesichtserkennung oder Windows Hello herausgibt (WebAuthn mit PRF).
+- Gespeichert wird nur die verschlüsselte PIN im Browser. Ohne den Passkey auf genau diesem Gerät ist sie wertlos. Bei einer neuen PIN wird sie gelöscht.
