@@ -11,8 +11,11 @@ assert channel in ('direct', 'play')
 assert repo == '' or re.fullmatch(r'[\w.-]+/[\w.-]+', repo)
 out = pathlib.Path(__file__).resolve().parent.parent / 'www'
 shutil.rmtree(out, ignore_errors=True); out.mkdir()
-for f in ['app.js', 'app.css']:
-    shutil.copy(src / f, out / f)
+shutil.copy(src / 'app.css', out / 'app.css')
+# app.js wird aus web/js/01.js, 02.js, … zusammengesetzt (kleinere Dateien = einfacher zu prüfen und zu aktualisieren)
+parts = sorted((src / 'js').glob('[0-9][0-9].js'))
+assert parts, 'web/js/*.js fehlt'
+(out / 'app.js').write_text(''.join(p.read_text(encoding='utf-8') for p in parts), encoding='utf-8')
 info = {'version': version, 'channel': channel, 'repo': repo, 'build': build}
 (out / 'build-info.js').write_text('window.APP_BUILD = Object.freeze(' + json.dumps(info) + ');\n', encoding='utf-8')
 html = (src / 'index.html').read_text(encoding='utf-8')
