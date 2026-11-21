@@ -2,6 +2,10 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.4.2
+- Wallet-Verbindung robuster: Token wird automatisch bereinigt (z. B. «Bearer …», Leerzeichen), genaue Fehlermeldungen mit Fehlercode, automatische Wiederholung, wenn Wallet die Daten noch vorbereitet.
+- Neu auf der Wallet-Seite: «Verbindung testen» und «Token ändern».
+
 ## 1.4.1
 - Galaxy S24 und neuere Handys: Nichts liegt mehr unter der Statusleiste oben oder der Navigationsleiste unten. Symbole der Leisten passend hell/dunkel.
 - Neue Versionen werden bei jedem Öffnen der App gesucht (statt nur alle 12 Stunden). Die installierte Version steht oben im Menü.
