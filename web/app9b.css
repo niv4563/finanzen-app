@@ -22,3 +22,15 @@
 .wcr select{min-height:38px!important;padding:6px 8px!important;font-size:13.5px!important}
 @media (min-width:640px){.wcr{grid-template-columns:1.2fr 1.2fr 1fr;align-items:center}}
 .wrr{align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line);font-size:14px}
+/* ===== 1.12.0 – Währungen & Vermögen ===== */
+.htile .fxs{font-size:10.5px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wkpi{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px}
+@media (min-width:760px){.wkpi{grid-template-columns:repeat(4,1fr)}}
+.wkpi div{background:var(--bg);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column}
+.wkpi span{font-size:12px;color:var(--muted)} .wkpi b{font-size:16px}
+table.rep tr.dimr td{color:var(--muted)}
+.fxconv{border-top:1px solid var(--line);margin-top:8px;padding-top:10px}
+.fxconv .row{flex-wrap:wrap;align-items:center;margin-top:6px}
+.fxconv #fxa{width:120px} .fxconv #fxc{width:96px}
+.fxr{font-size:14px}
+@media (max-width:520px){#wealth .fxk{display:none} #wealth table.rep td,#wealth table.rep th{padding:8px 4px} #wealth table.rep td:first-child{max-width:130px}}
