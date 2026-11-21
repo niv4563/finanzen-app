@@ -34,3 +34,8 @@ Kontakt: über die E-Mail-Adresse im Play-Store-Eintrag bzw. im GitHub-Projekt.
 - Der Verbindungscode enthält Repository, Zugangs-Token und Schlüssel. Er wird in der App verschlüsselt gespeichert (mit deiner PIN). Behandle ihn wie ein Passwort.
 - Der Token sollte nur für dieses eine Repository und nur «Contents» gelten. So kann er nichts anderes in deinem GitHub-Konto ändern.
 - Die App spricht dafür nur mit api.github.com (in der Sicherheitsregel der App fest eingetragen).
+
+## Wechselkurse (ab Version 1.12)
+- Nur wenn du Konten in Fremdwährung hast: Die App holt höchstens alle 12 Stunden die Referenzkurse der Europäischen Zentralbank bei api.frankfurter.dev.
+- Gesendet werden nur die Währungskürzel (z. B. «EUR,USD»), keine Beträge, keine Kontonamen, keine anderen Daten. Der Dienst sieht wie jede Webseite deine IP-Adresse.
+- Du kannst für jede Währung einen eigenen Kurs eintragen; dann wird dieser verwendet.
