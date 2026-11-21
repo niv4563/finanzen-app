@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Nur der temporäre Cache-Ordner wird für «Backup teilen/speichern» freigegeben. -->
+<!-- Freigegeben: temporärer Cache (Backup teilen) und der private Foto-Ordner der App (Rechnung fotografieren).
+     Fotos werden nach spätestens 30 Minuten automatisch gelöscht (MainActivity). -->
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
     <cache-path name="export" path="." />
+    <external-files-path name="photos" path="Pictures/" />
 </paths>

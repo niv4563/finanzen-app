@@ -1,11 +1,13 @@
 package ch.nivaram.finanzen;
 
 import android.os.Build;
+import android.os.Environment;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.getcapacitor.BridgeActivity;
+import java.io.File;
 
 public class MainActivity extends BridgeActivity {
 
@@ -19,6 +21,32 @@ public class MainActivity extends BridgeActivity {
         }
         super.onCreate(savedInstanceState);
         hardenWebView();
+        deleteOldPhotos();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        deleteOldPhotos();
+    }
+
+    // Fotos von Rechnungen werden nur für die Erkennung gebraucht und nie aufbewahrt:
+    // alles, was älter als 30 Minuten ist, wird gelöscht (das gerade aufgenommene Foto bleibt für die Erkennung erhalten).
+    private void deleteOldPhotos() {
+        try {
+            File dir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+            File[] files = dir == null ? null : dir.listFiles();
+            if (files == null) return;
+            long limit = System.currentTimeMillis() - 30L * 60L * 1000L;
+            for (File f : files) {
+                if (f.isFile() && f.lastModified() < limit) {
+                    //noinspection ResultOfMethodCallIgnored
+                    f.delete();
+                }
+            }
+        } catch (SecurityException ignored) {
+            // nichts zu tun
+        }
     }
 
     private void hardenWebView() {

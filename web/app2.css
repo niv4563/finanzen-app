@@ -1,0 +1,16 @@
+/* ---- 1.1: Start wie Wallet, Buchungsliste, Import ---- */
+.acards{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 10px;scroll-snap-type:x mandatory}
+.acard{flex:0 0 auto;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:2px;cursor:pointer;scroll-snap-align:start}
+.acard b{font-size:20px;letter-spacing:-.01em}
+.acard:first-child{background:var(--acc);border-color:var(--acc);color:#fff}
+.acard:first-child .muted,.acard:first-child .small{color:rgba(255,255,255,.85)}
+.acard:first-child b.neg{color:#fff}
+.bkact{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 4px}
+.bkact .btn{flex:1 1 auto;min-height:44px}
+.dayh{font-size:12px;color:var(--muted);margin:12px 0 2px;padding-bottom:3px;border-bottom:1px solid var(--line)}
+.txr{display:flex;align-items:center;gap:10px;padding:8px 2px;cursor:pointer;border-radius:8px}
+.txr:hover{background:var(--acc-soft)}
+.txr .txt{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:52vw}
+.txr .sp{min-width:0}
+.txi{flex:0 0 34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:14px}
+.txr b{white-space:nowrap}

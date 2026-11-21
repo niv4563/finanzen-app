@@ -12,3 +12,8 @@ Stand: November 2026
 6. **Löschen:** In der App unter «Daten & Backup → Alle Daten löschen» oder durch Deinstallieren der App werden alle Daten entfernt.
 
 Kontakt: über die E-Mail-Adresse im Play-Store-Eintrag bzw. im GitHub-Projekt.
+
+## Bankdateien und Fotos (ab Version 1.1)
+- Hochgeladene Bankdateien (CSV) werden nur auf dem Gerät gelesen. Gespeichert werden die einzelnen Buchungen – verschlüsselt wie alle anderen Daten. Die Datei selbst wird nicht aufbewahrt.
+- Fotos von Rechnungen und Belegen werden nur auf dem Gerät ausgewertet (QR-Code-Leser und Texterkennung sind in der App enthalten, nichts wird aus dem Internet nachgeladen). Die App speichert das Foto nicht; Android legt es kurz im privaten App-Ordner ab, und die App löscht es dort nach spätestens 30 Minuten.
+- Die App braucht dafür keine Kamera-Berechtigung: Android öffnet die Kamera-App, und nur das eine Foto kommt zurück.
