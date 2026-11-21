@@ -19,7 +19,7 @@ erfüllt zusätzlich mehrere Punkte aus **L2**. Ein unabhängiger Penetrationste
 | PLATFORM – Task-Hijacking | `taskAffinity=""`, Mindestversion Android 10 (StrandHogg-2.0-Fix im System). |
 | PLATFORM – Berechtigungen | Nur Internet und Overlay-Schutz. Keine Speicher-, Standort-, Kontakt- oder Installationsrechte. |
 | CODE – Updates | Android installiert ein Update nur, wenn es mit demselben Schlüssel signiert ist. Die App akzeptiert Download-Adressen nur aus dem eigenen GitHub-Projekt. Vor einem Daten-Umbau legt sie eine Sicherheitskopie an. |
-| CODE – Abhängigkeiten | Exakte Versionen (package-lock.json), `npm audit` im Build, GitHub-Actions auf Commit festgenagelt. |
+| CODE – Abhängigkeiten | Feste Versionen der App-Bibliotheken (package.json), `npm audit` im Build, GitHub-Actions auf Commit festgenagelt. |
 | CODE – Build | Release nicht debuggbar, Signatur wird im Build gegen den erwarteten Fingerabdruck geprüft, SHA-256-Prüfsummen im Release. |
 | Prüfung | Jeder Build: Android Lint, mobsfscan (OWASP-Regeln); Berichte unter «Actions → Artefakte». |
 
