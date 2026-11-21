@@ -3,6 +3,10 @@ package ch.nivaram.finanzen;
 import android.os.Build;
 import android.os.Environment;
 import android.os.Bundle;
+import android.content.res.Configuration;
+import android.view.View;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
 import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -23,13 +27,59 @@ public class MainActivity extends BridgeActivity {
         registerPlugin(ScreenPlugin.class);                      // Screenshots auf Wunsch kurz erlauben
         super.onCreate(savedInstanceState);
         hardenWebView();
+        handleSystemBars();
         deleteOldPhotos();
+    }
+
+    // Statusleiste oben und Navigationsleiste unten (Android 15+ zeichnet die App darunter):
+    // Die Abstände werden der Oberfläche als CSS-Variablen mitgegeben, damit nichts unter den Leisten verschwindet.
+    private float[] lastInsets = new float[]{0, 0, 0, 0};
+
+    private void handleSystemBars() {
+        if (getBridge() == null || getBridge().getWebView() == null) return;
+        final WebView webView = getBridge().getWebView();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            WindowInsetsController c = getWindow().getInsetsController();
+            if (c != null) {
+                boolean night = (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
+                // oben grüne Leiste -> helle Symbole; unten heller Hintergrund -> dunkle Symbole (im Dunkelmodus hell)
+                c.setSystemBarsAppearance(0, WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS);
+                c.setSystemBarsAppearance(night ? 0 : WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS,
+                        WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS);
+            }
+        }
+        webView.setOnApplyWindowInsetsListener((View v, WindowInsets insets) -> {
+            float d = getResources().getDisplayMetrics().density;
+            int top, bottom, left, right;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                android.graphics.Insets i = insets.getInsets(WindowInsets.Type.systemBars() | WindowInsets.Type.displayCutout());
+                top = i.top; bottom = i.bottom; left = i.left; right = i.right;
+            } else {
+                top = insets.getSystemWindowInsetTop(); bottom = insets.getSystemWindowInsetBottom();
+                left = insets.getSystemWindowInsetLeft(); right = insets.getSystemWindowInsetRight();
+            }
+            lastInsets = new float[]{top / d, right / d, bottom / d, left / d};
+            pushInsets(webView);
+            return v.onApplyWindowInsets(insets);
+        });
+        webView.requestApplyInsets();
+        // nach dem Laden der Seite nochmals setzen (die Seite ist beim ersten Mal evtl. noch nicht da)
+        for (int ms : new int[]{400, 1200, 3000}) webView.postDelayed(() -> pushInsets(webView), ms);
+    }
+
+    private void pushInsets(WebView webView) {
+        float[] i = lastInsets;
+        String js = "(function(){var s=document.documentElement.style;"
+                + "s.setProperty('--sat','" + i[0] + "px');s.setProperty('--sar','" + i[1] + "px');"
+                + "s.setProperty('--sab','" + i[2] + "px');s.setProperty('--sal','" + i[3] + "px');})();";
+        webView.evaluateJavascript(js, null);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         deleteOldPhotos();
+        if (getBridge() != null && getBridge().getWebView() != null) getBridge().getWebView().requestApplyInsets();
     }
 
     // Fotos von Rechnungen werden nur für die Erkennung gebraucht und nie aufbewahrt:
