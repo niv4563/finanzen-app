@@ -2,6 +2,9 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.8.1
+- Schriftgrössen überarbeitet: ruhiger und einheitlich. Grosse Beträge, Überschriften, Kacheln, Listen und Knöpfe sind kleiner, damit mehr auf den Bildschirm passt.
+
 ## 1.8.0
 - Neue Seite «Analyse» wie bei Wallet (Menü → Analyse): Zeitraum wählbar (7 Tage, 30 Tage, Monat, 3 Monate, Jahr) und mit den Pfeilen blättern.
 - Kennzahlen mit Vergleich zum vorherigen Zeitraum: Einnahmen, Ausgaben, Cashflow, Sparquote, Ø Ausgaben pro Tag.
