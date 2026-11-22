@@ -2,6 +2,11 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.18.0
+- **Sperrbildschirm nur mit Fingerabdruck:** Beim Öffnen erscheint direkt die Fingerabdruck-Abfrage – kein PIN-Feld, keine Tastatur.
+- Klappt der Fingerabdruck nicht oder brichst du ab, erscheint die PIN mit Zahlen-Tastatur. Auch über «Mit PIN entsperren» jederzeit möglich.
+- Neue PINs bestehen nur aus Zahlen.
+
 ## 1.17.0
 - **Verträge und Rechnungen hochladen** (Plus-Knopf → «Rechnung, Vertrag oder Beleg»): Foto **oder PDF**, z. B. direkt aus dem E-Mail.
 - Die App erkennt selbst, ob es eine **einmalige Rechnung**, ein **Abo**, eine **wiederkehrende Zahlung** (Prämie, Miete, Nebenkosten) oder **Raten** sind – samt Rhythmus (monatlich, vierteljährlich, jährlich …), Betrag, Fälligkeit, Laufzeit und Kündigungsfrist. Sie sagt dir auch, warum (z. B. «CHF 49.90 pro Monat» im Text, schon 5× bezahlt).
