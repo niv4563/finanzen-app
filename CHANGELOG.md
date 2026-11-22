@@ -2,6 +2,13 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.17.0
+- **Verträge und Rechnungen hochladen** (Plus-Knopf → «Rechnung, Vertrag oder Beleg»): Foto **oder PDF**, z. B. direkt aus dem E-Mail.
+- Die App erkennt selbst, ob es eine **einmalige Rechnung**, ein **Abo**, eine **wiederkehrende Zahlung** (Prämie, Miete, Nebenkosten) oder **Raten** sind – samt Rhythmus (monatlich, vierteljährlich, jährlich …), Betrag, Fälligkeit, Laufzeit und Kündigungsfrist. Sie sagt dir auch, warum (z. B. «CHF 49.90 pro Monat» im Text, schon 5× bezahlt).
+- Ein Tipp genügt: Einmalige Rechnungen kommen zu den offenen Rechnungen, Abos und wiederkehrende Zahlungen werden zum Dauerauftrag. Gibt es den Dauerauftrag schon, wird nur der Betrag aktualisiert.
+- Die Glocke erinnert dich 30 Tage vor Ablauf der Kündigungsfrist.
+- QR-Rechnungen werden auch in PDFs exakt gelesen. Alles passiert auf dem Gerät.
+
 ## 1.16.0
 - **Sofort sperren:** Wenn du die App verlässt (wegwischen, andere App öffnen, Bildschirm aus), sperrt sie sich sofort. Beim Zurückkommen entsperrst du mit dem Fingerabdruck. Alles ist bereits verschlüsselt gespeichert.
 - Ausnahmen, damit nichts verloren geht: Foto aufnehmen, Datei auswählen, Teilen und die Fingerabdruck-Abfrage.
