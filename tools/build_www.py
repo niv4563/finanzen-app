@@ -23,11 +23,16 @@ vendor = {
     'tesseract.js-core/tesseract-core-simd-lstm.wasm.js': 'vendor/tesseract/tesseract-core-simd-lstm.wasm.js',
     'tesseract.js-core/tesseract-core-relaxedsimd-lstm.wasm.js': 'vendor/tesseract/tesseract-core-relaxedsimd-lstm.wasm.js',
     '@tesseract.js-data/deu/4.0.0_best_int/deu.traineddata.gz': 'vendor/tesseract/lang/deu.traineddata.gz',
+    # PDF lesen (Verträge, Rechnungen): Mozilla pdf.js – als .js abgelegt, damit jeder Server den richtigen Typ meldet
+    'pdfjs-dist/build/pdf.min.mjs': 'vendor/pdf/pdf.min.js',
+    'pdfjs-dist/build/pdf.worker.min.mjs': 'vendor/pdf/pdf.worker.min.js',
 }
 for a, b in vendor.items():
     assert (nm / a).is_file(), f'{a} fehlt – zuerst «npm install» ausführen'
     (out / b).parent.mkdir(parents=True, exist_ok=True); shutil.copy(nm / a, out / b)
-for lic in ['tesseract.js/LICENSE.md', 'tesseract.js-core/LICENSE', 'jsqr/LICENSE']:
+for d in ['cmaps', 'standard_fonts']:
+    shutil.copytree(nm / 'pdfjs-dist' / d, out / 'vendor' / 'pdf' / d)
+for lic in ['tesseract.js/LICENSE.md', 'tesseract.js-core/LICENSE', 'jsqr/LICENSE', 'pdfjs-dist/LICENSE']:
     if (nm / lic).is_file(): shutil.copy(nm / lic, out / 'vendor' / (lic.split('/')[0] + '-LICENSE.txt'))
 # app.js wird aus web/js/01.js, 02.js, … zusammengesetzt (kleinere Dateien = einfacher zu prüfen und zu aktualisieren)
 parts = sorted((src / 'js').glob('[0-9][0-9].js'))
