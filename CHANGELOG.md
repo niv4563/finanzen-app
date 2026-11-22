@@ -2,6 +2,17 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.15.0
+- **Finanz-Coach** (Menü → Finanz-Coach): rechnet aus deinen echten Zahlen, was dich finanziell am meisten weiterbringt – klar und direkt.
+  - **Lage-Check:** Punktzahl 0–100 aus 5 Säulen: Monat im Plus, Notgroschen, Schulden, Sparquote, Säule 3a.
+  - **Dein Weg:** Stufenplan von «jeden Monat im Plus» über Notgroschen und Schuldenabbau bis zu Säule 3a und grossen Zielen. Der aktuelle Schritt ist markiert.
+  - **Wochenaufgaben:** jede Woche bis zu 4 konkrete Aufgaben (z. B. Ausgabengrenze für eine Kategorie, Extra-Zahlung auf die Kreditkarte) zum Abhaken, mit Fortschritt und Serie.
+  - **Schuldenplan:** höchster Zins zuerst, mit Datum «schuldenfrei» und Zinsen bis dahin. Zeigt, was jede zusätzliche CHF 100 bringt.
+  - **Sparpotenzial:** wo du konkret sparen kannst und wie sich die Sparquote verändert. «Automatisch sparen» als Dauerauftrag mit einem Tipp.
+  - **Säule 3a:** Einzahlungen dieses Jahr, Rest bis zum Maximum (CHF 7'258), geschätzte Steuerersparnis und Erinnerung am 15.12.
+  - **Grosse Ziele:** zeigt, ob ein Ziel realistisch ist, wie viel pro Monat nötig ist und wann es erreichbar wäre.
+- Spartipps schlagen keine Kürzungen bei Gesundheit, Versicherungen, Steuern oder Miete mehr vor.
+
 ## 1.14.0
 - **Finanz-Assistent** (Menü → Finanz-Assistent): rechnet direkt auf dem Handy, ohne KI-Dienst im Internet.
   - **Prognose Monatsende:** Was du bis Ende Monat voraussichtlich ausgibst, was übrig bleibt und welche Budgets kippen.
