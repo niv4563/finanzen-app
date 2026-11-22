@@ -2,6 +2,11 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.16.0
+- **Sofort sperren:** Wenn du die App verlässt (wegwischen, andere App öffnen, Bildschirm aus), sperrt sie sich sofort. Beim Zurückkommen entsperrst du mit dem Fingerabdruck. Alles ist bereits verschlüsselt gespeichert.
+- Ausnahmen, damit nichts verloren geht: Foto aufnehmen, Datei auswählen, Teilen und die Fingerabdruck-Abfrage.
+- Einstellbar unter Einstellungen → Daten & Sicherheit → «Sperren, wenn ich die App verlasse».
+
 ## 1.15.0
 - **Finanz-Coach** (Menü → Finanz-Coach): rechnet aus deinen echten Zahlen, was dich finanziell am meisten weiterbringt – klar und direkt.
   - **Lage-Check:** Punktzahl 0–100 aus 5 Säulen: Monat im Plus, Notgroschen, Schulden, Sparquote, Säule 3a.
