@@ -22,3 +22,12 @@ h2.in{color:var(--ok)} h2.warn{color:#c98600} h2.out{color:#e34948} .small.in{co
 .dtype button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 10px;font:inherit;cursor:pointer}
 .dtype button b{font-size:14px} .dtype button span{font-size:11.5px;color:var(--muted)}
 .dtype button.on{border-color:var(--acc);background:var(--acc-soft);box-shadow:inset 0 0 0 1px var(--acc)}
+/* 1.21 Saldo & Sync-Status */
+.hsum{display:flex;flex-direction:column;gap:6px;margin:2px 0 10px}
+.hsum>div:first-child{display:flex;align-items:baseline;gap:10px}
+.hsum b.num{font-size:1.35rem}
+.sstat{display:flex;align-items:center;gap:8px;font-size:.8rem;padding:6px 10px;border-radius:10px;background:var(--soft,#eef6f1)}
+.sstat .dot{width:8px;height:8px;border-radius:50%;background:#1fa463;flex:none}
+.sstat.warn{background:#fff4e0}.sstat.warn .dot{background:#e58a00}
+.sstat .sp{flex:1}
+.htile b.num.lng{font-size:.86em;letter-spacing:-.2px;white-space:nowrap}

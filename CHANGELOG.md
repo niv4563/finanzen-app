@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.21.0
+- **Kontostände genau wie in Wallet:** Bei jedem Abgleich (alle 3 Minuten) übernimmt die App die echten Stände aller Wallet-Konten – auch Kreditkarte, Fremdwährung (EUR, CAD, USD) und Säule 3a. Kein Nachrechnen, keine Differenz mehr.
+- **Konten automatisch eröffnet:** Neue Wallet-Konten werden selbst angelegt – mit Name, Währung, Farbe und Kontoart. Reihenfolge, Farbe und «in Statistik» bleiben mit Wallet gleich.
+- **Saldo oben** wie in Wallet und eine **Statuszeile**: «Synchron mit Wallet · vor 2 Min.» oder deutlich «Nicht synchron», wenn die Web-Version noch nicht mit dem Handy verbunden ist.
+- Währungszeichen wie in Wallet (CA$, $), lange Beträge passen in die Kacheln.
+
 ## 1.20.0
 - **Wallet automatisch in beide Richtungen:** Kein «Jetzt abgleichen» mehr nötig. Neue Wallet-Buchungen kommen alle 3 Minuten (und beim Öffnen) von selbst in die App.
 - **Nur noch einmal erfassen:** Was du hier (oder in der Web-Version) erfasst, änderst oder löschst, trägt das Handy automatisch auch in Wallet ein – mit Konto, Kategorie und Notiz. Keine Doppelten beim Zurückholen.
