@@ -2,6 +2,9 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.26.1
+- **Korrektur: fehlende Konten.** Wallet liefert die Kontenliste seitenweise, die App las bisher nur die erste Seite. Konten auf weiteren Seiten – z. B. das Sparkonto – fehlten. Jetzt kommen alle Konten.
+
 ## 1.26.0
 - **Du bestimmst, welche Konten zählen:** Auf der Seite «Konten» hat jedes Konto einen Schalter «zählt im Saldo». Deine Wahl bleibt – der Abgleich überschreibt sie nicht mehr.
 - **Saldo** zählt alle Konten, die du eingeschaltet hast (auch Konten, die es nur in der App gibt).
