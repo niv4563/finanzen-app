@@ -2,6 +2,13 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.32.0
+- **PC verbinden nur noch per QR-Code – ohne Code abtippen, auch beim ersten Mal.** Am PC «Mit Handy anmelden» klicken. Den QR-Code mit der **gewöhnlichen Kamera** des Handys scannen und den Link antippen: Die Finanzen-App öffnet sich, ein Fingerabdruck – fertig. Das geht auch, wenn die App gesperrt ist (ein Fingerabdruck entsperrt und verbindet). Alternativ in der App: Einstellungen → «PC verbinden».
+- **Prüfzeichen:** Der PC zeigt vier Zeichen, die gleichen stehen im Fingerabdruck-Fenster. So verbindest du sicher deinen eigenen PC.
+- **Öffnen nur mit Fingerabdruck:** Die PIN wird nicht mehr angeboten. Nur wenn Android den Fingerabdruck-Schlüssel ungültig macht (z. B. weil ein neuer Finger im Handy eingerichtet wurde), erscheint die PIN als Notweg – sonst wären deine Daten verloren.
+- **Monatliche Sicherung auf dem Handy:** Einmal pro Monat legt die App eine verschlüsselte Sicherung unter Dokumente › Finanzen ab (die letzten 24 Monate). Unter Daten & Sicherheit lässt sich jeder Monat wiederherstellen.
+- Der Verbindungscode wird nirgends mehr als Text gezeigt oder abgefragt.
+
 ## 1.31.1
 - **Neu im Menü unter Einstellungen: «PC verbinden».** Eigene Seite mit kurzer Anleitung und grossem Knopf «QR-Code am PC scannen».
 

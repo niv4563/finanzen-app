@@ -133,7 +133,7 @@ public class BioLockPlugin extends Plugin {
                     .setTitle(title)
                     .setSubtitle(subtitle)
                     .setConfirmationRequired(false)
-                    .setNegativeButton("PIN verwenden", ex, (DialogInterface d, int w) -> call.reject("Abgebrochen", "CANCELED"));
+                    .setNegativeButton("Abbrechen", ex, (DialogInterface d, int w) -> call.reject("Abgebrochen", "CANCELED"));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                 b.setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_STRONG);
             }
