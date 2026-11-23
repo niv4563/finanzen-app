@@ -44,9 +44,20 @@ async function pairSendNow(text){
   const kp = await crypto.subtle.generateKey({name:'ECDH', namedCurve:'P-256'}, false, ['deriveBits']);
   const pub = new Uint8Array(await crypto.subtle.exportKey('raw', kp.publicKey));
   const key = await pairKey(kp.privateKey, webPub, topic), iv = crypto.getRandomValues(new Uint8Array(12));
-  const pt = new TextEncoder().encode(JSON.stringify({u: dayEnd(), c: SYNCCODE}));
-  const ct = new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM', iv, additionalData:new TextEncoder().encode(topic)}, key, pt));
-  const r = await fetch(PAIR_RELAY + topic, {method:'POST', body: PAIR_REPLY + b64u(pub) + '.' + b64u(iv) + '.' + b64u(ct), credentials:'omit', referrerPolicy:'no-referrer'});
+  const small = {u: dayEnd()}; let attach = null;
+  if(ghOn()) small.c = SYNCCODE;
+  else {                                                         // ohne Geräte-Abgleich: Daten selbst mitschicken (gepackt + verschlüsselt)
+    const json = JSON.stringify(D, (k,v) => k === '_p' ? undefined : v);
+    const gz = await new Response(new Blob([te.encode(json)]).stream().pipeThrough(new CompressionStream('gzip'))).arrayBuffer();
+    const aiv = crypto.getRandomValues(new Uint8Array(12));
+    attach = b64u(new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM', iv:aiv, additionalData:new TextEncoder().encode(topic + '.d')}, key, gz)));
+    small.a = 1; small.aiv = b64u(aiv);
+  }
+  const ct = new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM', iv, additionalData:new TextEncoder().encode(topic)}, key, new TextEncoder().encode(JSON.stringify(small))));
+  const msg = PAIR_REPLY + b64u(pub) + '.' + b64u(iv) + '.' + b64u(ct);
+  const r = attach
+    ? await fetch(PAIR_RELAY + topic + '?filename=d.txt&message=' + encodeURIComponent(msg), {method:'PUT', body: attach, credentials:'omit', referrerPolicy:'no-referrer'})
+    : await fetch(PAIR_RELAY + topic, {method:'POST', body: msg, credentials:'omit', referrerPolicy:'no-referrer'});
   if(!r.ok) throw new Error('Senden fehlgeschlagen (' + r.status + '). Bitte am PC einen neuen Code anzeigen und nochmals scannen.');
   if(s()) s().textContent = 'Fertig – der PC ist in ein paar Sekunden verbunden (bis heute 23:59).';
   setTimeout(()=>{ $('#dlg').open && $('#qrs') && $('#dlg').close(); }, 2500);
@@ -57,7 +68,6 @@ phonePairSend = async function(text){
   const pl = pairExtract(text); const s = $('#qrs');
   try{
     if(!pl) throw new Error('Das ist kein Anmelde-Code der Finanzen-App.');
-    if(!ghOn()) throw new Error('Zuerst den Abgleich zwischen den Geräten einrichten (Einstellungen → Daten & Sicherheit).');
     if(s) s.textContent = 'Bitte mit dem Fingerabdruck bestätigen …';
     await pairAuthorize(await pairCode(unb64u(pl.split('.')[2])));
     if($('#qrs')) $('#qrs').textContent = 'Verbinde …';
@@ -74,7 +84,6 @@ async function pairFromLink(url){
       const pin = await pairAuthorize(code);
       $('#qrs') && ($('#qrs').textContent = 'Entschlüssle …');
       await unlock(pin); render(); pairDialog(); $('#qrs').textContent = 'Verbinde …';
-      if(!ghOn()) throw new Error('Zuerst den Abgleich zwischen den Geräten einrichten (Einstellungen → Daten & Sicherheit).');
       await pairSendNow(pl);
     }catch(err){ if(!$('#dlg').open) pairDialog(); $('#qrs').textContent = err?.code === 'CANCELED' ? 'Abgebrochen – der PC wurde nicht verbunden.' : (err.message || String(err)); }
     return;
