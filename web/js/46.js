@@ -19,10 +19,7 @@ function vPcVerbinden(){
       <li>Hier unten tippen und die Kamera auf den QR-Code halten.</li>
     </ol>
     <button class="btn pri wide" data-act="webpairscan" style="font-size:17px;padding:16px">QR-Code am PC scannen</button>
-    <p class="small muted" style="margin-top:12px">Der PC bleibt bis heute 23:59 verbunden und meldet sich danach selbst ab.</p></div>
-    <div class="card mt"><h3>Ohne Internet-Durchreiche</h3>
-    <p class="small muted">Das Handy zeigt den Code, die Kamera des PCs liest ihn.</p>
-    <button class="btn wide" data-act="webqr">Code am Handy zeigen</button></div>`;
+    <p class="small muted" style="margin-top:12px">Es geht auch mit der gewöhnlichen Kamera des Handys: QR-Code scannen, Link antippen, Fingerabdruck – fertig. Der PC bleibt bis heute 23:59 verbunden und meldet sich danach selbst ab.</p></div>`;
 }
 var _render1311 = render;
 render = function(){

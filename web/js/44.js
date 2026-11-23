@@ -17,6 +17,13 @@ async function pairKey(priv, pubRaw, topic){
   return crypto.subtle.deriveKey({name:'HKDF', hash:'SHA-256', salt:new TextEncoder().encode(topic), info:pairInfo}, hk, {name:'AES-GCM', length:256}, false, ['encrypt','decrypt']);
 }
 const pairTopicOk = t => /^fa[A-Za-z0-9_-]{24,40}$/.test(t);
+// QR-Inhalt als Internet-Adresse: so öffnet auch die gewöhnliche Kamera die Finanzen-App
+const pairUrl = payload => 'https://niv4563.github.io/finanzen-app/#v=' + payload;
+const pairExtract = t => (String(t||'').match(/fq2\.fa[A-Za-z0-9_-]{24,40}\.[A-Za-z0-9_-]{80,100}/) || [null])[0];
+async function pairCode(pubRaw){                                 // 4 Zeichen zum Vergleichen: am PC und im Fingerabdruck-Fenster gleich
+  const h = new Uint8Array(await crypto.subtle.digest('SHA-256', pubRaw)), A = 'ACDEFGHJKLMNPQRTUVWXY34679';
+  return Array.from(h.slice(0,4), b => A[b % A.length]).join('');
+}
 
 /* ---------- Web: QR-Code zeigen und auf das Handy warten ---------- */
 async function webPairShow(){
@@ -26,9 +33,9 @@ async function webPairShow(){
     const kp = await crypto.subtle.generateKey({name:'ECDH', namedCurve:'P-256'}, false, ['deriveBits']);
     const pub = new Uint8Array(await crypto.subtle.exportKey('raw', kp.publicKey));
     const topic = 'fa' + b64u(crypto.getRandomValues(new Uint8Array(21)));
-    const q = window.qrcode(0, 'M'); q.addData(PAIR_PREFIX + topic + '.' + b64u(pub)); q.make();
+    const q = window.qrcode(0, 'M'); q.addData(pairUrl(PAIR_PREFIX + topic + '.' + b64u(pub))); q.make();
     const box = $('#pairqr'); if(!box) return; box.innerHTML = q.createSvgTag({cellSize:5, margin:4, scalable:true});
-    $('#qrs').textContent = 'Warte auf das Handy …';
+    $('#qrs').textContent = 'Warte auf das Handy …'; const pc = $('#paircode'); if(pc) pc.textContent = await pairCode(pub);
     const t0 = Date.now();
     const poll = async () => {
       if(stop) return;
@@ -56,9 +63,10 @@ async function webPairShow(){
   dialog(`<h3>Mit Handy anmelden</h3>
     <p class="small muted" style="margin-top:-8px">Auf dem Handy: Einstellungen → Daten &amp; Sicherheit → «PC anmelden (QR-Code scannen)» und die Kamera auf diesen Code halten.</p>
     <div class="qrbox" id="pairqr"></div>
+    <p class="small" style="text-align:center">Prüfzeichen: <b id="paircode" style="font-size:18px;letter-spacing:.15em">····</b><br><span class="muted">Das Handy zeigt beim Fingerabdruck dieselben Zeichen.</span></p>
     <p class="small" id="qrs">Code wird erstellt …</p>
-    <p class="small muted">Danach bleibt dieser PC bis heute 23:59 verbunden.</p>
-    <div class="acts"><button class="btn sm" type="button" data-act="webqrscan">PC-Kamera verwenden</button><button class="btn" data-dlg="cancel">Abbrechen</button></div>`, ()=>{});
+    <p class="small muted">Mit der Kamera des Handys oder in der App unter Einstellungen → «PC verbinden» scannen. Danach bleibt dieser PC bis heute 23:59 verbunden.</p>
+    <div class="acts"><button class="btn" data-dlg="cancel">Abbrechen</button></div>`, ()=>{});
   $('#dlg').addEventListener('close', ()=>{ stop = true; clearTimeout(timer); }, {once:true});
   start().catch(e => { $('#qrs').textContent = 'Auf diesem PC geht die Anmeldung per QR-Code nicht: ' + (e.message||e); });
 }
@@ -72,7 +80,7 @@ async function phonePairScan(){
     <p class="small muted" style="margin-top:-8px">Am PC die Finanzen-Seite öffnen, «Mit Handy anmelden» klicken und die Kamera auf den Code halten.</p>
     <video id="qrv" playsinline muted style="width:100%;border-radius:12px;background:#000;max-height:50vh"></video>
     <p class="small" id="qrs">Kamera wird gestartet …</p>
-    <div class="acts"><button class="btn sm" type="button" data-act="webqr">Stattdessen Code am Handy zeigen</button><button class="btn" data-dlg="cancel">Abbrechen</button></div>`, ()=>{});
+    <div class="acts"><button class="btn" data-dlg="cancel">Abbrechen</button></div>`, ()=>{});
   let stream = null, stop = false;
   const end = () => { stop = true; stream?.getTracks().forEach(t=>t.stop()); };
   $('#dlg').addEventListener('close', end, {once:true});
@@ -84,7 +92,7 @@ async function phonePairScan(){
     if(stop) return;
     if(v.videoWidth){ c.width = v.videoWidth; c.height = v.videoHeight; g.drawImage(v, 0, 0);
       const r = window.jsQR(g.getImageData(0,0,c.width,c.height).data, c.width, c.height, {inversionAttempts:'attemptBoth'});
-      if(r?.data?.startsWith(PAIR_PREFIX)){ end(); await phonePairSend(r.data); return; } }
+      const pl = pairExtract(r?.data); if(pl){ end(); await phonePairSend(pl); return; } }
     requestAnimationFrame(tick);
   };
   tick();
