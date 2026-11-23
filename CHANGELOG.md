@@ -2,6 +2,11 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.29.0
+- **Web mit QR-Code anmelden:** Auf dem Handy Einstellungen → Daten & Sicherheit → Geräte-Sync → «Web anmelden (QR)». In der Web-Version «Mit Handy-QR anmelden» klicken und den Code vor die Kamera des PCs halten. Kein Code abtippen, keine PIN.
+- Die Web-Version bleibt **bis Mitternacht verbunden** – auch nach Neuladen oder Sperren. Danach meldet sie sich selbst ab und löscht ihre Kopie der Daten im Browser.
+- Der QR-Code geht nie übers Internet; die Daten bleiben Ende-zu-Ende verschlüsselt.
+
 ## 1.28.0
 - **Web-Version auch ohne Handy:** Die Web-Version gleicht selbst mit Wallet ab – Konten, Stände, Buchungen, Kategorien. Eigene Buchungen trägt sie direkt in Wallet ein. Sind Handy und Web gleichzeitig offen, fragt nur eines Wallet ab, das andere bekommt alles über den Geräte-Sync. Keine Doppelten: jede Buchung trägt nur das Gerät ein, auf dem sie erfasst wurde.
 - **Alle Kategorien wie in Wallet:** Hauptkategorien, Kategorien und deine eigenen Unterkategorien (z. B. Wohnen › Energie, Nebenkosten › Gas) – auch ohne Buchungen. Buchungen aus Wallet stehen in der gleichen Kategorie wie in Wallet. Neue Kategorien kommen automatisch.

@@ -35,6 +35,7 @@ Kontakt: über die E-Mail-Adresse im Play-Store-Eintrag bzw. im GitHub-Projekt.
 - Der Verbindungscode enthält Repository, Zugangs-Token und Schlüssel. Er wird in der App verschlüsselt gespeichert (mit deiner PIN). Behandle ihn wie ein Passwort.
 - Der Token sollte nur für dieses eine Repository und nur «Contents» gelten. So kann er nichts anderes in deinem GitHub-Konto ändern.
 - Die App spricht dafür nur mit api.github.com (in der Sicherheitsregel der App fest eingetragen).
+- Anmeldung der Web-Version per QR-Code (ab Version 1.29): Das Handy zeigt den Verbindungscode als QR-Code, die Web-Version liest ihn mit der Kamera des PCs – nur lokal, nichts geht dafür übers Internet. Das Kamerabild wird nicht gespeichert. Die Web-Version bleibt bis Mitternacht verbunden (ein zufälliger Tages-Schlüssel ersetzt die PIN) und löscht danach ihre Kopie der Daten im Browser.
 
 
 ## Wechselkurse (ab Version 1.12)
