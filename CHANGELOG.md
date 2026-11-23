@@ -2,6 +2,9 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.34.2
+- **Korrektur am PC:** Beim Eintippen eines Datums in Von–Bis wurde die Seite nach der ersten Ziffer neu aufgebaut, und das Feld verlor die Eingabe. Jetzt wird erst neu aufgebaut, wenn du das Feld verlässt. Auf dem Handy (Datumsauswahl) gilt der Zeitraum sofort.
+
 ## 1.34.1
 - **Von–Bis zeigt immer den betrachteten Zeitraum:** Bei Buchungen und in der Analyse stehen die Datumsfelder immer da und passen sich an Woche · Monat · Jahr und ‹ › an. Ein Datum ändern = neuer Zeitraum, ohne weiteren Knopf.
 

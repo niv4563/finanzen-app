@@ -11,5 +11,12 @@ window.addEventListener('change', e => {
   const isB = id[0] === 'b', r = custRange($(isB ? '#bfrom' : '#apfrom')?.value, $(isB ? '#bto' : '#apto')?.value);
   if(!r) return;
   if(isB){ S.bper = r; S.bCustOpen = true; } else S.ap = r;
-  render();                                   // wird verschoben, solange ein Datumsfeld den Fokus hat
+  // am PC wird getippt: erst neu aufbauen, wenn das Feld verlassen wird (sonst geht das Tippen verloren)
+  if(Date.now() - (S._dateKey||0) < 2500){ S._dateWait = true; return; }
+  render();
+}, true);
+document.addEventListener('keydown', e => { if(e.target?.type === 'date' && e.target.closest('.pscust')) S._dateKey = Date.now(); }, true);
+document.addEventListener('focusout', e => {
+  if(e.target?.type !== 'date' || !S._dateWait) return;
+  setTimeout(() => { const ae = document.activeElement; if(ae?.type === 'date' && ae.closest('.pscust')) return; S._dateWait = false; S._dateKey = 0; render(); }, 300);
 }, true);
