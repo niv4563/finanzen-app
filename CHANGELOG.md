@@ -2,6 +2,10 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.33.1
+- **Budget aus Excel ab einem Monat:** Auf der Seite Budgets (und unter Daten & Sicherheit) «Excel-Datei wählen». Mehrere Jahresblätter (z. B. 2026 und 2027) in einem Schritt, gültig erst ab dem gewählten Monat (z. B. ab November 2026). Frühere Monate bleiben unverändert. Die Zuordnung Excel-Zeile → Kategorie siehst du vor dem Speichern.
+- Eigener Zeitraum: ungültige Daten werden abgefangen; ganze Monate blättern um ganze Monate.
+
 ## 1.33.0
 - **Eigener Zeitraum (Von–Bis) funktioniert jetzt:** Von und Bis wählen, dann «Übernehmen». Vorher wurde schon nach dem ersten Datum neu aufgebaut, sodass das Feld den Fokus verlor. Ein «Von» nach dem «Bis» wird automatisch getauscht.
 - **Auch bei den Buchungen:** neben Woche · Monat · Jahr neu «Zeitraum» mit Von–Bis.
