@@ -2,6 +2,11 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.22.0
+- **Jedes Wallet-Konto einzeln:** Wenn früher mehrere Wallet-Konten auf demselben App-Konto landeten (z. B. Bargeld CHF, EUR, USD) oder auf «nicht übernehmen» standen, bekommt jetzt jedes sein eigenes Konto in der richtigen Währung. Die Buchungen werden nachgeholt und richtig zugeordnet.
+- **Geplante Zahlungen aus Wallet** erscheinen bei «Bevorstehende geplante Zahlungen», im Kalender und im Ausblick.
+- Weniger Anfragen an Wallet pro Abgleich.
+
 ## 1.21.0
 - **Kontostände genau wie in Wallet:** Bei jedem Abgleich (alle 3 Minuten) übernimmt die App die echten Stände aller Wallet-Konten – auch Kreditkarte, Fremdwährung (EUR, CAD, USD) und Säule 3a. Kein Nachrechnen, keine Differenz mehr.
 - **Konten automatisch eröffnet:** Neue Wallet-Konten werden selbst angelegt – mit Name, Währung, Farbe und Kontoart. Reihenfolge, Farbe und «in Statistik» bleiben mit Wallet gleich.
