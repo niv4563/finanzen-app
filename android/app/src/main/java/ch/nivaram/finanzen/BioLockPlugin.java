@@ -92,7 +92,7 @@ public class BioLockPlugin extends Plugin {
             Cipher cipher = Cipher.getInstance(TRANSFORM);
             cipher.init(Cipher.DECRYPT_MODE, key, new GCMParameterSpec(128, raw, 0, IV_LEN));
             final byte[] ct = Arrays.copyOfRange(raw, IV_LEN, raw.length);
-            prompt(call, cipher, "Finanzen entsperren", "Mit Fingerabdruck entsperren", c -> {
+            prompt(call, cipher, text(call.getString("title"), "Finanzen entsperren"), text(call.getString("subtitle"), "Mit Fingerabdruck entsperren"), c -> {
                 byte[] plain = c.doFinal(ct);
                 JSObject r = new JSObject();
                 r.put("secret", new String(plain, StandardCharsets.UTF_8));
@@ -116,6 +116,13 @@ public class BioLockPlugin extends Plugin {
     // ---------------------------------------------------------------------------------------------
 
     private interface Finish { JSObject run(Cipher c) throws Exception; }
+
+    // Eigener Titel für die Abfrage (z. B. «PC verbinden»), nur kurzer Text
+    private static String text(String v, String fallback) {
+        if (v == null) return fallback;
+        String t = v.replaceAll("[\\p{Cntrl}]", " ").trim();
+        return t.isEmpty() ? fallback : (t.length() > 160 ? t.substring(0, 160) : t);
+    }
 
     private void prompt(PluginCall call, Cipher cipher, String title, String subtitle, Finish finish) {
         final Executor ex = getContext().getMainExecutor();

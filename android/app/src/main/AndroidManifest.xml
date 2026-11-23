@@ -31,6 +31,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+            <!-- «PC verbinden»: QR-Code vom PC mit der gewöhnlichen Kamera scannen öffnet die App.
+                 Der Inhalt wird erst nach dem Fingerabdruck verwendet. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="finanzen" android:host="verbinden" />
+            </intent-filter>
+
         </activity>
 
         <!-- Zeigt die von der App selbst geplanten Mitteilungen an (nur intern erreichbar). -->
