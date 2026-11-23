@@ -1,0 +1,5 @@
+/* 1.34.0 – Geplantes / Vorgemerktes gestrichelt: zählt nicht, wird nur angedeutet */
+.wrow.plan, .li.plan, [data-id].plan { border: 1.5px dashed color-mix(in srgb, var(--muted) 70%, transparent); border-radius: 12px; background: transparent; opacity: .85; margin: 6px 0; }
+.wrow.plan .wic { opacity: .55; }
+.wrow.plan .wend b.num { color: var(--muted) !important; font-weight: 600; }
+.pendbox h3 { margin-bottom: 8px; }
