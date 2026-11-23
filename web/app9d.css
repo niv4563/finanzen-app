@@ -34,3 +34,8 @@
 .banner .btn{min-height:32px;padding:5px 11px;font-size:13px}
 /* Menü: ruhiger */
 .side a,.nav a{font-size:14.5px}
+/* 1.28 Ausgabe · Einnahme · Übertrag */
+.ttype{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--bg);border-radius:10px;padding:3px;margin:0 0 12px}
+.ttype button{border:0;background:none;border-radius:8px;padding:7px 0;font:inherit;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer}
+.ttype button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.ttype button[data-tt="out"].on{color:var(--bad)} .ttype button[data-tt="in"].on{color:var(--ok)} .ttype button[data-tt="tr"].on{color:var(--acc)}

@@ -2,6 +2,13 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.28.0
+- **Web-Version auch ohne Handy:** Die Web-Version gleicht selbst mit Wallet ab – Konten, Stände, Buchungen, Kategorien. Eigene Buchungen trägt sie direkt in Wallet ein. Sind Handy und Web gleichzeitig offen, fragt nur eines Wallet ab, das andere bekommt alles über den Geräte-Sync. Keine Doppelten: jede Buchung trägt nur das Gerät ein, auf dem sie erfasst wurde.
+- **Alle Kategorien wie in Wallet:** Hauptkategorien, Kategorien und deine eigenen Unterkategorien (z. B. Wohnen › Energie, Nebenkosten › Gas) – auch ohne Buchungen. Buchungen aus Wallet stehen in der gleichen Kategorie wie in Wallet. Neue Kategorien kommen automatisch.
+- **Budget bleibt:** Jede Wallet-Kategorie zählt ins Budget der Kategorie, in der ihre Buchungen bisher lagen (änderbar: Kategorie antippen → «Zählt ins Budget von»).
+- **Automatische Regeln aus Wallet** werden übernommen und nachgeführt (Stichwörter, Ausgabe/Einnahme, Kategorie oder Überweisung, Konto).
+- **Ausgabe · Einnahme · Übertrag:** Neue Buchung wie in Wallet mit drei Arten. Übertrag von Konto auf Konto zählt nicht als Ausgabe und geht als Überweisung an Wallet.
+
 ## 1.27.0
 - **Ruhigere Startseite:** Saldo oben, darunter alle Konten als übersichtliche Liste mit vollem Namen (statt bunter Kacheln), gruppiert nach Bedeutung. Konten, die nicht zählen, sind grau.
 - **Weniger Karten:** Standardmässig nur Bevorstehende Zahlungen, Letzte Einträge, Ausgabenstruktur und Finanz-Coach. Weitere Karten unten über «Startseite anpassen» ein- oder ausschalten.
