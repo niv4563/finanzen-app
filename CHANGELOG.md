@@ -2,6 +2,13 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.34.0
+- **Geplantes wird nur angedeutet, nie abgebucht.** Abgezogen wird nur, was wirklich abgerechnet ist: Abbuchungen von der Bank bzw. aus Wallet und eigene Buchungen bis heute.
+- **Rechnungen:** «Bezahlt» bucht nichts mehr, die Rechnung gilt als «angewiesen» und wird gestrichelt angezeigt. Sobald die Abbuchung kommt (gleicher Betrag), steht sie auf «bezahlt» – ohne doppelte Buchung.
+- **Fotografierte Belege und Buchungen mit Datum in der Zukunft** werden «vorgemerkt»: gestrichelt oben bei den Buchungen, nicht im Kontostand, nicht an Wallet. Kommt die echte Abbuchung, verschwindet die Vormerkung von selbst. Bei Barzahlung: Vormerkung antippen → «Jetzt buchen».
+- **Bevorstehende Zahlungen** (Budget, Daueraufträge, Rechnungen, Jahreskosten) sind gestrichelt und die Beträge in Klammern.
+- **Eigener Zeitraum ohne Knopf:** Von–Bis gilt automatisch, sobald beide Daten gewählt sind – kein «Übernehmen» mehr.
+
 ## 1.33.1
 - **Budget aus Excel ab einem Monat:** Auf der Seite Budgets (und unter Daten & Sicherheit) «Excel-Datei wählen». Mehrere Jahresblätter (z. B. 2026 und 2027) in einem Schritt, gültig erst ab dem gewählten Monat (z. B. ab November 2026). Frühere Monate bleiben unverändert. Die Zuordnung Excel-Zeile → Kategorie siehst du vor dem Speichern.
 - Eigener Zeitraum: ungültige Daten werden abgefangen; ganze Monate blättern um ganze Monate.
