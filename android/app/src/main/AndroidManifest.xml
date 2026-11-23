@@ -55,4 +55,7 @@
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <!-- Mitteilungen (fällige Rechnungen, geplante Zahlungen). Android fragt erst, wenn du sie in der App einschaltest. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Kamera: nur zum Scannen des Anmelde-QR-Codes am PC. Android fragt beim ersten Scannen. Es wird nichts gespeichert. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
 </manifest>
