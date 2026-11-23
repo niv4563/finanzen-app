@@ -2,6 +2,11 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.25.0
+- **Abgleich in Sekunden:** Solange die App offen ist, prüft sie alle 20 Sekunden die Kontostände. Ändert sich etwas, holt sie sofort die neuen Buchungen – Stände und Buchungen sind innert Sekunden gleich.
+- Eigene Buchungen werden nach 1 Sekunde übertragen, die Stände danach sofort neu geholt.
+- Die Statuszeile zeigt, vor wie vielen Sekunden zuletzt abgeglichen wurde.
+
 ## 1.24.0
 - **Wallet nur noch in den Einstellungen:** Startseite, Konten, Plus-Menü, Hinweise und Meldungen erwähnen Wallet nicht mehr – die Verbindung arbeitet unsichtbar im Hintergrund.
 - «Wallet-Verbindung» steht jetzt im Menü unter **Einstellungen**, zusammen mit den Einmal-Werkzeugen (Kategorien und Regeln übernehmen).
