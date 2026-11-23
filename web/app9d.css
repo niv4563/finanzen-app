@@ -1,0 +1,36 @@
+/* ===== 1.27.0 – ruhigere Oberfläche ===== */
+/* Knöpfe: kleiner, einheitlich */
+.btn{min-height:38px;padding:7px 14px;font-size:14px;border-radius:10px;font-weight:600}
+.btn.sm{min-height:32px;padding:5px 11px;font-size:13px;border-radius:8px}
+.btn.wide{min-height:42px}
+.ibtn{min-width:32px;min-height:32px}
+/* Karten: gleiche Abstände, ruhige Kanten */
+.card,.xcard,.wcard{border-radius:14px;padding:14px 16px;box-shadow:none;border:1px solid var(--line)}
+.card h3,.xcard h3,.wcard h3{font-size:16px;font-weight:650;margin:0 0 8px;letter-spacing:0}
+.agrid.home{gap:12px}
+.small{font-size:13px} .muted{color:var(--muted)}
+/* Saldo oben */
+.hsum{margin:4px 0 12px}
+.hsum>div:first-child .small{font-size:13px}
+.hsum b.num{font-size:26px;font-weight:700;letter-spacing:-.3px}
+/* Konten als Liste */
+.alist{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 0;margin-bottom:12px}
+.agh{font-size:12px;font-weight:600;color:var(--muted);padding:10px 16px 4px}
+.agh:not(:first-child){border-top:1px solid var(--line);margin-top:4px;padding-top:12px}
+.arow{display:flex;align-items:center;gap:12px;width:100%;padding:9px 16px;background:none;border:0;text-align:left;font:inherit;color:var(--ink);cursor:pointer}
+.arow:hover,.arow:focus-visible{background:var(--acc-soft);outline:none}
+.adot{flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:#fff}
+.adot svg{width:17px;height:17px}
+.aname{flex:1;min-width:0;font-size:15px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.aname small,.aval small{display:block;font-size:12px;color:var(--muted);font-weight:400}
+.aval{text-align:right;white-space:nowrap} .aval b{font-size:15px;font-weight:650}
+.arow.dim .adot{filter:grayscale(1);opacity:.55} .arow.dim .aname,.arow.dim .aval b{color:var(--muted)}
+.num.neg{color:var(--bad)}
+/* Schnellzugriffe kompakter */
+.hchips button{min-height:36px;padding:6px 12px;font-size:14px}
+.homeedit{display:flex;justify-content:center;margin:6px 0 90px}
+/* Hinweis-Banner kompakter */
+.banner{padding:10px 14px;font-size:13px}
+.banner .btn{min-height:32px;padding:5px 11px;font-size:13px}
+/* Menü: ruhiger */
+.side a,.nav a{font-size:14.5px}

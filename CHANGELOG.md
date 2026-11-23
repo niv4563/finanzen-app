@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.27.0
+- **Ruhigere Startseite:** Saldo oben, darunter alle Konten als übersichtliche Liste mit vollem Namen (statt bunter Kacheln), gruppiert nach Bedeutung. Konten, die nicht zählen, sind grau.
+- **Weniger Karten:** Standardmässig nur Bevorstehende Zahlungen, Letzte Einträge, Ausgabenstruktur und Finanz-Coach. Weitere Karten unten über «Startseite anpassen» ein- oder ausschalten.
+- **Menü neu geordnet:** oben das Tägliche (Startseite, Buchungen, Konten, Analyse, Kalender), dann «Geld planen», «Import & Ordnung». Selteneres liegt unter «Weitere» (eingeklappt).
+- Kleinere Knöpfe, einheitliche Abstände und Schriftgrössen.
+
 ## 1.26.1
 - **Korrektur: fehlende Konten.** Wallet liefert die Kontenliste seitenweise, die App las bisher nur die erste Seite. Konten auf weiteren Seiten – z. B. das Sparkonto – fehlten. Jetzt kommen alle Konten.
 
