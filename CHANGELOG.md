@@ -2,6 +2,10 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.19.0
+- **Geräte-Sync live:** Handy und Web sind innert Sekunden auf dem gleichen Stand. Änderungen werden nach 1 Sekunde hochgeladen, geöffnete Geräte holen sie innert 5 Sekunden – mit kurzer Meldung «Aktualisiert».
+- Übertragen wird weiterhin nur die verschlüsselte Datei in deinem privaten GitHub-Repository.
+
 ## 1.18.0
 - **Sperrbildschirm nur mit Fingerabdruck:** Beim Öffnen erscheint direkt die Fingerabdruck-Abfrage – kein PIN-Feld, keine Tastatur.
 - Klappt der Fingerabdruck nicht oder brichst du ab, erscheint die PIN mit Zahlen-Tastatur. Auch über «Mit PIN entsperren» jederzeit möglich.
