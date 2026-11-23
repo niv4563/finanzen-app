@@ -2,6 +2,11 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.31.0
+- **Entscheidungen bleiben:** Was du einmal wählst – Reiter, Zeiträume, Filter, Ansichten, «Später» bei einer neuen Version –, bleibt gespeichert und wird beim Öffnen nicht neu gefragt. Gilt auf Handy und PC.
+- **Stärkste sinnvolle Verschlüsselung auf dem Handy:** AES-256-GCM mit einem Schlüssel aus deiner PIN (600 000 Durchläufe statt 310 000) **plus** einem 256-Bit-Geräteschlüssel aus dem Sicherheitschip. Selbst wer die Datei vom Handy kopiert, kann sie anderswo nicht öffnen – auch nicht durch Ausprobieren aller PINs. Deine Daten werden beim nächsten Entsperren automatisch umgestellt.
+- **Beim Öffnen sofort aktuell:** Die App gleicht beim Öffnen und beim Zurückkehren sofort mit Wallet ab und überträgt den Stand, damit der PC gleich die neuesten Zahlen hat.
+
 ## 1.30.0
 - **Umgekehrt: Der PC zeigt den QR-Code, das Handy scannt ihn.** Am PC auf der Finanzen-Seite «Mit Handy anmelden» klicken. Auf dem Handy Einstellungen → Daten & Sicherheit → «PC anmelden (QR-Code scannen)», die Kamera auf den Bildschirm halten und bestätigen. Nach wenigen Sekunden ist der PC bis Mitternacht verbunden.
 - Der Code wird auf dem Handy verschlüsselt, sodass nur genau dieser PC ihn öffnen kann. Die App fragt beim ersten Scannen nach der Kamera-Erlaubnis.

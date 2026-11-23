@@ -4,7 +4,7 @@ Stand: November 2026
 
 **Kurz:** Die App sammelt keine Daten über dich und schickt deine Finanzdaten nirgendwohin.
 
-1. **Deine Finanzdaten** (Budget, Buchungen, Konten, Wünsche) werden nur auf deinem Gerät gespeichert, verschlüsselt mit deiner PIN (AES-256-GCM, Schlüssel aus PBKDF2 mit 310 000 Durchläufen). Niemand ausser dir kann sie lesen – auch nicht der Entwickler.
+1. **Deine Finanzdaten** (Budget, Buchungen, Konten, Wünsche) werden nur auf deinem Gerät gespeichert, verschlüsselt mit AES-256-GCM. Der Schlüssel entsteht ab Version 1.31 aus deiner PIN (PBKDF2-SHA-256 mit 600 000 Durchläufen) **und** einem zufälligen 256-Bit-Geräteschlüssel, der im Sicherheitschip des Handys (Android Keystore, wenn vorhanden StrongBox) geschützt ist und das Handy nie verlässt. Eine kopierte Datendatei lässt sich darum auf keinem anderen Gerät entschlüsseln. Auch deine Einstellungen und Entscheidungen in der App sind so gespeichert. Niemand ausser dir kann sie lesen – auch nicht der Entwickler.
 2. **Keine Konten, keine Werbung, keine Analyse- oder Tracking-Dienste**, keine Drittanbieter-Bibliotheken für Statistik oder Absturzberichte.
 3. **Backups von Android/Google** sind für diese App ausgeschaltet. Ein Backup entsteht nur, wenn du selbst «Backup speichern» wählst. Es ist mit deinem Passwort verschlüsselt, du bestimmst, wo es liegt.
 4. **Update-Prüfung** (nur bei der Version ausserhalb des Play Store): Die App fragt höchstens alle 12 Stunden bei GitHub (api.github.com) nach, ob eine neue Version da ist. Dabei werden keine Finanzdaten übertragen. GitHub sieht wie bei jedem Webseitenaufruf deine IP-Adresse (Datenschutz von GitHub: https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement).
