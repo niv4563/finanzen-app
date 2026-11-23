@@ -17,6 +17,8 @@ shutil.rmtree(out, ignore_errors=True); out.mkdir()
 nm = out.parent / 'node_modules'
 vendor = {
     'jsqr/dist/jsQR.js': 'vendor/jsQR.js',
+    # QR-Code anzeigen (Web-Anmeldung vom Handy): qrcode-generator, MIT
+    'qrcode-generator/dist/qrcode.js': 'vendor/qrcode.js',
     'tesseract.js/dist/tesseract.min.js': 'vendor/tesseract/tesseract.min.js',
     'tesseract.js/dist/worker.min.js': 'vendor/tesseract/worker.min.js',
     'tesseract.js-core/tesseract-core-lstm.wasm.js': 'vendor/tesseract/tesseract-core-lstm.wasm.js',
@@ -34,6 +36,7 @@ for d in ['cmaps', 'standard_fonts']:
     shutil.copytree(nm / 'pdfjs-dist' / d, out / 'vendor' / 'pdf' / d)
 for lic in ['tesseract.js/LICENSE.md', 'tesseract.js-core/LICENSE', 'jsqr/LICENSE', 'pdfjs-dist/LICENSE']:
     if (nm / lic).is_file(): shutil.copy(nm / lic, out / 'vendor' / (lic.split('/')[0] + '-LICENSE.txt'))
+(out / 'vendor' / 'qrcode-generator-LICENSE.txt').write_text('QR Code Generator for JavaScript\nCopyright (c) 2009 Kazuhiko Arase\nLicensed under the MIT license: https://opensource.org/licenses/MIT\nThe word "QR Code" is a registered trademark of DENSO WAVE INCORPORATED.\n', encoding='utf-8')
 # app.js wird aus web/js/01.js, 02.js, … zusammengesetzt (kleinere Dateien = einfacher zu prüfen und zu aktualisieren)
 parts = sorted((src / 'js').glob('[0-9][0-9].js'))
 assert parts, 'web/js/*.js fehlt'
