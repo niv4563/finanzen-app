@@ -2,6 +2,9 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.31.1
+- **Neu im Menü unter Einstellungen: «PC verbinden».** Eigene Seite mit kurzer Anleitung und grossem Knopf «QR-Code am PC scannen».
+
 ## 1.31.0
 - **Entscheidungen bleiben:** Was du einmal wählst – Reiter, Zeiträume, Filter, Ansichten, «Später» bei einer neuen Version –, bleibt gespeichert und wird beim Öffnen nicht neu gefragt. Gilt auf Handy und PC.
 - **Stärkste sinnvolle Verschlüsselung auf dem Handy:** AES-256-GCM mit einem Schlüssel aus deiner PIN (600 000 Durchläufe statt 310 000) **plus** einem 256-Bit-Geräteschlüssel aus dem Sicherheitschip. Selbst wer die Datei vom Handy kopiert, kann sie anderswo nicht öffnen – auch nicht durch Ausprobieren aller PINs. Deine Daten werden beim nächsten Entsperren automatisch umgestellt.
