@@ -31,3 +31,5 @@ h2.in{color:var(--ok)} h2.warn{color:#c98600} h2.out{color:#e34948} .small.in{co
 .sstat.warn{background:#fff4e0}.sstat.warn .dot{background:#e58a00}
 .sstat .sp{flex:1}
 .htile b.num.lng{font-size:.86em;letter-spacing:-.2px;white-space:nowrap}
+.hgrp{font-size:.78rem;font-weight:600;color:var(--muted);margin:12px 2px 6px}
+.hacc+.hgrp{margin-top:14px}

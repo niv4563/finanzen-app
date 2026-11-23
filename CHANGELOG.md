@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.23.0
+- **Nichts mehr bestätigen:** Der Wallet-Abgleich läuft still im Hintergrund – keine «OK»-Meldung nach jedem Abgleich, keine Abfrage für neue Konten mehr.
+- **Sofort aktuell:** Nach dem Entsperren werden Wallet und Web direkt abgeglichen.
+- **Konten nach Bedeutung gruppiert:** Zahlungskonten & Bargeld, Sparen & Haushalt, Karten, Fremdwährung, Vorsorge & Anlagen. Gruppe pro Konto änderbar (Konto antippen → Aussehen).
+- Korrektur: Konten mit «PostFinance» im Namen wurden fälschlich als Kredit erkannt.
+
 ## 1.22.0
 - **Jedes Wallet-Konto einzeln:** Wenn früher mehrere Wallet-Konten auf demselben App-Konto landeten (z. B. Bargeld CHF, EUR, USD) oder auf «nicht übernehmen» standen, bekommt jetzt jedes sein eigenes Konto in der richtigen Währung. Die Buchungen werden nachgeholt und richtig zugeordnet.
 - **Geplante Zahlungen aus Wallet** erscheinen bei «Bevorstehende geplante Zahlungen», im Kalender und im Ausblick.
