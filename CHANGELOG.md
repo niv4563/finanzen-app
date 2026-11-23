@@ -2,6 +2,10 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.32.1
+- **PC verbinden geht jetzt immer nur mit dem QR-Code – ohne Einrichtung und ohne Umweg über andere Einstellungen.** Ist auf dem Handy kein Geräte-Abgleich eingerichtet, schickt das Handy deine Daten beim Scannen direkt und verschlüsselt an den PC.
+- Am PC kommen Buchungen danach direkt über Wallet. Änderungen, die nur in der App gespeichert sind (z. B. Budgets), bleiben in diesem Fall bis Mitternacht am PC.
+
 ## 1.32.0
 - **PC verbinden nur noch per QR-Code – ohne Code abtippen, auch beim ersten Mal.** Am PC «Mit Handy anmelden» klicken. Den QR-Code mit der **gewöhnlichen Kamera** des Handys scannen und den Link antippen: Die Finanzen-App öffnet sich, ein Fingerabdruck – fertig. Das geht auch, wenn die App gesperrt ist (ein Fingerabdruck entsperrt und verbindet). Alternativ in der App: Einstellungen → «PC verbinden».
 - **Prüfzeichen:** Der PC zeigt vier Zeichen, die gleichen stehen im Fingerabdruck-Fenster. So verbindest du sicher deinen eigenen PC.
