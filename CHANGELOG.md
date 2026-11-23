@@ -2,6 +2,10 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.32.2
+- **Korrektur «Maximum call stack size exceeded»:** Bei vielen Buchungen brach das Verschlüsseln grosser Datenmengen ab (beim Speichern, beim Scannen und bei der Monatssicherung). Jetzt werden auch sehr grosse Datenmengen stückweise verarbeitet.
+- **Beim Scannen wird immer alles übertragen:** Das Handy schickt dem PC die Verbindung und zusätzlich alle Daten. Klappt der Geräte-Abgleich nicht (z. B. weil der Zugang abgelaufen ist), verbindet sich der PC trotzdem – keine Meldung «abgelaufen» mehr.
+
 ## 1.32.1
 - **PC verbinden geht jetzt immer nur mit dem QR-Code – ohne Einrichtung und ohne Umweg über andere Einstellungen.** Ist auf dem Handy kein Geräte-Abgleich eingerichtet, schickt das Handy deine Daten beim Scannen direkt und verschlüsselt an den PC.
 - Am PC kommen Buchungen danach direkt über Wallet. Änderungen, die nur in der App gespeichert sind (z. B. Budgets), bleiben in diesem Fall bis Mitternacht am PC.

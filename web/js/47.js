@@ -46,11 +46,11 @@ async function pairSendNow(text){
   const key = await pairKey(kp.privateKey, webPub, topic), iv = crypto.getRandomValues(new Uint8Array(12));
   const small = {u: dayEnd()}; let attach = null;
   if(ghOn()) small.c = SYNCCODE;
-  else {                                                         // ohne Geräte-Abgleich: Daten selbst mitschicken (gepackt + verschlüsselt)
+  {                                                              // Daten immer mitschicken (gepackt + verschlüsselt) – so klappt es auch, wenn der Abgleich nicht geht
     const json = JSON.stringify(D, (k,v) => k === '_p' ? undefined : v);
     const gz = await new Response(new Blob([te.encode(json)]).stream().pipeThrough(new CompressionStream('gzip'))).arrayBuffer();
     const aiv = crypto.getRandomValues(new Uint8Array(12));
-    attach = b64u(new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM', iv:aiv, additionalData:new TextEncoder().encode(topic + '.d')}, key, gz)));
+    attach = b64big(new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM', iv:aiv, additionalData:new TextEncoder().encode(topic + '.d')}, key, gz))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');   // grosse Daten stückweise umwandeln (sonst «Maximum call stack size exceeded»)
     small.a = 1; small.aiv = b64u(aiv);
   }
   const ct = new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM', iv, additionalData:new TextEncoder().encode(topic)}, key, new TextEncoder().encode(JSON.stringify(small))));
@@ -140,7 +140,7 @@ async function monthSnap(force){
   const iv = crypto.getRandomValues(new Uint8Array(12)), at = new Date().toISOString();
   const data = JSON.parse(JSON.stringify(D, (k,v) => k === '_p' ? undefined : v));
   const ct = await crypto.subtle.encrypt({name:'AES-GCM', iv, additionalData: te.encode('finanzen-monat-v1')}, key, te.encode(JSON.stringify({d:data, at})));
-  const body = JSON.stringify({format:'finanzen-monat', v:1, ym, at, iv:b64(iv), ct:b64(ct)});
+  const body = JSON.stringify({format:'finanzen-monat', v:1, ym, at, iv:b64(iv), ct:b64big(new Uint8Array(ct))});
   const path = `Finanzen/Finanzen_${ym}.enc.json`;
   let where = 'DOCUMENTS';
   try{ await FS.writeFile({path, data:body, directory:'DOCUMENTS', encoding:'utf8', recursive:true}); }
