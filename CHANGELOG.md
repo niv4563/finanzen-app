@@ -2,6 +2,11 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.20.0
+- **Wallet automatisch in beide Richtungen:** Kein «Jetzt abgleichen» mehr nötig. Neue Wallet-Buchungen kommen alle 3 Minuten (und beim Öffnen) von selbst in die App.
+- **Nur noch einmal erfassen:** Was du hier (oder in der Web-Version) erfasst, änderst oder löschst, trägt das Handy automatisch auch in Wallet ein – mit Konto, Kategorie und Notiz. Keine Doppelten beim Zurückholen.
+- Gilt für Buchungen ab heute. Ausschalten unter Mehr → Wallet-Verbindung («App → Wallet»).
+
 ## 1.19.0
 - **Geräte-Sync live:** Handy und Web sind innert Sekunden auf dem gleichen Stand. Änderungen werden nach 1 Sekunde hochgeladen, geöffnete Geräte holen sie innert 5 Sekunden – mit kurzer Meldung «Aktualisiert».
 - Übertragen wird weiterhin nur die verschlüsselte Datei in deinem privaten GitHub-Repository.

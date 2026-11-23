@@ -25,7 +25,7 @@ Kontakt: über die E-Mail-Adresse im Play-Store-Eintrag bzw. im GitHub-Projekt.
 - Kommt im Handy ein neuer Fingerabdruck dazu, wird der Schlüssel automatisch ungültig; dann ist wieder die PIN nötig.
 
 ## Wallet-Verbindung und Screenshots (ab Version 1.4)
-- Nur wenn du die Wallet-Verbindung einrichtest: Die App holt deine Buchungen direkt bei BudgetBakers (rest.budgetbakers.com) ab – lesend, sie ändert nichts in Wallet. Der API-Token liegt verschlüsselt in deinen App-Daten und im verschlüsselten Backup. Mit «Verbindung trennen» wird er gelöscht.
+- Nur wenn du die Wallet-Verbindung einrichtest: Die App holt deine Buchungen direkt bei BudgetBakers (rest.budgetbakers.com) ab – ab Version 1.20 automatisch alle 3 Minuten, solange die App offen ist. Ab Version 1.20 trägt sie zudem Buchungen, die du in der App erfasst, änderst oder löschst, auch in Wallet ein (Betrag, Datum, Konto, Kategorie, Notiz). Das lässt sich auf der Wallet-Seite ausschalten («App → Wallet»). Übertragen wird nur an rest.budgetbakers.com. Der API-Token liegt verschlüsselt in deinen App-Daten und im verschlüsselten Backup. Mit «Verbindung trennen» wird er gelöscht.
 - Screenshots sind gesperrt. Du kannst sie bei Bedarf für 10 Minuten erlauben; danach und beim Sperren der App ist der Schutz automatisch wieder aktiv.
 
 ## Geräte-Sync (ab Version 1.6)
