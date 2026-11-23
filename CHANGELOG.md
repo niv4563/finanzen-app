@@ -2,6 +2,13 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.33.0
+- **Eigener Zeitraum (Von–Bis) funktioniert jetzt:** Von und Bis wählen, dann «Übernehmen». Vorher wurde schon nach dem ersten Datum neu aufgebaut, sodass das Feld den Fokus verlor. Ein «Von» nach dem «Bis» wird automatisch getauscht.
+- **Auch bei den Buchungen:** neben Woche · Monat · Jahr neu «Zeitraum» mit Von–Bis.
+- Mit ‹ › blättert ein eigener Zeitraum um die gleiche Länge, ganze Monate um ganze Monate.
+- Der gewählte Zeitraum bleibt gespeichert. Während ein Datumsfeld offen ist, wird die Seite nicht im Hintergrund neu aufgebaut.
+- Sprache: «keine Sicherung» statt «kein Sicherung».
+
 ## 1.32.2
 - **Korrektur «Maximum call stack size exceeded»:** Bei vielen Buchungen brach das Verschlüsseln grosser Datenmengen ab (beim Speichern, beim Scannen und bei der Monatssicherung). Jetzt werden auch sehr grosse Datenmengen stückweise verarbeitet.
 - **Beim Scannen wird immer alles übertragen:** Das Handy schickt dem PC die Verbindung und zusätzlich alle Daten. Klappt der Geräte-Abgleich nicht (z. B. weil der Zugang abgelaufen ist), verbindet sich der PC trotzdem – keine Meldung «abgelaufen» mehr.
