@@ -2,6 +2,16 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.35.0
+- **Budget nach Monat · Quartal · Jahr:** Oben wählen, mit ‹ › blättern. Am PC startet die Ansicht mit dem ganzen Jahr, auf dem Handy mit dem Monat. Die Wahl bleibt pro Gerät gespeichert.
+- **Vergangene Monate: budgetiert und effektiv.** Pro Kategorie siehst du, was budgetiert war, was wirklich ausgegeben wurde und wie viel du darunter oder darüber liegst. Im laufenden Monat steht, was noch übrig ist (pro Tag). Kommende Monate erscheinen nur gestrichelt als «geplant».
+- **«Monate einzeln»:** Tabelle mit jedem Monat (oben effektiv, darunter budgetiert, kommende Monate gestrichelt) – ideal am PC fürs ganze Jahr.
+- Monate ohne Buchungen (vor dem Start der App) zählen nicht mehr als «unter Budget».
+- **Finanz-Berater: Aufgaben, die wirklich wirken.** Die Aufgaben stehen jetzt für die ganze Woche fest und werden an deinen echten Buchungen geprüft: Ausgabengrenze eingehalten, Übertrag auf die Kreditkarte oder aufs Sparkonto erfolgt, Säule 3a eingezahlt, Rechnung bezahlt. Verfehlte Aufgaben erscheinen rot.
+- Neu: Aufgaben aus deinem Budget – wird eine Kategorie diesen Monat zu schnell aufgebraucht, bekommst du eine Wochengrenze, damit das Budget bis Monatsende reicht.
+- Am Montag wird die letzte Woche ausgewertet («Letzte Woche: 2 von 3 geschafft»).
+- Korrekturen: «Lohn erfassen» erscheint nicht mehr, wenn dein Lohn ohnehin jeden Monat eingeht. Abgehakte Aufgaben gehen beim Abgleich zwischen Handy und PC nicht mehr verloren.
+
 ## 1.34.2
 - **Korrektur am PC:** Beim Eintippen eines Datums in Von–Bis wurde die Seite nach der ersten Ziffer neu aufgebaut, und das Feld verlor die Eingabe. Jetzt wird erst neu aufgebaut, wenn du das Feld verlässt. Auf dem Handy (Datumsauswahl) gilt der Zeitraum sofort.
 
