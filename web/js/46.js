@@ -9,9 +9,6 @@ if(NATIVE){
   if(sett && !sett[1].some(it => it[0] === 'pcverbinden')) sett[1].unshift(['pcverbinden', ICON.pc, 'PC verbinden']);
 }
 function vPcVerbinden(){
-  if(!ghOn()) return `<div class="card"><h3>PC verbinden</h3>
-    <p class="small">Zuerst den Abgleich zwischen den Geräten einrichten. Danach kannst du hier deinen PC mit einem Scan verbinden.</p>
-    <button class="btn pri wide" data-go="daten">Abgleich einrichten</button></div>`;
   return `<div class="card"><h3>PC verbinden</h3>
     <ol class="small" style="padding-left:18px;margin:6px 0 14px;line-height:1.7">
       <li>Am PC die Finanzen-Seite öffnen: <b>niv4563.github.io/finanzen-app</b></li>

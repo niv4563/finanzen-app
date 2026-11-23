@@ -25,6 +25,17 @@ async function pairCode(pubRaw){                                 // 4 Zeichen zu
   return Array.from(h.slice(0,4), b => A[b % A.length]).join('');
 }
 
+/* ---------- Web: Daten direkt vom Handy (ohne Geräte-Abgleich) ---------- */
+async function webDataLogin(data, until){
+  if(!(new Date(until) > new Date())) throw new Error('Dieser Code ist abgelaufen. Bitte neu anzeigen.');
+  D = migrate(data); D.sync = null; SYNCCODE = null;
+  const p = b64u(crypto.getRandomValues(new Uint8Array(24)));
+  S.noDirty = true; await setPin(p); S.noDirty = false;
+  localStorage.setItem(DAY_KEY, JSON.stringify({p, until}));
+  S.locked = false; $('#dlg').open && $('#dlg').close(); S.view = 'start'; render();
+  toastMsg('Verbunden bis heute 23:59');
+}
+
 /* ---------- Web: QR-Code zeigen und auf das Handy warten ---------- */
 async function webPairShow(){
   try{ await bkLoadScript('vendor/qrcode.js'); }catch(e){ alert(e.message); return; }
@@ -50,9 +61,18 @@ async function webPairShow(){
             const key = await pairKey(kp.privateKey, unb64u(ph), topic);
             const pt = await crypto.subtle.decrypt({name:'AES-GCM', iv:unb64u(iv), additionalData:new TextEncoder().encode(topic)}, key, unb64u(ct));
             const o = JSON.parse(new TextDecoder().decode(pt));
-            if(!o.u || !o.c) continue;
+            if(!o.u || !(o.c || o.a)) continue;
             stop = true; $('#qrs').textContent = 'Erkannt – lade deine Daten …'; box.style.opacity = '.3';
-            await webQrLogin(QR_PREFIX + o.u + '.' + o.c); return;
+            if(o.c){ await webQrLogin(QR_PREFIX + o.u + '.' + o.c); return; }
+            // ohne Geräte-Abgleich: das Handy schickt die Daten selbst (verschlüsselt, als Anhang)
+            try{
+              const url = String(m.attachment?.url||''); if(!url.startsWith(PAIR_RELAY + 'file/')) throw new Error('Die Daten vom Handy fehlen. Bitte nochmals scannen.');
+              const enc = await (await fetch(url, {cache:'no-store', credentials:'omit', referrerPolicy:'no-referrer'})).text();
+              const raw = await crypto.subtle.decrypt({name:'AES-GCM', iv:unb64u(o.aiv), additionalData:new TextEncoder().encode(topic + '.d')}, key, unb64u(enc.trim()));
+              const data = JSON.parse(await new Response(new Blob([raw]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
+              await webDataLogin(data, o.u);
+            }catch(err){ $('#qrs').textContent = err.message || String(err); }
+            return;
           }catch(e){ /* fremde oder kaputte Nachricht: ignorieren */ }
         }
       }catch(e){ $('#qrs').textContent = 'Keine Verbindung – versuche es weiter …'; }
@@ -73,7 +93,6 @@ async function webPairShow(){
 
 /* ---------- Handy: QR-Code am Bildschirm scannen ---------- */
 async function phonePairScan(){
-  if(!ghOn()){ alert('Zuerst den Abgleich zwischen den Geräten einrichten (Einstellungen → Daten & Sicherheit).'); return; }
   if(!navigator.mediaDevices?.getUserMedia){ alert('Die Kamera ist hier nicht verfügbar.'); return; }
   try{ await bkLoadScript('vendor/jsQR.js'); }catch(e){ alert(e.message); return; }
   dialog(`<h3>PC anmelden</h3>
@@ -130,7 +149,7 @@ document.addEventListener('click', e=>{
   a.dataset.act === 'webpair' ? webPairShow() : phonePairScan();
 }, true);
 // Statuszeile «Web verbinden» auf dem Handy: direkt scannen
-window.addEventListener('click', e=>{ const a = e.target.closest?.('.sstat [data-act="ghsetup"]'); if(!a || !NATIVE || !ghOn()) return; e.stopPropagation(); e.preventDefault(); phonePairScan(); }, true);
+window.addEventListener('click', e=>{ const a = e.target.closest?.('.sstat [data-act="ghsetup"],.sstat [data-act="ghjoin"]'); if(!a || !NATIVE) return; e.stopPropagation(); e.preventDefault(); phonePairScan(); }, true);
 
 var _render1300 = render;
 render = function(){
