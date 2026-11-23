@@ -8,7 +8,7 @@ Stand: November 2026
 2. **Keine Konten, keine Werbung, keine Analyse- oder Tracking-Dienste**, keine Drittanbieter-Bibliotheken für Statistik oder Absturzberichte.
 3. **Backups von Android/Google** sind für diese App ausgeschaltet. Ein Backup entsteht nur, wenn du selbst «Backup speichern» wählst. Es ist mit deinem Passwort verschlüsselt, du bestimmst, wo es liegt.
 4. **Update-Prüfung** (nur bei der Version ausserhalb des Play Store): Die App fragt höchstens alle 12 Stunden bei GitHub (api.github.com) nach, ob eine neue Version da ist. Dabei werden keine Finanzdaten übertragen. GitHub sieht wie bei jedem Webseitenaufruf deine IP-Adresse (Datenschutz von GitHub: https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement).
-5. **Berechtigungen:** «Internet» (Update-Prüfung und freiwillige Dienste unten), «fremde Overlays ausblenden» (Schutz vor Klick-Betrug), «Biometrie verwenden» (Fingerabdruck) und «Mitteilungen» (nur wenn du sie einschaltest). Kein Zugriff auf Kontakte, Standort, Kamera, Mikrofon oder Dateien.
+5. **Berechtigungen:** «Internet» (Update-Prüfung und freiwillige Dienste unten), «fremde Overlays ausblenden» (Schutz vor Klick-Betrug), «Biometrie verwenden» (Fingerabdruck), «Mitteilungen» (nur wenn du sie einschaltest) und ab Version 1.30 «Kamera» (nur zum Scannen des Anmelde-Codes am PC; Android fragt beim ersten Mal). Kein Zugriff auf Kontakte, Standort, Mikrofon oder Dateien.
 6. **Löschen:** In der App unter «Daten & Backup → Alle Daten löschen» oder durch Deinstallieren der App werden alle Daten entfernt.
 
 Kontakt: über die E-Mail-Adresse im Play-Store-Eintrag bzw. im GitHub-Projekt.
@@ -16,7 +16,7 @@ Kontakt: über die E-Mail-Adresse im Play-Store-Eintrag bzw. im GitHub-Projekt.
 ## Bankdateien und Fotos (ab Version 1.1)
 - Hochgeladene Bankdateien (CSV) werden nur auf dem Gerät gelesen. Gespeichert werden die einzelnen Buchungen – verschlüsselt wie alle anderen Daten. Die Datei selbst wird nicht aufbewahrt.
 - Fotos von Rechnungen und Belegen werden nur auf dem Gerät ausgewertet (QR-Code-Leser und Texterkennung sind in der App enthalten, nichts wird aus dem Internet nachgeladen). Die App speichert das Foto nicht; Android legt es kurz im privaten App-Ordner ab, und die App löscht es dort nach spätestens 30 Minuten.
-- Die App braucht dafür keine Kamera-Berechtigung: Android öffnet die Kamera-App, und nur das eine Foto kommt zurück.
+- Für Belegfotos braucht die App keine Kamera-Berechtigung: Android öffnet die Kamera-App, und nur das eine Foto kommt zurück.
 - PDF-Dokumente (Verträge, Rechnungen; ab Version 1.17) werden ebenfalls nur auf dem Gerät gelesen – mit Mozilla pdf.js, das fest in der App enthalten ist. Das PDF wird nicht gespeichert.
 
 ## Fingerabdruck (ab Version 1.3)
@@ -36,6 +36,7 @@ Kontakt: über die E-Mail-Adresse im Play-Store-Eintrag bzw. im GitHub-Projekt.
 - Der Token sollte nur für dieses eine Repository und nur «Contents» gelten. So kann er nichts anderes in deinem GitHub-Konto ändern.
 - Die App spricht dafür nur mit api.github.com (in der Sicherheitsregel der App fest eingetragen).
 - Anmeldung der Web-Version per QR-Code (ab Version 1.29): Das Handy zeigt den Verbindungscode als QR-Code, die Web-Version liest ihn mit der Kamera des PCs – nur lokal, nichts geht dafür übers Internet. Das Kamerabild wird nicht gespeichert. Die Web-Version bleibt bis Mitternacht verbunden (ein zufälliger Tages-Schlüssel ersetzt die PIN) und löscht danach ihre Kopie der Daten im Browser.
+- Anmeldung am PC durch Scannen mit dem Handy (ab Version 1.30): Die Finanzen-Seite am PC zeigt einen QR-Code mit einem Einmal-Schlüssel, der nur im Arbeitsspeicher des PCs liegt. Die App (Kamera-Berechtigung, nur für diesen Scan; das Bild wird nicht gespeichert) verschlüsselt den Verbindungscode damit (ECDH P-256 + AES-256-GCM) und legt nur den verschlüsselten Block für höchstens 12 Stunden beim öffentlichen Nachrichtendienst ntfy.sh unter einer zufälligen Adresse ab. ntfy.sh sieht dabei die IP-Adressen von Handy und PC, aber keinen lesbaren Inhalt; öffnen kann ihn nur der PC, der den Code angezeigt hat. Wer das nicht möchte, nutzt den Weg «Handy zeigt den Code» – der geht nicht übers Internet.
 
 
 ## Wechselkurse (ab Version 1.12)

@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.30.0
+- **Umgekehrt: Der PC zeigt den QR-Code, das Handy scannt ihn.** Am PC auf der Finanzen-Seite «Mit Handy anmelden» klicken. Auf dem Handy Einstellungen → Daten & Sicherheit → «PC anmelden (QR-Code scannen)», die Kamera auf den Bildschirm halten und bestätigen. Nach wenigen Sekunden ist der PC bis Mitternacht verbunden.
+- Der Code wird auf dem Handy verschlüsselt, sodass nur genau dieser PC ihn öffnen kann. Die App fragt beim ersten Scannen nach der Kamera-Erlaubnis.
+- Der bisherige Weg (Handy zeigt den Code, PC-Kamera liest ihn) bleibt als Alternative.
+- **Nur noch deutsche Begriffe:** z. B. Abgleich statt Sync, Sicherung statt Backup, Zugangsschlüssel statt Token, Geldfluss statt Cashflow, Etiketten statt Labels, Finanz-Berater statt Coach, PC-Version statt Web-Version.
+
 ## 1.29.0
 - **Web mit QR-Code anmelden:** Auf dem Handy Einstellungen → Daten & Sicherheit → Geräte-Sync → «Web anmelden (QR)». In der Web-Version «Mit Handy-QR anmelden» klicken und den Code vor die Kamera des PCs halten. Kein Code abtippen, keine PIN.
 - Die Web-Version bleibt **bis Mitternacht verbunden** – auch nach Neuladen oder Sperren. Danach meldet sie sich selbst ab und löscht ihre Kopie der Daten im Browser.
