@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.26.0
+- **Du bestimmst, welche Konten zählen:** Auf der Seite «Konten» hat jedes Konto einen Schalter «zählt im Saldo». Deine Wahl bleibt – der Abgleich überschreibt sie nicht mehr.
+- **Saldo** zählt alle Konten, die du eingeschaltet hast (auch Konten, die es nur in der App gibt).
+- **Kein Konto mehr unter falschem Namen:** Konten heissen wie in Wallet (ausser du hast eines selbst umbenannt). War ein Konto falsch zugeordnet, sieht man es jetzt sofort.
+- Einstellungen → Wallet-Verbindung zeigt die Zuordnung aller Konten und meldet fehlende – mit «Fehlende Konten neu anlegen».
+
 ## 1.25.0
 - **Abgleich in Sekunden:** Solange die App offen ist, prüft sie alle 20 Sekunden die Kontostände. Ändert sich etwas, holt sie sofort die neuen Buchungen – Stände und Buchungen sind innert Sekunden gleich.
 - Eigene Buchungen werden nach 1 Sekunde übertragen, die Stände danach sofort neu geholt.
