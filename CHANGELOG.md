@@ -2,6 +2,11 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.24.0
+- **Wallet nur noch in den Einstellungen:** Startseite, Konten, Plus-Menü, Hinweise und Meldungen erwähnen Wallet nicht mehr – die Verbindung arbeitet unsichtbar im Hintergrund.
+- «Wallet-Verbindung» steht jetzt im Menü unter **Einstellungen**, zusammen mit den Einmal-Werkzeugen (Kategorien und Regeln übernehmen).
+- Die Kachel «Konten wie in Wallet» entfällt – neue Konten kommen automatisch.
+
 ## 1.23.0
 - **Nichts mehr bestätigen:** Der Wallet-Abgleich läuft still im Hintergrund – keine «OK»-Meldung nach jedem Abgleich, keine Abfrage für neue Konten mehr.
 - **Sofort aktuell:** Nach dem Entsperren werden Wallet und Web direkt abgeglichen.
