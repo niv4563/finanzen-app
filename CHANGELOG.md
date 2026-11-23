@@ -2,6 +2,9 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.34.1
+- **Von–Bis zeigt immer den betrachteten Zeitraum:** Bei Buchungen und in der Analyse stehen die Datumsfelder immer da und passen sich an Woche · Monat · Jahr und ‹ › an. Ein Datum ändern = neuer Zeitraum, ohne weiteren Knopf.
+
 ## 1.34.0
 - **Geplantes wird nur angedeutet, nie abgebucht.** Abgezogen wird nur, was wirklich abgerechnet ist: Abbuchungen von der Bank bzw. aus Wallet und eigene Buchungen bis heute.
 - **Rechnungen:** «Bezahlt» bucht nichts mehr, die Rechnung gilt als «angewiesen» und wird gestrichelt angezeigt. Sobald die Abbuchung kommt (gleicher Betrag), steht sie auf «bezahlt» – ohne doppelte Buchung.
