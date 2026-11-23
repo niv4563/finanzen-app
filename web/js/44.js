@@ -36,6 +36,18 @@ async function webDataLogin(data, until){
   toastMsg('Verbunden bis heute 23:59');
 }
 
+async function webGhLogin(code, until){
+  if(!(new Date(until) > new Date())) throw new Error('Dieser Code ist abgelaufen. Bitte neu anzeigen.');
+  const o = ghParse(code); await ghCheckRepo(o.r, o.t);
+  const rem = await ghRead(o, await ghKey(o.k)); if(!rem.sha) throw new Error('Im Abgleich liegen noch keine Daten.');
+  D = migrate(rem.data); D.sync = {rev:rem.rev, at:new Date().toISOString(), dirty:false}; SYNCCODE = code;
+  const p = b64u(crypto.getRandomValues(new Uint8Array(24)));
+  S.noDirty = true; await setPin(p); S.noDirty = false;
+  localStorage.setItem(DAY_KEY, JSON.stringify({p, until}));
+  S.locked = false; $('#dlg').open && $('#dlg').close(); S.view = 'start'; render();
+  toastMsg('Verbunden bis heute 23:59');
+}
+
 /* ---------- Web: QR-Code zeigen und auf das Handy warten ---------- */
 async function webPairShow(){
   try{ await bkLoadScript('vendor/qrcode.js'); }catch(e){ alert(e.message); return; }
@@ -63,7 +75,10 @@ async function webPairShow(){
             const o = JSON.parse(new TextDecoder().decode(pt));
             if(!o.u || !(o.c || o.a)) continue;
             stop = true; $('#qrs').textContent = 'Erkannt – lade deine Daten …'; box.style.opacity = '.3';
-            if(o.c){ await webQrLogin(QR_PREFIX + o.u + '.' + o.c); return; }
+            if(o.c){                                             // mit Geräte-Abgleich; klappt das nicht (z. B. Zugang abgelaufen), gelten die mitgeschickten Daten
+              try{ await webGhLogin(o.c, o.u); return; }
+              catch(err){ if(!o.a){ $('#qrs').textContent = err.message || String(err); return; } }
+            }
             // ohne Geräte-Abgleich: das Handy schickt die Daten selbst (verschlüsselt, als Anhang)
             try{
               const url = String(m.attachment?.url||''); if(!url.startsWith(PAIR_RELAY + 'file/')) throw new Error('Die Daten vom Handy fehlen. Bitte nochmals scannen.');
