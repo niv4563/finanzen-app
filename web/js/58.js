@@ -10,19 +10,23 @@
    Alles wird auf dem Gerät gerechnet; es geht nichts ins Internet.
    ===================================================================== */
 var BH_FIX = ['fix','schulden','spar'];
-var bhGroup = c => D.cats.find(x=>x.id===c)?.group || '';
-var bhVar = c => c && c!=='_inc' && !BH_FIX.includes(bhGroup(c));
+// Wallet-Kategorien zählen ins Budget einer eigenen Kategorie («Zählt ins Budget von») – gerechnet wird pro Budget-Kategorie
+var bhKey = c => { const x = D.cats.find(y=>y.id===c); return x?.bud && D.cats.some(y=>y.id===x.bud && !y.wid) ? x.bud : c; };
+var bhGroup = c => D.cats.find(x=>x.id===bhKey(c))?.group || D.cats.find(x=>x.id===c)?.group || '';
+var bhVar = c => c && c!=='_inc' && c!=='_tr' && !BH_FIX.includes(bhGroup(c));
 var bhCache = {k:null, v:null};
 
 // Modell pro Kategorie aus der ganzen Geschichte (ohne laufenden Monat)
 function bhModel(){
   const key = TODAY+'|'+D.tx.length+'|'+(D.savedAt||'');
   if(bhCache.k===key) return bhCache.v;
+  // die letzten 48 Monate vor dem laufenden Monat (nicht die ältesten)
   const first = D.tx.reduce((m,t)=>t.d<m?t.d:m, '9999').slice(0,7), hist = [];
-  for(let ym=first; ym<TODAY && hist.length<48; ym=ymAdd(ym,1)) hist.push(ym);
+  for(let ym=ymAdd(TODAY,-1); ym>=first && hist.length<48; ym=ymAdd(ym,-1)) hist.unshift(ym);
+  const histSet = new Set(hist);
   const byCat = {};
-  for(const t of D.tx){ const v = kSpend(t); if(!v || !bhVar(t.c)) continue; const ym = t.d.slice(0,7); if(ym>=TODAY || !hist.includes(ym)) continue;
-    const o = byCat[t.c] ??= {m:{}, dow:Array(7).fill(0), n:0}; o.m[ym] = (o.m[ym]||0) + v; o.dow[new Date(t.d+'T12:00').getDay()] += v; o.n++; }
+  for(const t of D.tx){ const v = kSpend(t); if(!v || !bhVar(t.c)) continue; const ym = t.d.slice(0,7); if(!histSet.has(ym)) continue;
+    const o = byCat[bhKey(t.c)] ??= {m:{}, dow:Array(7).fill(0), n:0}; o.m[ym] = (o.m[ym]||0) + v; o.dow[new Date(t.d+'T12:00').getDay()] += v; o.n++; }
   const models = {};
   for(const [c,o] of Object.entries(byCat)){
     // nur Monate ab der ersten Buchung dieser Kategorie zählen
@@ -61,7 +65,11 @@ var WD = ['So','Mo','Di','Mi','Do','Fr','Sa'], WDL = ['Sonntag','Montag','Dienst
 
 // Prognose: Alltag & Freizeit aus dem Verhalten statt gleichmässig aus dem Budget
 fcEvents = (prev => function(until){
-  const F = prev(until), M = bhModel(), today = todayIso();
+  const F = prev(until), M = bhModel(), today = todayIso(), tmr = dAdd(today,1);
+  // auch Monate ohne Budget bekommen den täglichen Gebrauch
+  for(let ym=TODAY; ym<=until.slice(0,7); ym=ymAdd(ym,1)){ if(F.bud.some(b=>b.ym===ym)) continue;
+    const from = ym===TODAY ? tmr : ym+'-01', to = mEnd(ym) > until ? until : mEnd(ym); if(from<=to) F.bud.push({ym, from, to, tot:0, per:[]}); }
+  F.bud.sort((a,b)=>a.ym.localeCompare(b.ym));
   for(const b of F.bud){ const days = {}; let tot = 0, beh = 0;
     for(const p of b.per){ const m = M[p.c.id];
       if(m && m.months>=3){ let s = 0; const dd = {}; for(let d=b.from; d<=b.to; d=dAdd(d,1)){ const v = bhDayIn(m, d); dd[d] = v; s += v; }
@@ -92,7 +100,7 @@ function cardDaily(){
   const M = bhModel(), cats = Object.values(M).filter(m=>m.months>=2 && D.cats.some(c=>c.id===m.c));
   if(!cats.length) return `<div class="xcard xw"><div class="ah"><h3>Tägliche Schätzung</h3></div><p class="small muted">Für eine Schätzung aus deinem Verhalten braucht es Buchungen aus mindestens zwei Monaten.</p></div>`;
   const ym = TODAY, today = todayIso(), n = +mEnd(ym).slice(8), days = Array.from({length:n},(_,i)=>ym+'-'+String(i+1).padStart(2,'0'));
-  const actDay = d => D.tx.filter(t=>t.d===d && bhVar(t.c)).reduce((s,t)=>s+kSpend(t),0);
+  const actDay = d => D.tx.filter(t=>t.d===d && bhVar(t.c)).reduce((s,t)=>s+kSpend(t),0);  // alle veränderlichen Ausgaben des Tages
   const estDay = d => cats.reduce((s,m)=>s+bhDay(m,d),0);
   const act = days.map(d=>d<=today ? actDay(d) : null), est = days.map(estDay);
   const spent = act.reduce((s,v)=>s+(v||0),0), rest = days.filter(d=>d>today).reduce((s,d)=>s+estDay(d),0), expSoFar = days.filter(d=>d<=today).reduce((s,d)=>s+estDay(d),0);
@@ -102,7 +110,7 @@ function cardDaily(){
   const chartV = chart({label:'Ausgaben pro Tag: effektiv und geschätzt', h:200, labels:days.map(d=>String(+d.slice(8))), tips:days.map(d=>`${WDL[new Date(d+'T12:00').getDay()]}, ${dShort(d)}${d>today?' · Schätzung':''}`),
     series:[{name:'Effektiv', color:C_OUT, kind:'bar', values:act.map(v=>v==null?0:Math.round(v))},{name:'Geschätzt', color:'#8a96a3', dash:true, values:est.map(v=>Math.round(v))}]});
   // Kategorien
-  const rows = cats.map(m=>{ const c = D.cats.find(x=>x.id===m.c), so = D.tx.filter(t=>t.d.startsWith(ym) && t.d<=today && t.c===m.c).reduce((s,t)=>s+kSpend(t),0),
+  const rows = cats.map(m=>{ const c = D.cats.find(x=>x.id===m.c), so = D.tx.filter(t=>t.d.startsWith(ym) && t.d<=today && bhKey(t.c)===m.c).reduce((s,t)=>s+kSpend(t),0),
       re = days.filter(d=>d>today).reduce((s,d)=>s+bhDay(m,d),0), pl = C.m?.[ym]?.plan?.[m.c]||0;
       return {m, c, so, re, end:so+re, pl}; }).sort((a,b)=>b.end-a.end);
   const crow = r => `<tr><td>${esc(r.c.name)}<span class="small muted">Ø ${chf0(r.m.month/n)}/Tag · meist ${WD[r.m.top]}${Math.abs(r.m.sf-1)>=0.08?` · ${ymShort(ym)} ${r.m.sf>1?'+':'−'}${Math.round(Math.abs(r.m.sf-1)*100)} %`:''}</span></td>
@@ -127,3 +135,6 @@ function cardDaily(){
 }
 cardOutlook = (prev => function(){ const h = prev().replace(/Schätzung · Rest des Budgets auf (\d+) Tage/g, (x,n)=>bhCache.v && Object.keys(bhCache.v).length ? `Schätzung aus deinem Verhalten · ${n} Tage` : x), k = cardDaily(), i = h.indexOf('<div class="xcard xw"><div class="ah"><div><h3>Kontotrend');
   return i>=0 ? h.slice(0,i) + k + h.slice(i) : h + k; })(cardOutlook);
+// Auch im Reiter «Ausgaben» der Analyse: tägliche Schätzung zuoberst
+vStatistik = (prev => function(){ const h = prev(); if((S.atab2||'saldo')!=='aus') return h; const i = h.indexOf('<div class="agrid">');
+  return i>=0 ? h.slice(0, i+19) + cardDaily() + h.slice(i+19) : h; })(vStatistik);
