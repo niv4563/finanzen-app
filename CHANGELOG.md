@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.39.1
+- **Korrektur: täglicher Gebrauch in der Analyse.** Buchungen aus Wallet tragen Wallet-Kategorien, die über «Zählt ins Budget von» in deine Kategorien fliessen. Die tägliche Schätzung rechnet jetzt pro Budget-Kategorie (z. B. alle Wallet-Lebensmittel unter «Lebensmittel»), damit sie zum Budget passt und nichts doppelt zählt.
+- Bei langer Wallet-Geschichte zählen jetzt die **letzten** 4 Jahre (vorher die ältesten).
+- Auch Monate ohne Budget bekommen den täglichen Gebrauch in der Prognose.
+- Die tägliche Schätzung steht neu auch im Reiter «Ausgaben» der Analyse.
+
 ## 1.39.0
 - **Tägliche Schätzung aus deinem Verhalten** (Analyse → Ausblick): Für Lebensmittel, Restaurant, Kleidung, Freizeit und alle anderen veränderlichen Kategorien lernt die App aus allen bisherigen Buchungen, wie viel du pro Monat ausgibst (die letzten 6 Monate zählen mehr, einzelne grosse Käufe werden gedämpft), ob der Monat in früheren Jahren teurer war (z. B. Dezember) und an welchen Wochentagen du dafür Geld ausgibst.
 - Daraus entsteht für **jeden Tag des Monats eine geschätzte Ausgabe** – mit den grössten Kategorien pro Tag, z. B. «Sa 28. Nov.: Lebensmittel 120 · Restaurant 24».
