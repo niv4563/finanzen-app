@@ -2,6 +2,13 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.45.1
+- **Muss · Brauch · Will direkt im Budget zuweisen:** In «Plan bearbeiten» hat jede Kategorie die Auswahl Muss · Brauch · Will. Ein Tipp verschiebt sie in den passenden Bereich.
+- **Muss steht sicher im Budget:** Hat eine Muss-Kategorie im ganzen Jahr keinen Betrag, wird sie rot markiert. Die App schlägt den Betrag aus der regelmässigen Zahlung oder dem Schnitt der letzten Monate vor – einzeln oder alle mit einem Tipp übernehmen. Muss bleibt fix und wird nur bewusst geändert.
+- **Brauch je nach Situation:** Betrag direkt anpassen wie bisher.
+- **Will ohne Budget:** Will-Kategorien haben kein Budget mehr. Die App zeigt, was nach Muss, Sparen und Brauch für Will frei bleibt und was du davon schon ausgegeben hast. Bisherige Will-Beträge ab diesem Monat werden zur Seite gelegt – stellst du eine Kategorie zurück auf Brauch oder Muss, sind sie wieder da.
+- Jahresübersicht: «Frei für Will» pro Monat, Will mit den effektiven Ausgaben.
+
 ## 1.45.0
 - **Budget neu nach Muss · Sparen · Brauch · Will gegliedert:** «Plan bearbeiten» zeigt jetzt, wie sich dein Einkommen verteilt: Einkommen − Muss (fix) − Sparen = frei für Brauch & Will, davon geplant und was noch nicht verteilt ist – mit Anteil vom Einkommen. Darunter die vier Bereiche, jeweils aufklappbar und nach Betrag sortiert.
 - **Muss-Beträge sind fix:** Miete, Versicherungen, Steuern, Abos mit Vertrag, Schulden und die Rückstellung haben kein Eingabefeld mehr. Ändern geht nur bewusst über «Betrag ändern …» mit Rückfrage (z. B. neue Miete). Pro Posten steht, ob er regelmässig gebucht wird, und ein Hinweis, wenn der effektive Betrag deutlich abweicht.
