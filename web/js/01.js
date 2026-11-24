@@ -287,9 +287,9 @@ function calc(){
     const past = ym < TODAY;
     const yc = {cats:{}, out:{}}, mo = +ym.slice(5);   // Jahreskosten in diesem Monat
     for(const x of D.yearly){ if(ym < x.from) continue;
-      if(x.mode==='verteilt'){   // bis zur ersten Fälligkeit schneller ansparen, danach 1/12 pro Monat
+      if(x.mode==='verteilt'){   // gleichmässig 1/12 pro Monat (wahlweise bis zur ersten Fälligkeit schneller ansparen)
         let due=x.from; while(+due.slice(5)!==x.month) due=ymAdd(due,1);
-        const rate = ym<=due ? x.amount/(ymDiff(x.from,due)+1) : x.amount/12;
+        const rate = (D.settings.rueckFast && ym<=due) ? x.amount/(ymDiff(x.from,due)+1) : x.amount/12;   // Standard: gleichmässig 1/12
         yc.cats.rueck=(yc.cats.rueck||0)+rate; if(x.month===mo) yc.out.rueck=(yc.out.rueck||0)+x.amount; }
       else if(x.month===mo) yc.cats[x.cat]=(yc.cats[x.cat]||0)+x.amount; }
     const pl = c => ((D.plan[c]?.[ym])||0) + (yc.cats[c]||0), iv = c => ist[c]?.[ym];

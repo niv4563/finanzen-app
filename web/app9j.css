@@ -1,0 +1,43 @@
+/* 1.42 Budgetplanung: aufklappbare Bereiche, Differenz, Rückstellung, Abgaben */
+.bdet>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px}
+.bdet>summary::-webkit-details-marker{display:none}
+.bdet>summary h3{margin:0}
+.bdet>summary .chev::before{content:'▸';display:inline-block;width:14px;color:var(--muted);transition:transform .15s}
+.bdet[open]>summary .chev::before{transform:rotate(90deg)}
+.bdet[open]>summary{margin-bottom:8px}
+.bdet .bsr{text-align:right;white-space:nowrap}
+.bdet .bsr b{font-size:16px}
+.bsub{border-top:1px solid var(--line);padding:10px 0 4px}
+.bsub:first-of-type{border-top:0}
+.bsub>summary .dot{flex:none}
+.bdiff .bdrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bdiff .bdrow>div{display:flex;flex-direction:column;flex:1;min-width:80px}
+.bdiff .bdrow b{font-size:18px}
+.bdiff .op{color:var(--muted);font-size:18px}
+.rktab{width:100%;border-collapse:collapse}
+.rktab th,.rktab td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}
+.rktab .num{text-align:right}
+.rktab tr.click{cursor:pointer}
+.rktab tr.click:hover td{background:var(--acc-soft)}
+.rktab tr.tot td{font-weight:700;border-bottom:0}
+.abgm{padding:8px 0;border-top:1px solid var(--line)}
+.abgm:first-child{border-top:0}
+.abgr{display:flex;gap:8px;align-items:baseline;padding:3px 0;font-size:14px}
+.abgr[data-go]{cursor:pointer}
+.abgr>span:first-child{min-width:26px}
+.abgr.est{font-style:italic;color:var(--muted)}
+.jbl .row{padding:4px 0;gap:8px}
+.jbl .row .dot{margin-right:6px}
+.jbl .jbt{border-top:1px solid var(--line);font-weight:650;padding-top:6px}
+.jbl .jbp{min-width:44px;text-align:right}
+.ytable tr.ytog td{cursor:pointer}
+.ytable tr.ytog:hover td{background:var(--acc-soft)}
+.ytable tr.ydiff td{border-top:2px solid var(--line);border-bottom:2px solid var(--line)}
+.ytable tr.yout td{border-top:0}
+.ytable tr.ycat a.link{color:var(--acc)}
+.bdet>summary .chev{display:none}
+.rkch{flex-wrap:wrap;overflow:visible}
+.rktab td .small{font-weight:400}
+.rktab{table-layout:fixed}
+.rktab th.num,.rktab td.num{width:76px}
+.rktab td,.rktab th{white-space:normal;overflow-wrap:anywhere}
