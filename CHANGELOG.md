@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.47.0
+- **50 · 30 · 20 in jedem Monat:** Die fünf Gruppen bleiben. Zusätzlich zeigt die App den Anteil vom Einkommen für **Bedarf** (Grundbedürfnisse + Fixkosten), **Wünsche** (Persönliche Wünsche + Freizeit) und **Sparen** (Sparen & Vorsorge).
+- **Plan bearbeiten (Monat):** Karte «Ziel» mit Balken pro Bereich, Strich beim Ziel, geplant und effektiv in % und CHF, dazu die Abweichung vom Ziel. Grün = im Ziel, orange = knapp daneben, rot = deutlich daneben.
+- **Jahresübersicht:** Unter «Differenz» drei Zeilen mit den % für jeden Monat (geplant, bei vergangenen Monaten auch effektiv) und fürs ganze Jahr.
+- **Ziel pro Jahr:** Standard 50 · 30 · 20. Für **2027 als Ausnahme 50 · 20 · 30** (30 % Sparen). Ändern mit «Ziel ändern …» – nur für ein Jahr oder für alle Jahre ohne eigene Ausnahme.
+
 ## 1.46.0
 - **Budget nach deinen Gruppen:** «Plan bearbeiten» und die Jahresübersicht sind jetzt gegliedert in **Grundbedürfnisse · Fixkosten · Sparen & Vorsorge · Persönliche Wünsche · Freizeit**. Jede Gruppe ist aufklappbar, mit Summe und Anteil vom Einkommen. Schuldenabbau (Raten, Kreditkarte) zählt zu den Fixkosten.
 - **So verteilt sich dein Einkommen:** Einkommen minus jede Gruppe = noch nicht verteilt bzw. zu viel verplant. In der Jahresübersicht: Einkommen, Differenz, Ausgaben total und darunter die fünf Gruppen.
