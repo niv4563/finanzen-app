@@ -2,6 +2,10 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.44.2
+- **Geräte-Abgleich ohne Verluste:** Bisher gewann beim Abgleich zwischen Handy und PC jeweils das Gerät, das zuletzt gespeichert hatte. Weil das Handy laufend speichert (z. B. neue Kontostände), gingen Änderungen vom PC an Budget, geplanten Zahlungen, Kategorien oder Buchungen manchmal verloren. Jetzt merkt sich jedes Gerät den zuletzt gemeinsamen Stand und vergleicht Feld für Feld: Was nur auf einem Gerät geändert wurde, bleibt erhalten. Nur wenn beide Geräte dasselbe Feld geändert haben, gilt die neuere Änderung.
+- Bitte nach dem Update auf beiden Geräten die App einmal öffnen, damit der gemeinsame Stand angelegt wird.
+
 ## 1.44.1
 - **Geplante Zahlungen ohne Doppeltes aus dem Budget:** Wiederkehrende Kosten, deren Kategorie schon ein Budget hat (z. B. Miete, Krankenkasse), erscheinen nicht mehr als geplante oder bevorstehende Zahlung – sie zählen bereits über das Budget. In der Kategorie-Übersicht stehen sie weiterhin, mit dem Hinweis «im Budget enthalten». Selbst erfasste geplante Zahlungen bleiben unverändert.
 
