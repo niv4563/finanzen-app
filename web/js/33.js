@@ -56,21 +56,21 @@ wbAccountsSync = async function(){
 };
 /* ---------- Geplante Zahlungen aus Wallet ---------- */
 async function wbPlannedSync(){
-  const w = D.walletApi; if(w.plannedAt && Date.now()-new Date(w.plannedAt) < 30*60*1000) return;
+  const w = D.walletApi; if(w.plannedAt && Date.now()-new Date(w.plannedAt) < 30*60*1000 && (w.planned||[]).every(p=>'ty' in p)) return;
   let list = [], off = 0;
   for(let p=0;p<5;p++){ const j = await wbGet(`standing-orders?limit=200&offset=${off}`), l = wbList(j,'standingOrders'); list = list.concat(l); if(j?.nextOffset==null || !l.length) break; off = j.nextOffset; }
   const byWid = {}; for(const [k,v] of Object.entries(D.accMap)) if(k.startsWith('wallet:') && v){ const a = D.accounts.find(x=>x.id===v); if(a?.wid) byWid[a.wid] = a.id; }
   w.planned = list.filter(o=>o && o.id && o.dueDate && +o.amount).map(o=>{ let v = +o.amount; const ty = String(o.type||'').toLowerCase(); if(ty==='income') v = Math.abs(v); else if(ty==='expense') v = -Math.abs(v);
     const f = /FREQ=(\w+)/i.exec(String(o.recurrenceRule||'')), iv = /INTERVAL=(\d+)/i.exec(String(o.recurrenceRule||''));
     return {id:o.id, n:String(o.name||o.counterParty||'Geplante Zahlung').slice(0,60), acc:byWid[o.accountId]||null, v:r2(v), cur:String(o.currencyCode||'CHF').toUpperCase(),
-      due:String(o.dueDate).slice(0,10), freq:f?f[1].toUpperCase():null, iv:iv?+iv[1]:1, cat:o.categoryId||null}; });
+      due:String(o.dueDate).slice(0,10), freq:f?f[1].toUpperCase():null, iv:iv?+iv[1]:1, cat:o.categoryId||null, ty, to:o.toAccountId?(byWid[o.toAccountId]||'x'):null}; });
   w.plannedAt = new Date().toISOString(); save();
 }
 function wbPlannedOcc(from, until){
   const out = [], step = (d,p) => p.freq==='DAILY' ? dAdd(d,p.iv) : p.freq==='WEEKLY' ? dAdd(d,7*p.iv) : p.freq==='YEARLY' ? ymAdd(d.slice(0,7),12*p.iv)+d.slice(7) : p.freq==='MONTHLY' ? ymAdd(d.slice(0,7),p.iv)+'-'+String(Math.min(+d.slice(8,10), +mEnd(ymAdd(d.slice(0,7),p.iv)).slice(8))).padStart(2,'0') : null;
   for(const p of D.walletApi?.planned||[]){
     let d = p.due, k = 0;
-    while(d && d<=until && k++<60){ if(d>=from) out.push({d, n:p.n, sub:'Wallet'+(p.acc?' · '+accName(p.acc):''), v:-p.v, c:null, go:'kalender', wp:p.id}); d = step(d,p); }
+    while(d && d<=until && k++<60){ if(d>=from) out.push({d, n:p.n, sub:'Wallet'+(p.acc?' · '+accName(p.acc):''), v:-p.v, c:(p.cat && D.cats.find(c=>c.wid===p.cat)?.id)||null, go:'kalender', wp:p.id}); d = step(d,p); }
   }
   return out;
 }
