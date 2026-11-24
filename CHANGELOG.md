@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.39.2
+- **Realistischere Schätzung:** Der tägliche Konsum kommt nur noch aus deinem echten Kaufverhalten. Geplante Kosten (Rechnungen, Daueraufträge, feste Kosten, Jahreskosten) sind schon separat drin und werden nicht nochmals geschätzt.
+- **Kein Budget-Rest mehr als Ausgabe:** Was im Budget übrig ist (z. B. Puffer, Ferien, Unter Leuten), wird nicht mehr automatisch als Ausgabe angenommen.
+- Wiederkehrende Zahlungen (gleicher Empfänger, ähnlicher Betrag, z. B. Abos) und grosse Einzelkäufe zählen nicht als täglicher Konsum. Ist eine wiederkehrende Zahlung nirgends als Dauerauftrag erfasst, rechnet der Ausblick sie als eigenen Posten am üblichen Tag.
+- Das Niveau ist der typische Monat der letzten 12 Monate, an die letzten 3 Monate angepasst – einzelne teure Monate verzerren nicht mehr. Neu oben: «Täglicher Konsum» pro Tag im Schnitt.
+
 ## 1.39.1
 - **Korrektur: täglicher Gebrauch in der Analyse.** Buchungen aus Wallet tragen Wallet-Kategorien, die über «Zählt ins Budget von» in deine Kategorien fliessen. Die tägliche Schätzung rechnet jetzt pro Budget-Kategorie (z. B. alle Wallet-Lebensmittel unter «Lebensmittel»), damit sie zum Budget passt und nichts doppelt zählt.
 - Bei langer Wallet-Geschichte zählen jetzt die **letzten** 4 Jahre (vorher die ältesten).
