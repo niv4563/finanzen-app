@@ -2,6 +2,13 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.45.0
+- **Budget neu nach Muss · Sparen · Brauch · Will gegliedert:** «Plan bearbeiten» zeigt jetzt, wie sich dein Einkommen verteilt: Einkommen − Muss (fix) − Sparen = frei für Brauch & Will, davon geplant und was noch nicht verteilt ist – mit Anteil vom Einkommen. Darunter die vier Bereiche, jeweils aufklappbar und nach Betrag sortiert.
+- **Muss-Beträge sind fix:** Miete, Versicherungen, Steuern, Abos mit Vertrag, Schulden und die Rückstellung haben kein Eingabefeld mehr. Ändern geht nur bewusst über «Betrag ändern …» mit Rückfrage (z. B. neue Miete). Pro Posten steht, ob er regelmässig gebucht wird, und ein Hinweis, wenn der effektive Betrag deutlich abweicht.
+- **Muss wird nicht gesteuert:** Keine Tagesbudgets, Warnungen «überschritten» oder «zu schnell aufgebraucht», Wochengrenzen oder Spartipps mehr für Muss-Kategorien. Gesteuert werden nur Brauch und Will.
+- **Jahresübersicht** mit der gleichen Gliederung: Einkommen, davon fix (Muss & Sparen), frei für Brauch & Will, noch nicht verteilt, dann die vier Bereiche.
+- Welche Kategorie Muss, Brauch oder Will ist, legst du unter «Muss · Brauch · Will» fest.
+
 ## 1.44.2
 - **Geräte-Abgleich ohne Verluste:** Bisher gewann beim Abgleich zwischen Handy und PC jeweils das Gerät, das zuletzt gespeichert hatte. Weil das Handy laufend speichert (z. B. neue Kontostände), gingen Änderungen vom PC an Budget, geplanten Zahlungen, Kategorien oder Buchungen manchmal verloren. Jetzt merkt sich jedes Gerät den zuletzt gemeinsamen Stand und vergleicht Feld für Feld: Was nur auf einem Gerät geändert wurde, bleibt erhalten. Nur wenn beide Geräte dasselbe Feld geändert haben, gilt die neuere Änderung.
 - Bitte nach dem Update auf beiden Geräten die App einmal öffnen, damit der gemeinsame Stand angelegt wird.
