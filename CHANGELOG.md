@@ -2,6 +2,13 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.46.0
+- **Budget nach deinen Gruppen:** «Plan bearbeiten» und die Jahresübersicht sind jetzt gegliedert in **Grundbedürfnisse · Fixkosten · Sparen & Vorsorge · Persönliche Wünsche · Freizeit**. Jede Gruppe ist aufklappbar, mit Summe und Anteil vom Einkommen. Schuldenabbau (Raten, Kreditkarte) zählt zu den Fixkosten.
+- **So verteilt sich dein Einkommen:** Einkommen minus jede Gruppe = noch nicht verteilt bzw. zu viel verplant. In der Jahresübersicht: Einkommen, Differenz, Ausgaben total und darunter die fünf Gruppen.
+- **Persönliche Wünsche** ist eine neue Gruppe (z. B. Anschaffungen, Shopping, Geschenke). Kategorien mit passendem Namen wurden einmal automatisch dorthin verschoben. Ändern: bei einer Kategorie «Ändern …» → «Kategorie umbenennen / Gruppe ändern».
+- **Alle Gruppen haben wieder ein Budget**, auch Persönliche Wünsche und Freizeit. Die in 1.45.1 zur Seite gelegten Beträge sind wieder da.
+- **Muss · Brauch · Will bleibt als Markierung** bei jeder Kategorie: Muss ist fix, muss im Budget stehen und wird nur bewusst geändert (in der Jahresübersicht grau). Brauch und Will passt du direkt an.
+
 ## 1.45.1
 - **Muss · Brauch · Will direkt im Budget zuweisen:** In «Plan bearbeiten» hat jede Kategorie die Auswahl Muss · Brauch · Will. Ein Tipp verschiebt sie in den passenden Bereich.
 - **Muss steht sicher im Budget:** Hat eine Muss-Kategorie im ganzen Jahr keinen Betrag, wird sie rot markiert. Die App schlägt den Betrag aus der regelmässigen Zahlung oder dem Schnitt der letzten Monate vor – einzeln oder alle mit einem Tipp übernehmen. Muss bleibt fix und wird nur bewusst geändert.
