@@ -2,6 +2,14 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.43.0
+- **Alle Kategorien auf Deutsch:** Wallet liefert manche Namen englisch (z. B. «Groceries», «Shopping», «Phone, cell phone»). Sie werden jetzt schon beim Empfang übersetzt, auch die Hauptkategorien und die Kategorie in jeder Buchung. Die Zuordnung zu deinem Budget bleibt dabei erhalten. Kategorien, die du selbst umbenannt hast, bleiben unverändert.
+- **Automatische Zuordnung:** Für jede Buchung ohne Kategorie sucht die App die beste Kategorie. Sie prüft deine früheren Buchungen beim gleichen Händler (neuere und ähnliche Beträge zählen mehr), deine Regeln, bekannte Schweizer Händler und Dienste (z. B. Migros, SBB, Galaxus, Shell, Swisscom, Krankenkassen) und ähnliche Buchungstexte aus allen alten Einträgen. Sichere Treffer setzt sie selbst und meldet, wie viele es waren. Unsichere erscheinen als Vorschlag mit Begründung.
+- **Alte Einträge prüfen:** Buchungen der letzten zwei Jahre, die vom üblichen Muster beim gleichen Händler abweichen, werden zum Prüfen angezeigt – einzeln oder alle mit einem Tipp ändern oder so lassen.
+- Was du von Hand zuordnest, wird nie automatisch überschrieben. Die letzte automatische Zuordnung lässt sich rückgängig machen. Ein- und ausschalten unter «Kategorien zuordnen».
+- Zuordnungen an Buchungen aus Wallet werden auch in Wallet nachgeführt.
+- Alles läuft auf dem Gerät – Händlernamen gehen nicht ins Internet.
+
 ## 1.42.0
 - **Budgetplanung neu gegliedert:** Einkommen – Differenz – Ausgaben total, jeder Bereich auf- und zuklappbar (auch jede Gruppe). Die Wahl bleibt pro Gerät gespeichert.
 - **Nebeneinkommen:** Unter Einkommen mit «+ Nebeneinkommen» eigene Zeilen anlegen (z. B. Nebenjob, Vermietung, Zulagen) – für einen Monat, ab einem Monat oder fürs ganze Jahr. Sie zählen in Differenz, Ausblick und Prognose mit. Der Lohn steht als eigene Zeile darüber.
