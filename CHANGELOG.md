@@ -2,6 +2,9 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.44.1
+- **Geplante Zahlungen ohne Doppeltes aus dem Budget:** Wiederkehrende Kosten, deren Kategorie schon ein Budget hat (z. B. Miete, Krankenkasse), erscheinen nicht mehr als geplante oder bevorstehende Zahlung – sie zählen bereits über das Budget. In der Kategorie-Übersicht stehen sie weiterhin, mit dem Hinweis «im Budget enthalten». Selbst erfasste geplante Zahlungen bleiben unverändert.
+
 ## 1.44.0
 - **Geplante Zahlungen nur aus echten Wiederholungen:** Bevorstehende und geplante Zahlungen enthalten keine Schätzungen aus dem Budget mehr. Neben deinen eigenen geplanten Zahlungen (auch aus Wallet), Rechnungen und Vormerkungen erscheinen nur Kosten, die in deinen Buchungen der letzten 15 Monate regelmässig vorkamen – monatlich, vierteljährlich, halbjährlich oder jährlich, mit ähnlichem Betrag. Sie lassen sich mit einem Tipp als geplante Zahlung übernehmen (mit dem richtigen Rhythmus). Gilt auch für «Sicher kommende Abgaben».
 - **Kategorie-Übersicht:** Ein Tipp auf «Übersicht ›» bei einer Kategorie (Budget, Plan bearbeiten, geplante Zahlungen) zeigt alles an einem Ort: Budget und effektiv für diesen Monat und das Jahr, Verlauf der letzten 12 Monate, geplante und wiederkehrende Zahlungen, Jahreskosten, wo du dafür bezahlst und die letzten Buchungen. Dazu, welche Wallet-Kategorien in dieses Budget zählen.
