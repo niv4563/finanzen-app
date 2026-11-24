@@ -2,6 +2,15 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.42.0
+- **Budgetplanung neu gegliedert:** Einkommen – Differenz – Ausgaben total, jeder Bereich auf- und zuklappbar (auch jede Gruppe). Die Wahl bleibt pro Gerät gespeichert.
+- **Nebeneinkommen:** Unter Einkommen mit «+ Nebeneinkommen» eigene Zeilen anlegen (z. B. Nebenjob, Vermietung, Zulagen) – für einen Monat, ab einem Monat oder fürs ganze Jahr. Sie zählen in Differenz, Ausblick und Prognose mit. Der Lohn steht als eigene Zeile darüber.
+- **Differenz zwischen Einkommen und Ausgaben:** zeigt, was übrig bleibt oder zu viel verplant ist, dazu den Anteil fürs Sparen und den Schuldenabbau. In der Jahresübersicht als eigene Zeile zwischen Einkommen und Ausgaben.
+- **Rückstellung Jahreskosten gleichmässig:** Jede Jahresrechnung wird mit 1/12 pro Monat zurückgelegt. Übersicht mit Betrag pro Jahr und pro Monat, Stand des Rückstellungskontos und Warnung, falls bei einer Fälligkeit Geld fehlt. Wahlweise «Bis zur ersten Fälligkeit ansparen». Häufige Posten (Steuern, Haftpflicht & Hausrat, Motorfahrzeugsteuer …) mit einem Tipp hinzufügen.
+- **Jahresbudget:** Einkommen, Gruppen, Ausgaben total und Differenz fürs ganze Jahr, mit Schnitt pro Monat.
+- **Sicher kommende Abgaben:** Alle bekannten Zahlungen der nächsten 12 Monate nach Monat – Rechnungen, geplante Zahlungen, Jahreskosten und feste Kosten aus dem Budget, genau oder geschätzt gekennzeichnet.
+- «Swisscom» heisst jetzt «Internet und TV».
+
 ## 1.41.0
 - **Überträge planen:** Unter «Geplante Zahlungen» gibt es neu drei Arten: Ausgabe · Einnahme · **Übertrag** (von Konto → auf Konto), z. B. monatlich CHF 600 aufs Sparkonto oder die Begleichung der Kreditkarte. Überträge zählen nicht als Ausgabe, erscheinen neutral (⇄) und verschieben im Kontotrend das Geld zwischen den Konten. Auch in Wallet geplante Überträge werden so angezeigt.
 - **Bestätigtes erscheint nie doppelt:** Ist eine geplante Zahlung schon gebucht (Bank, Wallet oder von Hand – gleicher Betrag ±10 %, ±7 Tage, gleiche Richtung), verschwindet sie bei den bevorstehenden Zahlungen, im Kalender und in der Prognose.
