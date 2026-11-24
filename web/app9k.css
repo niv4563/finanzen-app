@@ -13,3 +13,14 @@
 #privbtn.on{background:var(--acc-soft)}
 body.privat .num,body.privat .amtin,body.privat input[inputmode="decimal"],body.privat svg text,body.privat .bbar,body.privat .kb em{filter:blur(7px)}
 body.privat input:focus{filter:none}
+/* 1.45 Budget nach Muss · Sparen · Brauch · Will */
+.bflow .bfl{display:flex;justify-content:space-between;gap:10px;padding:4px 0;font-size:14px}
+.bflow .bfl span em{font-style:normal;font-size:12px;color:var(--muted);margin-left:6px}
+.bflow .bfl.neg2{color:var(--muted)}
+.bflow .bfl.sum{border-top:1px solid var(--line);font-weight:650;padding-top:6px}
+.bflow .bfl.sum b{font-size:16px}
+.bsec>summary .dot{flex:none;width:10px;height:10px;border-radius:50%}
+.bsfix .bauto b{color:var(--ink)}
+.bfix .bauto span{text-transform:none}
+.ytable tr.yfix td.click{color:var(--muted)}
+.ytable tr.ysub td{color:var(--muted)}
