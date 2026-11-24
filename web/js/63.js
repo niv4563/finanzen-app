@@ -38,7 +38,10 @@ function rcCovered(r){
   return (D.plans||[]).some(p=>!p.off && p.type!=='in' && p.type!=='tr' && (ok(p.amount, p.cat, p.name+' '+(p.match||''))))
     || (D.walletApi?.planned||[]).some(p=>ok(p.v, p.cat && D.cats.find(c=>c.wid===p.cat)?.id, p.n));
 }
-var rcOpen = () => rcAll().filter(r=>!rcCovered(r));
+// schon im Budget enthalten (Kategorie hat diesen oder nächsten Monat ein Budget)?
+function rcBudgeted(r){ if(!r.cat || r.cat==='_offen') return false; const ks = [r.cat, bhKey(r.cat)];
+  return [TODAY, ymAdd(TODAY,1)].some(m=>ks.some(k=>(C.m?.[m]?.plan?.[k]||0) > 0)); }
+var rcOpen = () => rcAll().filter(r=>!rcCovered(r) && !rcBudgeted(r));
 function rcOcc(from, until){
   const out = [];
   for(const r of rcOpen()){ let ym = r.next.slice(0,7), k = 0;
@@ -82,7 +85,7 @@ vPlaene = (prev => function(){
   const sec = R.length ? `<div class="xcard mt"><div class="ah"><div><h3>Wiederkehrende Kosten aus deinen Buchungen</h3><span class="small muted">Regelmässig bezahlt, aber noch nicht geplant – mit einem Tipp übernehmen</span></div></div>
     ${R.map((r,i)=>`<div class="wrow"><span class="wic" style="background:var(--warn)">${ci(CI.repeat)}</span><div class="wmid"><b>${esc(r.who)}</b><span>${freqName(r.freq)} · ${r.n}× gebucht · zuletzt ${dShort(r.last)} · <a class="link" data-act="katinfo" data-c="${r.cat}">${esc(bkName(r.cat))} ›</a></span></div>
       <div class="wend"><b class="num out">−${chf(r.amount)}</b><span>nächste ~${dShort(r.next)} · <a class="link" data-act="rcadd" data-i="${i}">Übernehmen</a></span></div></div>`).join('')}</div>` : '';
-  return h + sec + `<p class="small muted">Hier stehen nur Zahlungen, die du selbst geplant hast (oder in Wallet), und Kosten, die in deinen Buchungen regelmässig vorkamen. Schätzungen aus dem Budget erscheinen hier nicht.</p>`;
+  return h + sec + `<p class="small muted">Hier stehen nur Zahlungen, die du selbst geplant hast (oder in Wallet), und Kosten, die in deinen Buchungen regelmässig vorkamen und nicht schon im Budget stehen. Was budgetiert ist (z. B. Miete), zählt über das Budget und erscheint hier nicht nochmals.</p>`;
 })(vPlaene);
 
 /* ---------- Kategorie-Übersicht: alles zu einer Kategorie an einem Ort ---------- */
@@ -98,7 +101,7 @@ function vKat(){
   const plans = (D.plans||[]).map((p,i)=>({p,i})).filter(x=>x.p.cat && ids.has(x.p.cat));
   const wpl = (D.walletApi?.planned||[]).filter(p=>p.cat && ids.has(D.cats.find(z=>z.wid===p.cat)?.id));
   const yl = (D.yearly||[]).filter(x=>x.cat && ids.has(x.cat));
-  const rc = rcAll().filter(r=>ids.has(r.cat) && !rcCovered(r));
+  const rc = rcAll().filter(r=>ids.has(r.cat) && !rcCovered(r));   // hier auch budgetierte zeigen (als Info)
   const mer = {}; for(const t of D.tx){ if(!ids.has(t.c) || t.d < dAdd(todayIso(),-365)) continue; const k = acMer(t) || 'ohne Text'; const o = mer[k] ??= {n:0, s:0, who:t.n}; o.n++; o.s += kSpend(t); }
   const top = Object.entries(mer).sort((a,b)=>b[1].s-a[1].s).slice(0,8);
   const txs = D.tx.filter(t=>ids.has(t.c)).sort((a,b)=>b.d.localeCompare(a.d)).slice(0,15);
@@ -114,7 +117,7 @@ function vKat(){
       ${plans.map(({p,i})=>{ const t = planLastTx(p)[0]; return `<div class="wrow" data-act="planedit" data-i="${i}"><div class="wmid"><b>${esc(p.name)}</b><span>${freqName(p.freq)}${t?' · zuletzt '+dShort(t.d):''}</span></div><div class="wend"><b class="num out">−${chf(p.amount)}</b></div></div>`; }).join('')}
       ${wpl.map(p=>`<div class="wrow"><div class="wmid"><b>${esc(p.n)}</b><span>in Wallet geplant · ab ${dShort(p.due)}</span></div><div class="wend"><b class="num out">−${chf(Math.abs(p.v))}</b></div></div>`).join('')}
       ${yl.map(x=>`<div class="wrow" data-go="jahr"><div class="wmid"><b>${esc(x.name)}</b><span>Jahreskosten · ${MN[x.month-1]}</span></div><div class="wend"><b class="num out">−${chf(x.amount)}</b></div></div>`).join('')}
-      ${rc.map(r=>`<div class="wrow"><div class="wmid"><b>${esc(r.who)}</b><span>wiederkehrend · ${freqName(r.freq)} · ${r.n}× · nächste ~${dShort(r.next)}</span></div><div class="wend"><b class="num out">−${chf(r.amount)}</b><span><a class="link" data-act="rcadd" data-k="${esc(r.key)}">Übernehmen</a></span></div></div>`).join('')}
+      ${rc.map(r=>`<div class="wrow"><div class="wmid"><b>${esc(r.who)}</b><span>wiederkehrend · ${freqName(r.freq)} · ${r.n}× · nächste ~${dShort(r.next)}</span></div><div class="wend"><b class="num out">−${chf(r.amount)}</b><span>${rcBudgeted(r)?'im Budget enthalten':`<a class="link" data-act="rcadd" data-k="${esc(r.key)}">Übernehmen</a>`}</span></div></div>`).join('')}
       ${plans.length||wpl.length||yl.length||rc.length?'':'<p class="small muted">Keine geplanten oder wiederkehrenden Zahlungen in dieser Kategorie.</p>'}</div>
     ${top.length?`<div class="xcard mt"><h3>Wo du dafür bezahlst (12 Monate)</h3>${top.map(([k,o])=>`<div class="krow2"><span class="sp">${esc(niceName(String(o.who||k).split(' · ')[0].slice(0,40)))}</span><span class="small muted">${o.n}×</span><b class="num">CHF ${chf0(o.s)}</b></div>`).join('')}</div>`:''}
     <div class="xcard mt"><h3>Letzte Buchungen</h3>${txs.map(bkTxRow).join('') || '<p class="small muted">Noch keine Buchungen.</p>'}</div>
@@ -129,7 +132,7 @@ document.addEventListener('click', e=>{
   const a = e.target.closest('[data-act]'); if(!a || !D) return; const k = a.dataset.act;
   if(k==='katinfo'){ e.stopPropagation(); e.preventDefault(); if($('#dlg').open) $('#dlg').close(); if(S.view!=='katinfo') S.katBack = S.view; S.katId = a.dataset.c; S.view = 'katinfo'; render(); scrollTo(0,0); }
   else if(k==='katback'){ e.stopPropagation(); S.view = S.katBack || 'budget'; render(); }
-  else if(k==='rcadd'){ e.stopPropagation(); const R = rcOpen(), r = a.dataset.k ? R.find(x=>x.key===a.dataset.k) : R[+a.dataset.i]; if(!r) return;
+  else if(k==='rcadd'){ e.stopPropagation(); const R = rcOpen(), r = a.dataset.k ? rcAll().find(x=>x.key===a.dataset.k) : R[+a.dataset.i]; if(!r) return;
     (D.plans ??= []).push({id:'p'+uid(), type:'out', name:r.who, amount:r.amount, freq:r.freq, start:r.next, day:r.day, acc:mainAcc().id, cat:r.cat==='_offen'?'':r.cat, match:r.key});
     save(); toastMsg(`«${r.who}» als geplante Zahlung übernommen`); render(); }
 }, true);
