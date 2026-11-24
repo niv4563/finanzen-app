@@ -2,6 +2,15 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.40.0
+- **Prognose korrigiert – sie war zu pessimistisch.** Drei Fehler zogen die Kurve nach unten:
+  - Feste Kosten wurden doppelt abgezogen: als geplante Zahlung aus Wallet (z. B. Miete) und nochmals als Schätzung aus dem Budget. Jetzt ersetzt die geplante Zahlung die Schätzung.
+  - Konsum mit der Kreditkarte wurde gezählt und die Begleichung der Karte vom Konto nochmals; Überträge aufs Sparkonto zählten als Ausgabe.
+  - Der Lohn wurde nicht mehr geschätzt, sobald irgendeine kleine Einnahme geplant war.
+- **Netto über alle Konten:** Der Ausblick zeigt jetzt Guthaben minus Schulden über alle Konten, die in die Statistik zählen. Überträge zwischen deinen Konten (Sparen, Kreditkarte begleichen, Säule 3a) sind neutral.
+- **Einkommen aus deiner Budgetplanung:** Pro Monat zählt das geplante Einkommen aus dem Budget (z. B. aus Excel, inkl. 13. Monatslohn). Ohne Budget der Schnitt der letzten Monate. Schon erhaltener Lohn wird abgezogen.
+- Geplante Zahlungen aus Wallet werden mit Art (Ausgabe, Einnahme, Übertrag) und Kategorie übernommen.
+
 ## 1.39.2
 - **Realistischere Schätzung:** Der tägliche Konsum kommt nur noch aus deinem echten Kaufverhalten. Geplante Kosten (Rechnungen, Daueraufträge, feste Kosten, Jahreskosten) sind schon separat drin und werden nicht nochmals geschätzt.
 - **Kein Budget-Rest mehr als Ausgabe:** Was im Budget übrig ist (z. B. Puffer, Ferien, Unter Leuten), wird nicht mehr automatisch als Ausgabe angenommen.
