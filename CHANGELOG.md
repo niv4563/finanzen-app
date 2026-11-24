@@ -2,6 +2,13 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.39.0
+- **Tägliche Schätzung aus deinem Verhalten** (Analyse → Ausblick): Für Lebensmittel, Restaurant, Kleidung, Freizeit und alle anderen veränderlichen Kategorien lernt die App aus allen bisherigen Buchungen, wie viel du pro Monat ausgibst (die letzten 6 Monate zählen mehr, einzelne grosse Käufe werden gedämpft), ob der Monat in früheren Jahren teurer war (z. B. Dezember) und an welchen Wochentagen du dafür Geld ausgibst.
+- Daraus entsteht für **jeden Tag des Monats eine geschätzte Ausgabe** – mit den grössten Kategorien pro Tag, z. B. «Sa 28. Nov.: Lebensmittel 120 · Restaurant 24».
+- Oben: bisher ausgegeben (und ob mehr oder weniger als geschätzt), geschätzt bis Monatsende mit Bandbreite, erwartet für den ganzen Monat im Vergleich zum Budget und Betrag pro Tag.
+- Verlauf pro Tag: effektive Ausgaben als Balken, Schätzung gestrichelt – so siehst du, wie gut die Schätzung trifft. Dazu eine Übersicht nach Kategorie.
+- **Genauere Prognose:** Der Ausblick verteilt Alltag & Freizeit nicht mehr gleichmässig, sondern nach deinem Verhalten. Kategorien ohne eigene Buchungen rechnen weiter mit dem Budget.
+
 ## 1.38.0
 - **Excel-Budget ab jetzt:** Beim Einlesen ist «Ab jetzt» vorgewählt (z. B. November 2026 bis Dezember 2027). Mit einem Tipp wählst du auch «Nur Vergangenheit» oder «Ganze Datei».
 - Zeilen, die im gewählten Zeitraum keine Beträge haben, legen keine neuen Kategorien mehr an.

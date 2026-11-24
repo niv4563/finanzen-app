@@ -1,0 +1,12 @@
+/* 1.39.0 – Tägliche Schätzung */
+.dylist { margin-top: 6px; }
+.dyrow { display: grid; grid-template-columns: 92px 1fr auto; gap: 2px 10px; align-items: center; padding: 6px 0; border-bottom: 1px dashed var(--line); }
+.dyrow:last-child { border-bottom: 0; }
+.dyd { font-size: 13px; white-space: nowrap; }
+.dyb { height: 6px; border-radius: 3px; background: color-mix(in srgb, var(--line) 60%, transparent); overflow: hidden; }
+.dyb i { display: block; height: 100%; border-radius: 3px; background: repeating-linear-gradient(90deg, var(--muted) 0 6px, transparent 6px 9px); }
+.dyp { grid-column: 1 / -1; padding-left: 102px; }
+.dytab td:first-child .small { display: block; }
+.fclegend i.sq { display: inline-block; width: 10px; height: 10px; border-radius: 2px; background: var(--bad); vertical-align: -1px; margin-right: 6px; }
+.fclegend i.ln.g { border-top-color: #8a96a3; }
+@media (max-width: 520px) { .dyrow { grid-template-columns: 78px 1fr auto; } .dyp { padding-left: 0; } }
