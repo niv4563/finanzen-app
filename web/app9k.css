@@ -30,3 +30,16 @@ body.privat input:focus{filter:none}
 .mbwsel button.on.muss{background:#e34948}.mbwsel button.on.brauch{background:#c98800}.mbwsel button.on.will{background:#1baf7a}
 .bmiss{background:color-mix(in srgb,var(--bad) 6%,transparent)}
 .bwill .bauto b{color:var(--muted)}
+/* 1.47 50 · 30 · 20 */
+.r3row{padding:6px 0}
+.r3h{display:flex;justify-content:space-between;gap:8px;align-items:baseline;font-size:14px}
+.r3h .gdot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.r3bar{position:relative;height:10px;background:var(--bg);border-radius:5px;margin:5px 0 3px}
+.r3bar i{position:absolute;left:0;top:0;bottom:0;border-radius:5px}
+.r3bar b{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);opacity:.7}
+.r3v{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--muted)}
+.ytable tr.r3 td .gdot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.ytable tr.r3 td.num{line-height:1.25}
+.ytable .r3p{display:block;font-weight:650}
+.ytable .r3i{display:block;font-size:11px}
+.ytable tr.r3head td{cursor:default}
