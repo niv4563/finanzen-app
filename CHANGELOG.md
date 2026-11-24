@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.37.0
+- **Budget aus Excel mit Von–Bis:** Beim Einlesen wählst du jetzt auch, **bis** zu welchem Monat das Budget gilt (z. B. Juni 2025 bis Oktober 2026). Ab dem Monat danach bleibt deine neuere Planung unverändert.
+- **Auch Blätter, die nicht im Januar beginnen** (z. B. 2025 ab Juni), werden erkannt.
+- **Nur die Budgettabelle zählt:** Kontroll- und Kontostandtabellen weiter unten im Blatt (Regelprüfung, Differenz, Einzahlung, Zins …) werden übersprungen.
+- **Zuordnung automatisch:** Excel-Zeilen werden selbst den Kategorien zugeordnet – über frühere Zuordnungen, bekannte Begriffe und ähnliche Namen. Was neu ist, wird als Kategorie in der passenden Gruppe angelegt (aus der Spalte «Übergeordnet»). Die Zuordnung siehst du vor dem Speichern und kannst sie ändern; die App merkt sie sich für das nächste Mal.
+
 ## 1.36.0
 - **Ausblick in der Analyse: Zukunft gestrichelt.** Ein Verlauf zeigt, was bisher war (durchgezogen) und was kommt (gestrichelt) – wählbar für 30 Tage, 3 oder 12 Monate.
 - **Die Prognose rechnet mit allem, was bekannt ist:** offene und angewiesene Rechnungen, Vormerkungen, Daueraufträge, geplante Zahlungen und Lohn. Fehlt der Lohn als Dauerauftrag, wird er aus den letzten Monaten geschätzt. Dazu feste Kosten und Jahreskosten aus dem Budget sowie der Rest des Budgets für Alltag & Freizeit, über die Tage verteilt.
