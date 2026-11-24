@@ -2,6 +2,11 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.41.0
+- **Überträge planen:** Unter «Geplante Zahlungen» gibt es neu drei Arten: Ausgabe · Einnahme · **Übertrag** (von Konto → auf Konto), z. B. monatlich CHF 600 aufs Sparkonto oder die Begleichung der Kreditkarte. Überträge zählen nicht als Ausgabe, erscheinen neutral (⇄) und verschieben im Kontotrend das Geld zwischen den Konten. Auch in Wallet geplante Überträge werden so angezeigt.
+- **Bestätigtes erscheint nie doppelt:** Ist eine geplante Zahlung schon gebucht (Bank, Wallet oder von Hand – gleicher Betrag ±10 %, ±7 Tage, gleiche Richtung), verschwindet sie bei den bevorstehenden Zahlungen, im Kalender und in der Prognose.
+- **Kontotrend genauer:** Der tägliche Konsum wird nach deinem bisherigen Zahlverhalten auf die Konten verteilt (z. B. was du meist mit der Kreditkarte zahlst, belastet die Karte). Feste Kosten bleiben beim Konto, von dem sie abgehen.
+
 ## 1.40.0
 - **Prognose korrigiert – sie war zu pessimistisch.** Drei Fehler zogen die Kurve nach unten:
   - Feste Kosten wurden doppelt abgezogen: als geplante Zahlung aus Wallet (z. B. Miete) und nochmals als Schätzung aus dem Budget. Jetzt ersetzt die geplante Zahlung die Schätzung.
