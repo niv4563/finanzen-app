@@ -24,3 +24,9 @@ body.privat input:focus{filter:none}
 .bfix .bauto span{text-transform:none}
 .ytable tr.yfix td.click{color:var(--muted)}
 .ytable tr.ysub td{color:var(--muted)}
+.mbwsel{display:inline-flex;gap:2px;margin:4px 0 2px;border:1px solid var(--line);border-radius:8px;padding:2px;width:max-content}
+.mbwsel button{border:0;background:none;font:inherit;font-size:11px;padding:2px 7px;border-radius:6px;color:var(--muted);cursor:pointer}
+.mbwsel button.on{color:#fff;font-weight:600}
+.mbwsel button.on.muss{background:#e34948}.mbwsel button.on.brauch{background:#c98800}.mbwsel button.on.will{background:#1baf7a}
+.bmiss{background:color-mix(in srgb,var(--bad) 6%,transparent)}
+.bwill .bauto b{color:var(--muted)}
