@@ -1,0 +1,8 @@
+/* 1.38.0 – Kontotrend pro Konto */
+.ktleg { margin-top: 6px; }
+.ktrow { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px dashed var(--line); }
+.ktrow:last-child { border-bottom: 0; }
+.ktrow > i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.ktrow .sp b { display: block; font-size: 13px; }
+.ktrow .sp .small { display: block; }
+.ktrow .num { white-space: nowrap; }

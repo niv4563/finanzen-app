@@ -51,8 +51,8 @@ xlsxPlanImport = async function(file){
   let plans; try{ plans = xlsxPlans2(await xlsxRead(await file.arrayBuffer())); }catch(e){ alert('Excel konnte nicht gelesen werden: '+(e.message||e)); return; }
   if(!plans.length){ alert('In dieser Excel-Datei wurde keine Budgettabelle mit Monaten gefunden.'); return; }
   const allM = plans.flatMap(p=>p.months).sort(), first = allM[0], last = allM.at(-1);
-  // Vorschlag: bis Vormonat, wenn die Datei Vergangenheit enthält (neuere Planung gilt meist ab jetzt)
-  const vonDef = first, bisDef = first < TODAY ? (ymAdd(TODAY,-1) < last ? ymAdd(TODAY,-1) : last) : last;
+  // Vorschlag: ab dem laufenden Monat bis zum Ende der Datei (wenn sie in die Zukunft reicht), sonst die ganze Datei
+  const fut = last >= TODAY, vonDef = fut ? (first > TODAY ? first : TODAY) : first, bisDef = last;
   const rows = []; for(const p of plans) for(const x of p.pos) if(!rows.some(y=>y.lab===x.lab)) rows.push({lab:x.lab, sec:x.sec});
   const sumIn = (lab, von, bis) => plans.reduce((s,p)=>s+p.pos.filter(x=>x.lab===lab).reduce((t,x)=>t+Object.entries(x.vals).reduce((a,[m,v])=>a+(m>=von&&m<=bis?v:0),0),0),0);
   const mapping = rows.map(r=>({...r, id:xlAuto(r.lab, r.sec)}));
@@ -62,24 +62,28 @@ xlsxPlanImport = async function(file){
     <p class="small muted" style="margin-top:-8px">Blätter wählen und den Zeitraum. Monate ausserhalb bleiben, wie sie sind.</p>
     ${plans.map((p,i)=>`<label class="li acl"><span class="sp"><b>${esc(p.sheet)}</b> · ${ymShort(p.months[0])} ${p.months[0].slice(0,4)} – ${ymShort(p.months.at(-1))} ${p.year} · ${p.pos.length} Zeilen</span><input type="checkbox" class="sw xsh2" data-i="${i}" checked></label>`).join('')}
     <div class="grid g2" style="gap:0 12px"><label class="f">Von<input type="month" id="xvon" value="${vonDef}" min="${first}" max="${last}"></label><label class="f">Bis<input type="month" id="xbis" value="${bisDef}" min="${first}" max="${last}"></label></div>
-    <p class="small muted" style="margin-top:-4px">Vorschlag: bis ${ymLabel(bisDef)} – ab ${ymLabel(ymAdd(bisDef,1))} bleibt deine neuere Planung.</p>
+    <div class="chips" style="padding:0;margin:-2px 0 6px">${fut?`<button type="button" class="chip" data-act="xrange" data-v="${first>TODAY?first:TODAY}|${last}">Ab jetzt</button>`:''}${first<TODAY?`<button type="button" class="chip" data-act="xrange" data-v="${first}|${ymAdd(TODAY,-1)<last?ymAdd(TODAY,-1):last}">Nur Vergangenheit</button>`:''}<button type="button" class="chip" data-act="xrange" data-v="${first}|${last}">Ganze Datei</button></div>
+    <p class="small muted" style="margin-top:-4px">Monate vor «Von» und nach «Bis» bleiben, wie sie sind.</p>
     <div class="card" style="padding:10px 12px;margin:8px 0"><b>Zuordnung automatisch</b><p class="small muted" style="margin:4px 0 0">${nOk} Zeilen zu bestehenden Kategorien · ${nNew} neue Kategorien · ${nSkip} Summen- und Kontrollzeilen ausgelassen</p>
       <details class="mt"><summary class="small">Zuordnung ansehen oder ändern</summary>
       ${mapping.map(m=>`<label class="f"><span><b style="color:var(--ink)">${esc(m.lab)}</b>${m.sec?` <span class="muted">· ${esc(m.sec)}</span>`:''} · CHF ${chf0(sumIn(m.lab, vonDef, bisDef))}</span>${opt(m)}</label>`).join('')}</details></div>
-    ${chk('xzero2',true,'Andere Kategorien im gewählten Zeitraum auf 0 setzen (die Excel-Datei gilt als vollständig)')}${acts(true)}`,
+    ${chk('xzero2',true,'Andere Kategorien im gewählten Zeitraum auf 0 setzen (die Excel-Datei gilt als vollständig)')}${xlBalPlans().length?chk('xbal',true,'Geplante Kontostände übernehmen (Kontotrend in die Zukunft)'):''}${acts(true)}`,
   ()=>{
     const sel = [...document.querySelectorAll('.xsh2:checked')].map(x=>plans[+x.dataset.i]); let von = val('xvon'), bis = val('xbis');
     if(!sel.length || !/^\d{4}-\d{2}$/.test(von) || !/^\d{4}-\d{2}$/.test(bis)) return false;
     if(von>bis) [von,bis] = [bis,von];
     const map = {}; mapping.forEach((m,i)=>{ map[m.lab] = $('#xa'+i)?.value || m.id; });
-    const zero = $('#xzero2').checked;
-    setTimeout(()=>xlsxApply2(sel, von, bis, map, mapping, zero), 30);
+    const zero = $('#xzero2').checked, bal = !!$('#xbal')?.checked;
+    setTimeout(()=>{ xlsxApply2(sel, von, bis, map, mapping, zero); if(bal) xlBalApply(von, bis); }, 30);
   });
 };
 function xlsxApply2(sel, von, bis, map, mapping, zero){
   const snap = JSON.stringify(D);
   D.settings.xlMap ??= {};
+  // nur Zeilen mit Beträgen im gewählten Zeitraum anlegen (z. B. keine Kategorien aus 2025, wenn ab November 2026 übernommen wird)
+  const inRange = lab => sel.some(p=>p.pos.some(x=>x.lab===lab && Object.entries(x.vals).some(([m,v])=>m>=von && m<=bis && v)));
   for(const m of mapping){ let id = map[m.lab];
+    if(id==='_new' && !inRange(m.lab)){ map[m.lab] = '_skip'; continue; }
     if(id==='_new'){ const ex = D.cats.find(c=>bkNorm(c.name)===bkNorm(m.lab.replace(/\s*\(.*$/,'')));
       if(ex) id = ex.id; else { id = 'c'+uid(); D.cats.push({id, name:m.lab.replace(/[,…\s]+$/,'').slice(0,40), group:xlGroup(m.lab, m.sec), acc:null, keep:true}); } }
     map[m.lab] = id; D.settings.xlMap[m.lab] = id; }
