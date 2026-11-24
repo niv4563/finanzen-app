@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.44.0
+- **Geplante Zahlungen nur aus echten Wiederholungen:** Bevorstehende und geplante Zahlungen enthalten keine Schätzungen aus dem Budget mehr. Neben deinen eigenen geplanten Zahlungen (auch aus Wallet), Rechnungen und Vormerkungen erscheinen nur Kosten, die in deinen Buchungen der letzten 15 Monate regelmässig vorkamen – monatlich, vierteljährlich, halbjährlich oder jährlich, mit ähnlichem Betrag. Sie lassen sich mit einem Tipp als geplante Zahlung übernehmen (mit dem richtigen Rhythmus). Gilt auch für «Sicher kommende Abgaben».
+- **Kategorie-Übersicht:** Ein Tipp auf «Übersicht ›» bei einer Kategorie (Budget, Plan bearbeiten, geplante Zahlungen) zeigt alles an einem Ort: Budget und effektiv für diesen Monat und das Jahr, Verlauf der letzten 12 Monate, geplante und wiederkehrende Zahlungen, Jahreskosten, wo du dafür bezahlst und die letzten Buchungen. Dazu, welche Wallet-Kategorien in dieses Budget zählen.
+- **Mehr Verknüpfungen:** Jede geplante Zahlung zeigt, wann sie zuletzt gebucht wurde, und führt zur Kategorie. Im Bearbeiten-Fenster stehen die passenden Buchungen. Eine Buchung zeigt ihre Kategorie mit dem Budgetstand des Monats und ob sie zu einer geplanten Zahlung gehört oder regelmässig wiederkommt.
+- **Beträge ausblenden:** Unter Einstellungen → Daten & Sicherheit oder schnell mit dem Auge oben rechts. Alle Frankenbeträge werden verdeckt, Prozente, Kategorien und Daten bleiben sichtbar – zum Besprechen mit anderen. Gilt nur auf diesem Gerät.
+
 ## 1.43.0
 - **Alle Kategorien auf Deutsch:** Wallet liefert manche Namen englisch (z. B. «Groceries», «Shopping», «Phone, cell phone»). Sie werden jetzt schon beim Empfang übersetzt, auch die Hauptkategorien und die Kategorie in jeder Buchung. Die Zuordnung zu deinem Budget bleibt dabei erhalten. Kategorien, die du selbst umbenannt hast, bleiben unverändert.
 - **Automatische Zuordnung:** Für jede Buchung ohne Kategorie sucht die App die beste Kategorie. Sie prüft deine früheren Buchungen beim gleichen Händler (neuere und ähnliche Beträge zählen mehr), deine Regeln, bekannte Schweizer Händler und Dienste (z. B. Migros, SBB, Galaxus, Shell, Swisscom, Krankenkassen) und ähnliche Buchungstexte aus allen alten Einträgen. Sichere Treffer setzt sie selbst und meldet, wie viele es waren. Unsichere erscheinen als Vorschlag mit Begründung.
