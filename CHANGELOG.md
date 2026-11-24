@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.38.0
+- **Excel-Budget ab jetzt:** Beim Einlesen ist «Ab jetzt» vorgewählt (z. B. November 2026 bis Dezember 2027). Mit einem Tipp wählst du auch «Nur Vergangenheit» oder «Ganze Datei».
+- Zeilen, die im gewählten Zeitraum keine Beträge haben, legen keine neuen Kategorien mehr an.
+- **Geplante Kontostände aus Excel:** Die Tabelle «Kontostand» (Privatkonto, Sparkonto, Kreditkarte, Haushaltkonto …) wird automatisch dem passenden Konto zugeordnet und übernommen. Zeilen mit vielen Fehlern (z. B. #REF!) werden ausgelassen.
+- **Kontotrend in die Zukunft** (Analyse → Ausblick): pro Konto die letzten 6 Monate durchgezogen, die Zukunft gestrichelt. Die Zukunft startet beim echten heutigen Stand und folgt den geplanten Veränderungen aus Excel. Ohne Plan rechnet das Hauptkonto mit der Prognose (Rechnungen, Daueraufträge, Lohn, Budget).
+
 ## 1.37.0
 - **Budget aus Excel mit Von–Bis:** Beim Einlesen wählst du jetzt auch, **bis** zu welchem Monat das Budget gilt (z. B. Juni 2025 bis Oktober 2026). Ab dem Monat danach bleibt deine neuere Planung unverändert.
 - **Auch Blätter, die nicht im Januar beginnen** (z. B. 2025 ab Juni), werden erkannt.
