@@ -2,6 +2,14 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.36.0
+- **Ausblick in der Analyse: Zukunft gestrichelt.** Ein Verlauf zeigt, was bisher war (durchgezogen) und was kommt (gestrichelt) – wählbar für 30 Tage, 3 oder 12 Monate.
+- **Die Prognose rechnet mit allem, was bekannt ist:** offene und angewiesene Rechnungen, Vormerkungen, Daueraufträge, geplante Zahlungen und Lohn. Fehlt der Lohn als Dauerauftrag, wird er aus den letzten Monaten geschätzt. Dazu feste Kosten und Jahreskosten aus dem Budget sowie der Rest des Budgets für Alltag & Freizeit, über die Tage verteilt.
+- **Gescannte Rechnung ersetzt die Schätzung:** Passt eine Rechnung zu geplanten Kosten (gleiche Kategorie oder gleicher Name, gleicher Monat), rechnet die Prognose mit dem genauen Betrag und lässt die Schätzung weg. Du bekommst eine kurze Meldung mit der Differenz. Rechnungen in Alltag & Freizeit werden vom restlichen Budget abgezogen.
+- Neu: «Genau bekannt» zeigt, wie viel Prozent der erwarteten Ausgaben feststehen. Dazu der tiefste erwartete Stand und eine Übersicht Monat für Monat.
+- Jede Zeile zeigt, ob der Betrag genau ist oder geschätzt (gestrichelt, kursiv).
+- **Kontostandtrend:** Reicht der gewählte Zeitraum in die Zukunft (z. B. ganzer Monat), wird der Rest gestrichelt als Prognose gezeigt.
+
 ## 1.35.0
 - **Budget nach Monat · Quartal · Jahr:** Oben wählen, mit ‹ › blättern. Am PC startet die Ansicht mit dem ganzen Jahr, auf dem Handy mit dem Monat. Die Wahl bleibt pro Gerät gespeichert.
 - **Vergangene Monate: budgetiert und effektiv.** Pro Kategorie siehst du, was budgetiert war, was wirklich ausgegeben wurde und wie viel du darunter oder darüber liegst. Im laufenden Monat steht, was noch übrig ist (pro Tag). Kommende Monate erscheinen nur gestrichelt als «geplant».

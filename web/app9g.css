@@ -1,0 +1,15 @@
+/* 1.36.0 – Ausblick mit Prognose */
+.fctag { display: inline-block; font-size: 10.5px; line-height: 1; padding: 3px 6px; border-radius: 9px; margin-right: 5px; vertical-align: 1px; font-style: normal; }
+.fctag.ok { background: color-mix(in srgb, var(--ok) 14%, transparent); color: var(--ok); }
+.fctag.est { border: 1px dashed var(--muted); color: var(--muted); }
+.fcrepl { display: block; font-size: 11.5px; color: var(--ok); margin-top: 2px; }
+.wrow.plan.est .wmid b, .wrow.plan.est .wend b { font-style: italic; }
+.fck { margin: 4px 0 8px; }
+.fck small { display: block; font-size: 11px; }
+.fclegend { display: flex; gap: 16px; color: var(--muted); margin: 2px 0 6px; }
+.fclegend i.ln { display: inline-block; width: 22px; height: 0; border-top: 2px solid var(--acc); vertical-align: middle; margin-right: 6px; }
+.fclegend i.ln.d { border-top-style: dashed; }
+.fctab { width: 100%; border-collapse: collapse; }
+.fctab th, .fctab td { padding: 6px 8px; text-align: right; border-bottom: 1px solid var(--line); font-size: 13px; white-space: nowrap; }
+.fctab th:first-child, .fctab td:first-child { text-align: left; }
+.fctab tr:not(:first-child) td { border-bottom-style: dashed; }
