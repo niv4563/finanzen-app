@@ -143,3 +143,13 @@ nav.side a .kbadge{top:-6px;right:-8px}
 .autor .sp{display:grid;gap:1px;min-width:0}
 .autor .num{white-space:nowrap}
 .autobar{margin:8px 0 12px}
+/* 1.50 Kategorien ordnen */
+.ktrow{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.ktrow.l2{padding-left:18px}
+.ktrow.l2 .ktname b{font-weight:550}
+.ktrow.ktgrp{gap:8px;padding-top:14px}
+.ktrow.ktgrp .dot{width:10px;height:10px;border-radius:50%}
+.ktname{flex:1;min-width:0;display:grid;gap:1px;cursor:pointer}
+.ktrow .mbwsel{margin:0}
+.mbwtag{display:inline-block;font-size:11px;font-weight:650;padding:1px 6px;border-radius:6px;color:#fff;background:var(--muted)}
+.mbwtag.muss{background:#e34948}.mbwtag.brauch{background:#c98800}.mbwtag.will{background:#1baf7a}
