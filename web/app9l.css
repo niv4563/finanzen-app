@@ -134,3 +134,12 @@ nav.side a .kbadge{top:-6px;right:-8px}
 @media (prefers-color-scheme:dark){ .seg button.on,.btn.pri,.fab{color:#0D1422!important} .fab svg{stroke:#0D1422} }
 .btn:disabled{opacity:.45;cursor:not-allowed}
 #delok:not(:disabled){background:var(--bad);border-color:var(--bad);color:#fff}
+/* 1.49 Automatisch erkennen */
+.autos{margin:12px 0 4px}
+.autos h4{margin:0 0 2px;font-size:15px}
+.autos p{margin:0 0 6px}
+.autor{display:flex;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line);cursor:pointer}
+.autor input{width:22px;height:22px;flex:none}
+.autor .sp{display:grid;gap:1px;min-width:0}
+.autor .num{white-space:nowrap}
+.autobar{margin:8px 0 12px}
