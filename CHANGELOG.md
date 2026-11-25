@@ -2,6 +2,17 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.49.0
+- **Abos automatisch erkennen:** Auf der Seite «Abos» zeigt die App, wie viele Vorschläge sie in deinen Buchungen gefunden hat. Ein Tipp auf «Automatisch erkennen» öffnet die Liste zum Anhaken:
+  - **Neue Abos** – regelmässig gleicher Betrag beim gleichen Anbieter (z. B. Spotify, Netflix, Handy-Abo). Bekannte Anbieter sind vorgewählt, andere zum Prüfen.
+  - **Preis geändert** – die letzten Zahlungen weichen vom erfassten Preis ab; ein Haken übernimmt den neuen Preis.
+  - **Nicht mehr gebucht – gekündigt?** – schon länger keine Zahlung mehr; ein Haken markiert das Abo als nicht mehr aktiv.
+- **Weitere automatische Erkennung:**
+  - **Jahreskosten** (z. B. Motorfahrzeugsteuer, Gebühren, die einmal im Jahr kommen) – auch auf der Seite «Jahreskosten». Übernommen wird mit monatlichem Zurücklegen.
+  - **Lohn und regelmässige Einnahmen** – auf der Seite «Geplante Zahlungen». Übernommen als geplante Einnahme für Ausblick und «Bis zum Lohn».
+- Was du nicht anhakst, wird nicht nochmals vorgeschlagen. Alles wird auf dem Gerät berechnet.
+- Menü: «Abos» und «Jahreskosten» stehen neu unter «Geld planen».
+
 ## 1.48.1
 - **Kein Löschen mehr auf dem Sperrbildschirm:** «Alles löschen und neu beginnen» ist dort weg, damit nichts versehentlich verloren geht.
 - **Löschen nur noch in den Einstellungen** (Daten & Sicherheit → «Alle Daten löschen»): Gelöscht wird erst, wenn du zur Bestätigung das Wort **LÖSCHEN** eintippst. Vorher lässt sich direkt eine Sicherung speichern.
