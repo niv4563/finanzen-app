@@ -132,3 +132,5 @@ nav.side a .kbadge{top:-6px;right:-8px}
 }
 @media (max-width:820px){ header{gap:4px!important} header .bell,header .ibtn:not(.mnav .ibtn){min-width:40px;width:40px} }
 @media (prefers-color-scheme:dark){ .seg button.on,.btn.pri,.fab{color:#0D1422!important} .fab svg{stroke:#0D1422} }
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#delok:not(:disabled){background:var(--bad);border-color:var(--bad);color:#fff}
