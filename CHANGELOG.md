@@ -2,6 +2,13 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.56.1
+- **Berater: Knöpfe führen ans richtige Ziel.**
+  - «Schuldenplan» (in Empfehlungen, auf der Startseite und im Tipp zur Kreditkarte) führte zu «Konten» oder auf dieselbe Seite – dort gibt es keinen Schuldenplan mehr. Jetzt springt er direkt zum Schuldenplan im Berater.
+  - Der Tipp zur offenen Kreditkarte heisst neu «Abzahlen planen» und öffnet «Mein Plan».
+  - «Krankenkasse jetzt vergleichen» hat neu den Knopf «Franchise-Rechner».
+- «Mein Plan» rechnet mit dem Zins, der bei der Kreditkarte hinterlegt ist (sonst 12 %), damit Berater und Plan dasselbe zeigen.
+
 ## 1.56.0
 - **Neu: «Mein Plan»** (Menü › Geld planen, ganz oben): dein Weg zu schneller Stabilität in sechs Schritten – ohne auf Spass zu verzichten.
   1. **Kreditkarte stoppen:** offener Betrag, Zins pro Monat (12 %), Abzahlbetrag wählen mit «schuldenfrei im …» und Zinskosten, auf Wunsch auch ins Budget. Warnung, wenn die Karte höher ist als das Privatkonto.
