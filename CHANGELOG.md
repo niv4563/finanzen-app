@@ -2,6 +2,15 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.48.0
+- **Neuer Reiter «Kaufen»:** Deine Kaufliste an einem Ort. Oben Artikel und ungefähren Preis eintippen – fertig. Die App ordnet jeden Artikel ein: **Jetzt kaufbar**, **Bedenkzeit läuft**, **Bald leistbar** (mit Monat und wie viel du pro Monat zur Seite legen müsstest) oder **Noch nicht absehbar** (mit Grund, z. B. erst Schulden abbauen). Leistbar heisst: ohne Schulden, Reserve und Puffer anzutasten.
+- **Regelmässige Prüfung und Mitteilung:** Die App prüft die Kaufliste beim Öffnen, beim Zurückkehren, alle 30 Minuten und nach jeder Änderung. Wird etwas leistbar, kommt ein Hinweis und eine Mitteilung aufs Handy. Für erwartete Daten (z. B. «ab März leistbar», Ende der Bedenkzeit) plant die App die Mitteilung schon im Voraus. Eine Zahl am Reiter zeigt, wie viel gerade drinliegt.
+- **Preis vergleichen:** Knopf bei jedem Artikel öffnet toppreise.ch mit dem Artikelnamen. Nur auf Knopfdruck – sonst geht nichts ins Internet.
+- **Neues Design:** ruhiges Dunkelblau statt Grün, im Dunkelmodus passend. Grössere Knöpfe und Eingabefelder, die sich leichter treffen lassen.
+- **Unterleiste auf dem Handy:** Start · Buchungen · Budget · Kaufen · Menü. Das Menü öffnet die ganze Liste.
+- **Weniger Text:** Lange Erklärungen sind auf zwei Zeilen gekürzt – antippen zeigt alles. Bei den Buchungen liegen Suche, Konto und Von–Bis hinter «Suchen & Filter», damit die Liste sofort sichtbar ist. «Plan bearbeiten» ist auf dem Handy ruhiger.
+- **Neues App-Symbol:** «Fr.» für Schweizer Franken auf Dunkelblau.
+
 ## 1.47.0
 - **50 · 30 · 20 in jedem Monat:** Die fünf Gruppen bleiben. Zusätzlich zeigt die App den Anteil vom Einkommen für **Bedarf** (Grundbedürfnisse + Fixkosten), **Wünsche** (Persönliche Wünsche + Freizeit) und **Sparen** (Sparen & Vorsorge).
 - **Plan bearbeiten (Monat):** Karte «Ziel» mit Balken pro Bereich, Strich beim Ziel, geplant und effektiv in % und CHF, dazu die Abweichung vom Ziel. Grün = im Ziel, orange = knapp daneben, rot = deutlich daneben.
