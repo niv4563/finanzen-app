@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- App-Symbol: Fortschrittsleiste mit drei Stufen (zwei erreicht, eine offen) -->
+<!-- App-Symbol: «Fr.» (Schweizer Franken) mit hellblauem Strich – Schrift Inter (SIL Open Font License), als Umriss -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="512"
     android:viewportHeight="512">
-    <group
-        android:scaleX="0.62"
-        android:scaleY="0.62"
-        android:translateX="97.3"
-        android:translateY="97.3">
+    <group android:pivotX="256" android:pivotY="256" android:scaleX="0.78" android:scaleY="0.78" android:translateY="-12">
         <path
             android:fillColor="#FFFFFF"
-            android:pathData="M126,245 L342,245 L342,267 L126,267 Z" />
-        <path
-            android:fillColor="#FFFFFF"
-            android:pathData="M82,256 A44,44 0 1,0 170,256 A44,44 0 1,0 82,256 Z" />
-        <path
-            android:fillColor="#FFFFFF"
-            android:pathData="M212,256 A44,44 0 1,0 300,256 A44,44 0 1,0 212,256 Z" />
-        <path
-            android:fillColor="#FFFFFF"
-            android:fillType="evenOdd"
-            android:pathData="M342,256 A44,44 0 1,0 430,256 A44,44 0 1,0 342,256 Z M356,256 A30,30 0 1,1 416,256 A30,30 0 1,1 356,256 Z" />
+            android:pathData="M131.0 337.27H165.01V270.57H239.87V242.30H165.01V201.89H245.39V172.74H131.0ZM261.74 337.27H294.31V274.10C294.31 256.55 304.14 247.27 317.50 247.27C323.02 247.27 329.10 247.71 331.53 247.82V220.11C328.87 220.00 325.67 219.89 321.92 219.89C306.57 219.89 297.74 226.51 293.43 240.54H293.10V220.66H261.74ZM362.22 339.25C372.71 339.25 381.0 330.97 381.0 320.48C381.0 310.10 372.71 301.71 362.22 301.71C351.84 301.71 343.56 310.10 343.56 320.48C343.56 330.97 351.84 339.25 362.22 339.25Z" />
     </group>
+    <path
+        android:fillColor="#5FA8FF"
+        android:pathData="M190,316 L322,316 A6,6 0 0,1 322,328 L190,328 A6,6 0 0,1 190,316 Z" />
 </vector>

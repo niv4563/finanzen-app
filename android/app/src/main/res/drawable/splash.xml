@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Startbildschirm (bis Android 11): blaue Fläche mit App-Symbol -->
+<!-- Startbildschirm (bis Android 11): dunkelblaue Fläche mit App-Symbol -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@color/ic_launcher_background" />
     <item
