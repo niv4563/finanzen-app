@@ -2,6 +2,21 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.52.0
+- **Aufgeräumtes Menü:** Statt rund 29 Einträgen gibt es noch 15. Verwandte Seiten sind zu Bereichen mit Reitern oben zusammengelegt:
+  - **Budget:** Übersicht · Planen
+  - **Kommende Zahlungen:** Alle · Geplant & Lohn · Abos · Jahreskosten · Rechnungen
+  - **Gönnen:** Gönn-Topf · Kaufliste · Erlebnisse & Wünsche
+  - **Analyse:** Rückblick · Ausgaben · Ausblick & Was wäre wenn
+  - **Berater:** Übersicht · Empfehlungen · Frag die App · Ampel-Regeln
+  - **Kategorien & Regeln:** Ordnen · Zuordnen · Regeln
+  Jeder Bereich öffnet den Reiter, den du zuletzt benutzt hast. Unten auf dem Handy: Start · Buchungen · Budget · Gönnen · Menü.
+- **Nichts mehr doppelt:** Spartipps und «Prognose 12 Monate» stehen nicht mehr zusätzlich bei «Frag die App», «So solltest du dein Einkommen verteilen» nicht mehr neben dem Ziel 50 · 30 · 20, «Sicher kommende Abgaben» und die Rückstellung nicht mehr im Budget (jetzt unter Kommende Zahlungen). «Cockpit & Stufen» und «Monatsabschluss» sind im Berater und in «Budget eingehalten?» aufgegangen.
+- **Gönn-Topf:** Ein fester Betrag pro Monat nur für dich – ohne schlechtes Gewissen. Was du nicht brauchst, wird mitgenommen. Der Berater schlägt nie vor, ihn zu kürzen. Einrichten unter Gönnen; das Geld kommt aus noch nicht verteiltem Geld, aus dem Puffer oder du kürzt selbst bei Brauch.
+- **Was liegt drin?** Die Seite Gönnen zeigt deine Wünsche – Erlebnisse mit Menschen zuerst – und ob sie aus dem Gönn-Topf drinliegen oder in wie vielen Monaten.
+- **Monatsrückblick mit dem Positiven:** Was du dir gegönnt hast, was du gespart hast, wie viele Budgets eingehalten wurden und wie nahe Reserve und Ziele sind. In den ersten 10 Tagen eines Monats auf der Startseite (ausblendbar) und immer unter Gönnen.
+- **Doppeltes im Budget** (unter Budget › Planen): Die App zeigt, wenn Abos doppelt vom Konto abgezogen werden, wenn Puffer und Reserve dasselbe abdecken, und wie sich Freizeit, Restaurant und Unter Leuten abgrenzen. Ändern nur auf deinen Tipp.
+
 ## 1.51.0
 - **Budget bleibt wie geplant:** Ab November 2026 ändern effektive Kosten das Budget nicht mehr.
   - Im Budget steht das geplante Einkommen, nicht der erhaltene Lohn. Was effektiv eingegangen ist, steht klein darunter.
