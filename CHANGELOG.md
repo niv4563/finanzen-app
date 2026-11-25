@@ -2,6 +2,14 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.53.0
+- **Analyse › Bericht – wie bei Wallet:** Neuer erster Reiter in der Analyse mit drei Ansichten:
+  - **Einnahmen & Ausgaben:** 6 Monate nebeneinander, pro Hauptkategorie (Essen, Einkaufen, Wohnen, Finanzausgaben …) mit Veränderung in % zum Vormonat – grün heisst besser. Zeile antippen zeigt die Unterkategorien. Dazu der Geldfluss pro Monat und ob die Ausgaben so tief sind wie lange nicht.
+  - **Kontostand:** Verlauf der Konten in der Statistik und neu **«Warum der Kontostand sinkt/steigt»**: Stand am Anfang + Einnahmen − Ausgaben ± Überträge auf Konten ausserhalb der Statistik (z. B. Sparkonto) = Stand heute. Darunter alle Konten mit Veränderung, ausgeschlossene grau markiert.
+  - **Geldfluss:** Einnahmen und Ausgaben pro Tag, Summe mit Vergleich zum Vormonat und aufsummierter Verlauf gegenüber Vormonat und Vorjahr.
+- **Monat ab Lohntag:** Die Analyse rechnet vom Lohntag bis zum Tag davor (z. B. 26.–25. wie in Wallet), damit jeder Lohn in seinem eigenen Monat steht. Der Lohntag wird erkannt und lässt sich ändern. Das Budget bleibt in Kalendermonaten.
+- Gezählt werden wie bei Wallet nur Konten, die in der Statistik zählen; Überträge sind weder Einnahme noch Ausgabe.
+
 ## 1.52.0
 - **Aufgeräumtes Menü:** Statt rund 29 Einträgen gibt es noch 15. Verwandte Seiten sind zu Bereichen mit Reitern oben zusammengelegt:
   - **Budget:** Übersicht · Planen
