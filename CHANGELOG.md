@@ -2,6 +2,18 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.55.0
+- **Tipps aus deinen Zahlen** (Berater › Übersicht, kurz auch unter Analyse › Bericht): Die App wertet deinen letzten Lohnmonat aus und zeigt nur, was zutrifft – jeweils mit Knopf zum Handeln:
+  - grösster Ausgabenblock (z. B. «Finanzausgaben: 50 % deiner Ausgaben») → Posten ansehen
+  - Kategorien deutlich über deinem Schnitt der Monate davor → Posten ansehen
+  - Buchungen ohne Kategorie → Jetzt zuordnen
+  - offene Kreditkarte, besonders wenn sie wächst → Schuldenplan
+  - zwei Lohneingänge im selben Monat → nicht als dauerhaft einplanen, Lohntag prüfen
+  - tiefste Ausgaben seit Monaten → bewusst etwas gönnen
+  «Erledigt» blendet einen Tipp für diesen Monat aus. Alles wird nur auf dem Gerät berechnet.
+- **Glocke und Mitteilungen:** Kein «Budget überschritten» mehr für Kategorien, die du als «eingehalten» markiert hast.
+- **Namen wie in Wallet:** «Essen & Getränke» heisst jetzt «Essen & Trinken».
+
 ## 1.54.0
 - **Analyse wie Wallet – alle Funktionen:**
   - **Zeitraum wählen:** Benutzerdefiniert (Von–Bis) · Wochen · Monate (ab Lohntag, mit Monatsauswahl pro Jahr) · Jahre. Mit ‹ › blättern.
