@@ -1,0 +1,57 @@
+/* 1.54.0 – Analyse wie Wallet: Filter, Zeitraum, Erweiterte Diagramme, Investitionen */
+.brlay{display:block}
+.brmain{min-width:0}
+.bfpanel{display:none;margin-bottom:12px}
+.bfpanel.open{display:block}
+.bfpanel .f{margin-bottom:10px}
+.bfpanel select,.bfpanel input{width:100%}
+.bfm{border:1px solid var(--line);border-radius:10px;margin:0 0 10px;background:var(--card)}
+.bfm summary{list-style:none;cursor:pointer;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
+.bfm summary::-webkit-details-marker{display:none}
+.bfl{font-size:13px;font-weight:600}
+.bfv{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bfopts{display:flex;flex-direction:column;gap:6px;padding:4px 10px 10px;max-height:220px;overflow:auto}
+.bfopts label{display:flex;gap:8px;align-items:center;font-size:14px;cursor:pointer}
+.bfopts input{width:auto}
+.bfrange{margin:0 0 10px;display:flex;flex-direction:column;gap:6px}
+.bfrange input{flex:1;min-width:0}
+.bfsaved{margin-top:10px}
+.bfsaved .row{padding:4px 0}
+.brtools{display:flex;justify-content:center;gap:6px;margin:-4px 0 12px}
+.brpick{display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 14px;cursor:pointer;font:inherit;color:var(--ink)}
+.brpick span{font-size:12.5px;color:var(--acc)}
+.bpm{margin:0 0 12px}
+.bpy{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 0 10px}
+.bpgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
+.bpgrid button,.bplist button{padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+.bpgrid button.on,.bplist button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.bpgrid button:disabled{opacity:.4;cursor:default}
+.bplist{display:flex;flex-direction:column;gap:6px;max-height:340px;overflow:auto;margin-bottom:10px}
+.bplist button{text-align:left}
+.brname{cursor:pointer}
+.brlens{margin-left:4px;opacity:.7}
+.brtable td.brc{cursor:pointer}
+.brtable td.brc:hover{background:var(--acc-soft)}
+.brlist{max-height:60vh;overflow:auto}
+.brld{font-size:12px;color:var(--muted);margin:8px 0 2px}
+.brcmpseg{margin:0 0 8px}
+.exrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.exrow .f{margin:0}
+.exPie{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.exPl{flex:1;min-width:200px;display:flex;flex-direction:column;gap:6px}
+.exPl div{display:flex;align-items:center;gap:8px;font-size:14px}
+.exPl i{width:10px;height:10px;border-radius:3px;flex:none}
+.exPl span{flex:1}
+.exPl em{font-style:normal;color:var(--muted);font-size:12.5px;width:46px;text-align:right}
+@media (min-width:1100px){
+  .brlay{display:grid;grid-template-columns:260px minmax(0,1fr);gap:16px;align-items:start}
+  .bfpanel{display:block;position:sticky;top:76px;max-height:calc(100vh - 92px);overflow:auto;margin:0}
+  .bfclose,.brfbtn{display:none}
+}
+.brtable{overflow-x:auto;max-width:100%}
+.brtable td:first-child{min-width:170px}
+.brtable .brname{display:inline}
+.brtable .brlens{padding:0 4px;min-height:0;height:auto;font-size:12px;vertical-align:baseline}
+.bfpanel select,.bfpanel input{font-size:14px;padding:7px 9px;min-height:36px}
+.bfpanel .f{font-size:13px;font-weight:600}
+@media (max-width:700px){.brtable td:first-child,.brtable th:first-child{min-width:140px;max-width:160px;white-space:normal;text-overflow:clip;overflow:visible}}
