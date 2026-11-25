@@ -2,6 +2,10 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.48.1
+- **Kein Löschen mehr auf dem Sperrbildschirm:** «Alles löschen und neu beginnen» ist dort weg, damit nichts versehentlich verloren geht.
+- **Löschen nur noch in den Einstellungen** (Daten & Sicherheit → «Alle Daten löschen»): Gelöscht wird erst, wenn du zur Bestätigung das Wort **LÖSCHEN** eintippst. Vorher lässt sich direkt eine Sicherung speichern.
+
 ## 1.48.0
 - **Neuer Reiter «Kaufen»:** Deine Kaufliste an einem Ort. Oben Artikel und ungefähren Preis eintippen – fertig. Die App ordnet jeden Artikel ein: **Jetzt kaufbar**, **Bedenkzeit läuft**, **Bald leistbar** (mit Monat und wie viel du pro Monat zur Seite legen müsstest) oder **Noch nicht absehbar** (mit Grund, z. B. erst Schulden abbauen). Leistbar heisst: ohne Schulden, Reserve und Puffer anzutasten.
 - **Regelmässige Prüfung und Mitteilung:** Die App prüft die Kaufliste beim Öffnen, beim Zurückkehren, alle 30 Minuten und nach jeder Änderung. Wird etwas leistbar, kommt ein Hinweis und eine Mitteilung aufs Handy. Für erwartete Daten (z. B. «ab März leistbar», Ende der Bedenkzeit) plant die App die Mitteilung schon im Voraus. Eine Zahl am Reiter zeigt, wie viel gerade drinliegt.
