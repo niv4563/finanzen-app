@@ -1,0 +1,35 @@
+/* 1.53.0 – Analyse › Bericht wie Wallet */
+.brhead{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 12px}
+.brper{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.brper b{font-size:16px}
+.brper .link{background:none;border:0;color:var(--acc);cursor:pointer;padding:2px 4px;font:inherit;font-size:12.5px}
+.brseg{margin:0 0 12px}
+.brsum{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.brk{display:flex;flex-direction:column;gap:2px}
+.brk span{font-size:13px;color:var(--muted)}
+.brk b{font-size:18px}
+.brtable table{width:100%;border-collapse:collapse}
+.brtable th,.brtable td{padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap;vertical-align:top}
+.brtable th.brcur{color:var(--ink)}
+.brtable td:first-child{white-space:normal;min-width:140px}
+.brtable .brrow{cursor:pointer}
+.brtable .brrow:hover td{background:var(--acc-soft)}
+.brtable .brtot td{background:var(--bg)}
+.brtable .brtot td:first-child{background:var(--bg)}
+.brtable .brsub td{font-size:12.5px;color:var(--muted);padding-top:4px;padding-bottom:4px}
+.brtable .brsub td:first-child{padding-left:36px}
+.brb{font-weight:700}
+.bri{display:inline-block;width:24px}
+.brchev{color:var(--muted);font-size:11px}
+.brp{display:block;font-size:11.5px;margin-top:2px}
+.brp.g{color:var(--ok)}.brp.b{color:var(--bad)}.brp.z{color:var(--muted)}
+.brbig{font-size:28px;font-weight:700;margin:2px 0 6px}
+.brline{display:flex;justify-content:space-between;gap:12px;padding:6px 0;font-size:14px}
+.brline span{color:var(--muted)}
+.brlt{border-top:1px solid var(--line);margin-top:4px;padding-top:8px;font-weight:700}
+.brlt span{color:var(--ink)}
+.bracc{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.bracc:first-of-type{border-top:0}
+.bracc.dim b{color:var(--muted)}
+.brdot{width:12px;height:12px;border-radius:50%;flex:none}
+@media (max-width:600px){.brsum{grid-template-columns:1fr 1fr 1fr}.brk b{font-size:15px}}
