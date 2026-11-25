@@ -2,6 +2,14 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.50.0
+- **Kategorien sauber eingeordnet:** Neue Regeln nach Bedeutung des Namens – auch für englische Namen, wie Wallet sie liefert. Steuern, Krankenkasse, Versicherungen, Miete, Energie, Telefon und Gebühren sind **Muss**; Lebensmittel, Gesundheit, Kleidung, Mobilität sind **Brauch**; Restaurant, Freizeit, Ferien, Shopping sind **Will**; Sparen und Anlagen sind **Sparen**.
+- **Unterkategorien erben:** Eine Unterkategorie ohne eigene Regel übernimmt die Einordnung ihrer Kategorie, diese die ihrer Hauptkategorie – z. B. Steuern › Gemeindesteuer, Staatssteuer, Bundessteuer, Kirchensteuer → alle Muss.
+- **Einmal nach dem Update** zeigt die App alle falsch eingeordneten Kategorien zum Anhaken (vorher → nachher). Wallet-Kategorien sind vorgewählt, deine eigenen Budget-Kategorien nur, wenn sie Muss sein sollten.
+- **Neue Seite «Kategorien ordnen»** (Menü → Import & Ordnung): Baum Hauptkategorie › Kategorie › Unterkategorie mit Gruppe und Muss · Brauch · Will zum Antippen, dazu «Automatisch einordnen». Was du von Hand setzt, wird nie automatisch geändert.
+- Neue Kategorien aus Wallet werden gleich richtig eingeordnet.
+- Korrektur: Seit 1.46 konnten Wallet-Unterkategorien fälschlich als «Persönliche Wünsche» gelten und ihre Zuordnung zur übergeordneten Kategorie verlieren. Behoben – die Zuordnung wird beim nächsten Abgleich wieder aus Wallet geholt.
+
 ## 1.49.0
 - **Abos automatisch erkennen:** Auf der Seite «Abos» zeigt die App, wie viele Vorschläge sie in deinen Buchungen gefunden hat. Ein Tipp auf «Automatisch erkennen» öffnet die Liste zum Anhaken:
   - **Neue Abos** – regelmässig gleicher Betrag beim gleichen Anbieter (z. B. Spotify, Netflix, Handy-Abo). Bekannte Anbieter sind vorgewählt, andere zum Prüfen.
