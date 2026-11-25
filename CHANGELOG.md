@@ -2,6 +2,15 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.51.0
+- **Budget bleibt wie geplant:** Ab November 2026 ändern effektive Kosten das Budget nicht mehr.
+  - Im Budget steht das geplante Einkommen, nicht der erhaltene Lohn. Was effektiv eingegangen ist, steht klein darunter.
+  - Jahreskosten und Rückstellung sind pro Monat festgehalten. Kommen neue Jahreskosten dazu (auch automatisch erkannte), zeigt die App einen Hinweis. Ins Budget kommen sie erst, wenn du «Ab … übernehmen» antippst.
+  - Kein «Effektiv weicht ab – Betrag prüfen» mehr und kein Vorschlag des Finanz-Beraters, das Budget an die Ausgaben anzupassen.
+  - Von Hand ändern geht weiterhin.
+- **Budget eingehalten?** Bei jeder Kategorie steht für vergangene Monate und den laufenden Monat, ob das Budget eingehalten ist – automatisch nach Betrag (bei Sparen: genug gespart). Antippen, um selbst zu entscheiden: Eingehalten, Nicht eingehalten oder wieder automatisch.
+- Neue Karte «Budget eingehalten?» im Monat mit «x von y Kategorien» und den nicht eingehaltenen. In der Jahresübersicht eine Zeile pro Monat, nicht eingehaltene Beträge sind rot.
+
 ## 1.50.0
 - **Kategorien sauber eingeordnet:** Neue Regeln nach Bedeutung des Namens – auch für englische Namen, wie Wallet sie liefert. Steuern, Krankenkasse, Versicherungen, Miete, Energie, Telefon und Gebühren sind **Muss**; Lebensmittel, Gesundheit, Kleidung, Mobilität sind **Brauch**; Restaurant, Freizeit, Ferien, Shopping sind **Will**; Sparen und Anlagen sind **Sparen**.
 - **Unterkategorien erben:** Eine Unterkategorie ohne eigene Regel übernimmt die Einordnung ihrer Kategorie, diese die ihrer Hauptkategorie – z. B. Steuern › Gemeindesteuer, Staatssteuer, Bundessteuer, Kirchensteuer → alle Muss.
