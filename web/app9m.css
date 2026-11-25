@@ -1,0 +1,20 @@
+/* 1.51.0 – Budget eingehalten ja/nein, festgeschriebenes Budget */
+.bokc{display:inline-flex;align-items:center;gap:6px;margin:0 0 4px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;min-height:28px}
+.bokc em{font-style:normal;font-weight:400;font-size:11px;color:var(--muted)}
+.bokc.ok{border-color:color-mix(in srgb,var(--ok) 45%,var(--line));background:color-mix(in srgb,var(--ok) 10%,var(--card))}
+.bokc.no{border-color:color-mix(in srgb,var(--bad) 45%,var(--line));background:color-mix(in srgb,var(--bad) 10%,var(--card))}
+.bokc.ok::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.bokc.no::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--bad)}
+.bokc.open::before{content:"";width:8px;height:8px;border-radius:50%;border:1.5px solid var(--muted)}
+.bokc:focus-visible{outline:2px solid var(--pri,#2f6fd6);outline-offset:2px}
+.bokcard .bokbar{display:flex;height:8px;border-radius:4px;overflow:hidden;background:var(--line);margin-top:8px;gap:2px}
+.bokcard .bokbar i{display:block;height:100%}
+.bokcard .bokbar i.ok{background:var(--ok)}
+.bokcard .bokbar i.no{background:var(--bad)}
+.bokpick{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.bokpick .btn{justify-content:flex-start;text-align:left}
+.ytable td.bkno{color:var(--bad);font-weight:700}
+.ytable td.bkok{color:color-mix(in srgb,var(--ok) 80%,var(--ink))}
+.ytable td.bku{text-decoration:underline dotted;text-underline-offset:3px}
+.ytable tr.bokrow td{font-size:12px}
+.frzcard{border-left:3px solid var(--warn)}
