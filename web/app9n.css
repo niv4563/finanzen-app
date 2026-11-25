@@ -1,0 +1,23 @@
+/* 1.52.0 – Bereiche mit Reitern, Gönnen, Doppeltes im Budget */
+.hubtabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin:0 0 14px;padding:4px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.hubtabs::-webkit-scrollbar{display:none}
+.hubtabs a{flex:0 0 auto;padding:8px 14px;border-radius:9px;font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;cursor:pointer;white-space:nowrap;min-height:36px;display:flex;align-items:center}
+.hubtabs a.on{background:var(--acc-soft);color:var(--acc)}
+.hubtabs a:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+.gcard{border-top:4px solid #C2577A}
+.gbig{display:flex;align-items:baseline;gap:10px;margin:10px 0 6px}
+.gbig b{font-size:34px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.gbig span{color:var(--muted);font-size:14px}
+.gline{display:flex;flex-wrap:wrap;gap:4px 16px;color:var(--muted)}
+.gline b{color:var(--ink)}
+.gw{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.gw:first-of-type{border-top:0}
+.gwi{font-size:20px;width:28px;text-align:center}
+.gwr{text-align:right}
+.rbcard .rbks{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-top:10px}
+.rbk{background:var(--bg);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+.rbk b{font-size:18px}
+.rbk span{font-size:13px;color:var(--muted)}
+.rbk em{font-style:normal;font-size:12px;color:var(--muted)}
+.dupcard{border-left:3px solid var(--acc)}
+.dupi+.dupi{border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
