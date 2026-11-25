@@ -1,0 +1,25 @@
+/* 1.56.0 – Mein Plan */
+.plhead .bar{margin-top:8px}
+.plstep summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px}
+.plstep summary::-webkit-details-marker{display:none}
+.pln{flex:none;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;background:var(--acc-soft);color:var(--acc)}
+.plstep.ok .pln{background:var(--ok);color:#fff}
+.plb{margin-top:10px}
+.plb .ltcard{margin:0;padding:0;border:0;box-shadow:none;background:none}
+.ltrow{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line);cursor:pointer}
+.ltrow:first-of-type{border-top:0}
+.ltrow input{width:20px;height:20px;flex:none}
+.ltrow em{display:block;font-style:normal;font-size:12.5px;color:var(--muted)}
+.ltrest{cursor:default;border-top:2px solid var(--line)}
+.kkopts{margin-bottom:8px}
+.fr{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.fr:first-child{border-top:0}
+.fr.done b{color:var(--muted);text-decoration:line-through}
+.fr.hot{background:color-mix(in srgb,var(--warn) 8%,transparent);border-radius:8px;padding:10px 8px}
+.frc input{width:20px;height:20px;margin-top:2px}
+.msl{display:flex;flex-direction:column;gap:6px}
+.ms{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--muted)}
+.ms.ok{color:var(--ink);font-weight:600}
+.ms span{color:var(--warn);font-size:16px}
+.ms em{font-style:normal;font-weight:400;font-size:12px;color:var(--muted)}
+.rwin{width:64px!important;display:inline-block;padding:4px 6px;min-height:0}
