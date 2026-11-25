@@ -2,6 +2,16 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.54.0
+- **Analyse wie Wallet – alle Funktionen:**
+  - **Zeitraum wählen:** Benutzerdefiniert (Von–Bis) · Wochen · Monate (ab Lohntag, mit Monatsauswahl pro Jahr) · Jahre. Mit ‹ › blättern.
+  - **Filter** (am PC links, auf dem Handy über «Filter»): Mein Filter (speichern und wieder laden), Suchen, Konten, Kategorien, Etiketten, Währungen, Eintragsarten (Ausgabe, Einnahme, Überweisung), Betragsbereich, Überweisungen einbeziehen oder ausschliessen, Buchungsstatus (abgerechnet, vorgemerkt), Zahlungsarten. «Filter zurücksetzen» stellt alles zurück.
+  - **Einnahmen & Ausgaben:** ⚙ stellt die Anzahl Zeiträume (3–12), Prozent und «alle Unterkategorien aufklappen» ein. 🔍 oder ein Betrag zeigt die Buchungen dazu.
+  - **Cashflow:** Vergleich mit Vormonat und Vorjahr wahlweise für Cashflow, Ausgaben oder Einnahmen.
+  - **Erweiterte Diagramme:** Typ (Kontostand, Ausgaben, Einnahmen, Cashflow), Diagrammart (Linie, Balken, Fläche, Kreis), Gruppieren nach (Hauptkategorie, Kategorie, Konto, Etikett, Zahlungsart), Granularität (Tag, Woche, Monat, Jahr). Unter «Meine Diagramme» speichern.
+  - **Investitionen:** Vorsorge- und Anlagekonten (z. B. Säule 3a) mit Wert, Einzahlungen und Wertentwicklung der letzten 12 Monate.
+- Der Wallet-Abgleich übernimmt neu Zahlungsart, Buchungsstatus und Etiketten der Buchungen. Für ältere Buchungen leitet die App die Zahlungsart vom Konto ab.
+
 ## 1.53.0
 - **Analyse › Bericht – wie bei Wallet:** Neuer erster Reiter in der Analyse mit drei Ansichten:
   - **Einnahmen & Ausgaben:** 6 Monate nebeneinander, pro Hauptkategorie (Essen, Einkaufen, Wohnen, Finanzausgaben …) mit Veränderung in % zum Vormonat – grün heisst besser. Zeile antippen zeigt die Unterkategorien. Dazu der Geldfluss pro Monat und ob die Ausgaben so tief sind wie lange nicht.
