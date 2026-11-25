@@ -2,6 +2,18 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.56.0
+- **Neu: «Mein Plan»** (Menü › Geld planen, ganz oben): dein Weg zu schneller Stabilität in sechs Schritten – ohne auf Spass zu verzichten.
+  1. **Kreditkarte stoppen:** offener Betrag, Zins pro Monat (12 %), Abzahlbetrag wählen mit «schuldenfrei im …» und Zinskosten, auf Wunsch auch ins Budget. Warnung, wenn die Karte höher ist als das Privatkonto.
+  2. **Lohntag-Plan:** Am Lohntag zeigt die Startseite, wie du den Lohn verteilst – Kreditkarte, Notgroschen, Steuern, Säule 3a, Gönn-Topf – und was frei zum Leben bleibt. Zum Abhaken; mit einem Tipp als Daueraufträge anlegen. Mitteilung am Lohntag.
+  3. **Notgroschen:** Ziel = 3 Monatsausgaben aus deinen echten Zahlen, mit Fortschritt und Monatsbetrag.
+  4. **Steuern:** Schätzung aus deinen bisherigen Steuerzahlungen (oder eigener Betrag), nötige Rückstellung pro Monat im Vergleich zum Budget.
+  5. **Schweizer Fristen:** Krankenkasse 30. November (mit Franchise-Rechner 300 / 2500 aus deinen Gesundheitskosten), Säule 3a bis 31. Dezember (eingezahlt und Rest), Prämienverbilligung Aargau bis 31. Dezember, Steuererklärung. Mitteilungen 14 und 2 Tage vorher. **Steuer-Abzüge** (3a, Arbeitsweg, Weiterbildung, Spenden, Krankheitskosten) pro Jahr gesammelt und als Datei zum Drucken oder als PDF.
+  6. **Belohnung & Fortschritt:** Meilensteine (Kreditkarte schuldenfrei, Notgroschen voll, 3a voll, Steuern zurückgelegt) erhöhen auf Wunsch den Gönn-Topf. Dazu die Kurve deines Nettovermögens.
+- **Erlebnisse planen** (Gönnen): Datum setzen, Countdown und wie viel du pro Monat zurücklegen musst.
+- Fristen, die bald ablaufen, erscheinen auch bei den Tipps im Berater und kurz auf der Startseite.
+- Alles wird nur auf dem Gerät berechnet. Die App bucht nichts selbst und ändert das Budget nur, wenn du es antippst.
+
 ## 1.55.0
 - **Tipps aus deinen Zahlen** (Berater › Übersicht, kurz auch unter Analyse › Bericht): Die App wertet deinen letzten Lohnmonat aus und zeigt nur, was zutrifft – jeweils mit Knopf zum Handeln:
   - grösster Ausgabenblock (z. B. «Finanzausgaben: 50 % deiner Ausgaben») → Posten ansehen
