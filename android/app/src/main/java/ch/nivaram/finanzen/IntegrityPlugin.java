@@ -87,11 +87,6 @@ public class IntegrityPlugin extends Plugin {
             emulator = true; reasons.put("Emulator");
         }
 
-        String cert = signingCert(pm);
-        String expected = BuildConfig.EXPECTED_CERT == null ? "" : BuildConfig.EXPECTED_CERT.replace(":", "").replace(" ", "").toLowerCase(Locale.ROOT);
-        Boolean sigOk = expected.isEmpty() ? null : expected.equals(cert);
-        if (Boolean.FALSE.equals(sigOk)) reasons.put("App nicht mit dem offiziellen Schlüssel signiert");
-
         String installer = "";
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -99,6 +94,12 @@ public class IntegrityPlugin extends Plugin {
                 installer = s == null ? "" : s;
             }
         } catch (Exception ignored) { /* unbekannt */ }
+
+        // Aus dem Play Store signiert Google selbst (Play App Signing) – dort prüft Google die Echtheit.
+        String cert = signingCert(pm);
+        String expected = BuildConfig.EXPECTED_CERT == null ? "" : BuildConfig.EXPECTED_CERT.replace(":", "").replace(" ", "").toLowerCase(Locale.ROOT);
+        Boolean sigOk = (expected.isEmpty() || "com.android.vending".equals(installer)) ? null : expected.equals(cert);
+        if (Boolean.FALSE.equals(sigOk)) reasons.put("App nicht mit dem offiziellen Schlüssel signiert");
 
         JSObject r = new JSObject();
         r.put("rooted", rooted);

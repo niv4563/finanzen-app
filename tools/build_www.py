@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Baut den Web-Teil der Android-App nach www/.
-Aufruf: python3 tools/build_www.py web <version> <kanal: direct|play> [<github owner/repo>] [<build-nr>]
+Aufruf: python3 tools/build_www.py web <version> <kanal: direct|play|ios|web> [<github owner/repo>] [<build-nr>]
 Kopiert NUR die App-Dateien – niemals persönliche Daten (z. B. Finanzen_Daten.json)."""
 import json, re, shutil, sys, pathlib
 src, version, channel = pathlib.Path(sys.argv[1]), sys.argv[2], sys.argv[3]
 repo = sys.argv[4] if len(sys.argv) > 4 else ''
 build = sys.argv[5] if len(sys.argv) > 5 else ''
 assert re.fullmatch(r'\d+\.\d+\.\d+', version), 'Version muss so aussehen: 1.2.3'
-assert channel in ('direct', 'play', 'web')
+assert channel in ('direct', 'play', 'web', 'ios')
 assert repo == '' or re.fullmatch(r'[\w.-]+/[\w.-]+', repo)
 out = pathlib.Path(__file__).resolve().parent.parent / 'www'
 shutil.rmtree(out, ignore_errors=True); out.mkdir()

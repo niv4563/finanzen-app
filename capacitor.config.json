@@ -11,6 +11,17 @@
     "minWebViewVersion": 100
   },
   "plugins": {
-    "SystemBars": { "insetsHandling": "css", "style": "DEFAULT" }
+    "SystemBars": {
+      "insetsHandling": "css",
+      "style": "DEFAULT"
+    }
+  },
+  "ios": {
+    "contentInset": "never",
+    "scrollEnabled": true,
+    "allowsLinkPreview": false,
+    "webContentsDebuggingEnabled": false,
+    "limitsNavigationsToAppBoundDomains": false,
+    "preferredContentMode": "mobile"
   }
 }

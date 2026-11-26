@@ -17,3 +17,12 @@ Finanzen_Daten.json
 *.p12
 GITHUB-SECRETS.txt
 local.properties
+
+# iPhone: Apple-Zertifikate, Profile und Schlüssel NIE ins Projekt (nur als GitHub Secrets)
+*.p8
+*.cer
+*.mobileprovision
+*.ipa
+
+# iPhone-Projekt wird beim Build aus der Capacitor-Vorlage + ios-src/ erzeugt (tools/ios_prepare.py)
+ios/

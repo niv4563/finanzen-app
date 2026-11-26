@@ -11,8 +11,9 @@ android {
         versionCode((project.findProperty('appVersionCode') ?: '1') as Integer)
         versionName((project.findProperty('appVersionName') ?: '1.0.0') as String)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        // Fingerabdruck des offiziellen Signatur-Zertifikats (öffentlich, kein Geheimnis) – die App prüft sich damit selbst
-        buildConfigField "String", "EXPECTED_CERT", "\"${(System.getenv('EXPECTED_CERT') ?: '').replaceAll('[^0-9A-Fa-f]', '')}\""
+        // Fingerabdruck des offiziellen Signatur-Zertifikats (öffentlich, steht in jedem Release) – die App prüft sich damit selbst.
+        // Bei einem neuen Signatur-Schlüssel hier anpassen (oder im Build EXPECTED_CERT setzen).
+        buildConfigField "String", "EXPECTED_CERT", "\"${(System.getenv('EXPECTED_CERT') ?: '42c76c7e5e5e22ff762e35d73ac9160e327516d338fd616c72897e2d244be650').replaceAll('[^0-9A-Fa-f]', '')}\""
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
