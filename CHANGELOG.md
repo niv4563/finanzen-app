@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.58.1
+- **Berater: Punkte lassen sich abarbeiten.**
+  - **Empfehlungen:** Jeder Punkt hat neu «✓ Erledigt» und «Später (2 Wochen)». Erledigtes verschwindet aus der Liste und steht unten unter «Erledigt und zurückgestellt» – mit «Wieder anzeigen». Trifft ein erledigter Punkt nach 60 Tagen immer noch zu, erscheint er wieder.
+  - **Wochenaufgaben:** Die ganze Zeile lässt sich antippen zum Abhaken, der Haken ist grösser. Wo es eine passende Seite gibt, führt «Öffnen ›» dorthin – vorher sprang ein Tipp auf den Text manchmal weg, statt abzuhaken.
+  - Abhaken und Haken entfernen bleibt beim Abgleich zwischen Handy und PC erhalten (vorher kam ein entfernter Haken vom anderen Gerät zurück).
+
 ## 1.58.0
 - **Konten nach Art:** Sechs Kontoarten statt bisher fünf Gruppen – auf der Startseite, bei «Konten» und bei jedem Konto wählbar:
   - **Gewöhnliche Konten** (Privatkonto, Lohnkonto, Bargeld – auch in Fremdwährung)
