@@ -1,0 +1,11 @@
+/* 1.58.0 – Kontoarten, Kreditkarten & Kredite */
+.agh small{display:block;font-weight:400;font-size:11px;margin-top:1px}
+#acccount .agh{padding-left:0;padding-right:0}
+.kkrow{padding:10px 0;border-top:1px solid var(--line)}
+.kkrow:first-of-type{border-top:0}
+.kkh{display:flex;justify-content:space-between;gap:8px;align-items:baseline;margin-bottom:4px}
+.kkbar{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin:4px 0 2px}
+.kkbar i{display:block;height:100%;background:var(--ok);border-radius:3px}
+.kkbar i.mid{background:var(--warn)}
+.kkbar i.hi{background:var(--bad)}
+.kkrow .small{line-height:1.5}
