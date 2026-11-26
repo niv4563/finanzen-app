@@ -11,6 +11,8 @@ android {
         versionCode((project.findProperty('appVersionCode') ?: '1') as Integer)
         versionName((project.findProperty('appVersionName') ?: '1.0.0') as String)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // Fingerabdruck des offiziellen Signatur-Zertifikats (öffentlich, kein Geheimnis) – die App prüft sich damit selbst
+        buildConfigField "String", "EXPECTED_CERT", "\"${(System.getenv('EXPECTED_CERT') ?: '').replaceAll('[^0-9A-Fa-f]', '')}\""
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
@@ -37,6 +39,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    buildFeatures {
+        buildConfig true
     }
     lint {
         abortOnError false   // schwere Fehler stoppen den Build trotzdem (lintVital); der volle Bericht läuft in GitHub Actions
