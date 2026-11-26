@@ -2,6 +2,20 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.58.0
+- **Konten nach Art:** Sechs Kontoarten statt bisher fünf Gruppen – auf der Startseite, bei «Konten» und bei jedem Konto wählbar:
+  - **Gewöhnliche Konten** (Privatkonto, Lohnkonto, Bargeld – auch in Fremdwährung)
+  - **Sparkonten** (Sparkonto, Reserve, Notgroschen, Rückstellungen)
+  - **Haushaltkonten** (Haushaltkonto und Haushalt-Sparkonto)
+  - **Kreditkarten & Kredite** (Kreditkarten, Kredite, Leasing, Ratenkäufe)
+  - **Investkonten** (Depot, ETF, Aktien, Fonds, Krypto)
+  - **Langfristige Konten** (Säule 3a, Freizügigkeit, Pensionskasse)
+  Die Art wird aus dem Namen erkannt. Ändern: Konto antippen › «Name, Farbe & Symbol ändern» › Kontoart.
+- **Kreditkarten mit allen Angaben:** Jahreszins, Kreditlimite, Abrechnungstag, «zahlbar bis», Jahresgebühr, Gebühr für Fremdwährung und ob du jeden Monat den ganzen Betrag zahlst. Bei Krediten und Leasing: Zins, Rate pro Monat, Laufzeit und Fälligkeit.
+- Unter «Konten» neu die Karte **Kreditkarten & Kredite**: Auslastung der Limite, Zins pro Monat in Franken, nächste Abrechnung und Fälligkeit – und was zusammen an Zins anfällt. Fehlende Angaben werden genannt.
+- **Mitteilung 3 Tage vor der Fälligkeit** einer Kreditkartenrechnung oder Kreditrate (abschaltbar pro Konto).
+- Berater und «Mein Plan» rechnen mit dem hier eingetragenen Zins. Analyse › Investitionen zeigt Invest- und langfristige Konten.
+
 ## 1.57.0
 - **Sicherheit auf Bank-Niveau (OWASP MASVS L2):**
   - **Sicherheitsprüfung bei jedem Entsperren:** Die App erkennt ein gerootetes Handy, Werkzeuge, die Apps beobachten oder verändern (Frida, Xposed, Magisk …), einen angehängten Debugger und ob sie selbst die offizielle, unveränderte Version ist. Sie **warnt** deutlich, sperrt aber nie – deine Daten bleiben immer erreichbar.
