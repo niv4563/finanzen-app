@@ -2,6 +2,16 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.57.0
+- **Sicherheit auf Bank-Niveau (OWASP MASVS L2):**
+  - **Sicherheitsprüfung bei jedem Entsperren:** Die App erkennt ein gerootetes Handy, Werkzeuge, die Apps beobachten oder verändern (Frida, Xposed, Magisk …), einen angehängten Debugger und ob sie selbst die offizielle, unveränderte Version ist. Sie **warnt** deutlich, sperrt aber nie – deine Daten bleiben immer erreichbar.
+  - **Zugangsschlüssel für den Geräte-Abgleich:** Warnung, wenn er mehr darf als nötig (z. B. Rechte am App-Projekt, mit denen jemand ein verändertes Update veröffentlichen könnte).
+  - Übersicht unter **Einstellungen › Daten & Sicherheit › Sicherheitsprüfung** mit «Jetzt prüfen».
+  - PC-Version: lässt sich nicht mehr in fremde Webseiten einbetten (Schutz vor untergeschobenen Klicks).
+  - **Automatische Tests:** Bei jedem Build werden mit erfundenen Daten die Verschlüsselung (falsche PIN abgelehnt, nichts im Klartext, nach dem Sperren nichts mehr im Speicher), jede Seite und jeder Knopf geprüft. Ein Fehler wie bei den Berater-Knöpfen stoppt künftig die Veröffentlichung. Die Tests laufen, sobald die neuen Build-Abläufe einmalig eingeschaltet sind (tools/workflows).
+  - Neue Beschreibung SICHERHEIT.md: Punkt für Punkt nach dem Prüfstandard der Banken.
+- **iPhone-Version vorbereitet:** gleiche App mit Face ID, Geräteschlüssel im Schlüsselbund des iPhones, verdeckten Beträgen im App-Umschalter, Mitteilungen und Sicherheitsprüfung (Jailbreak). Datenschutz-Angaben für Apple: kein Tracking, keine gesammelten Daten. GitHub baut sie in der Cloud auf einem Mac; für TestFlight braucht es ein Apple-Entwicklerkonto (siehe ANLEITUNG-IOS.md).
+
 ## 1.56.1
 - **Berater: Knöpfe führen ans richtige Ziel.**
   - «Schuldenplan» (in Empfehlungen, auf der Startseite und im Tipp zur Kreditkarte) führte zu «Konten» oder auf dieselbe Seite – dort gibt es keinen Schuldenplan mehr. Jetzt springt er direkt zum Schuldenplan im Berater.
