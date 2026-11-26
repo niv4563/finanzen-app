@@ -1,0 +1,7 @@
+/* 1.58.1 – Berater: Punkte abarbeiten */
+.recdone{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.recdonebox summary{cursor:pointer}
+.ctask .ctap{cursor:pointer}
+.ctask .ccheck{flex-basis:36px;height:36px;font-size:16px}
+.ctopen{margin-top:6px;align-self:flex-start}
+.ctask .sp{display:flex;flex-direction:column}
