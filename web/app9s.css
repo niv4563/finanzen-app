@@ -1,0 +1,8 @@
+/* 1.57.0 – Sicherheitsprüfung */
+.secw{border-left:3px solid var(--warn);padding:6px 10px;margin:8px 0;border-radius:4px;background:rgba(200,136,0,.06)}
+.secw.bad{border-left-color:var(--bad);background:rgba(204,51,51,.06)}
+.secw p{margin:4px 0 0}
+.seclist{list-style:none;padding:0;margin:6px 0 10px}
+.seclist li{padding:3px 0;font-size:14px}
+.seclist li.in{color:var(--ink)}
+.seclist li.out{color:var(--bad);font-weight:600}

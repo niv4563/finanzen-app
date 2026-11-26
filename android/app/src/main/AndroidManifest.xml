@@ -56,6 +56,20 @@
         </provider>
     </application>
 
+    <!-- Sicherheitsprüfung: nur diese bekannten Root-/Hooking-Apps dürfen erkannt werden (kein Zugriff auf die übrige App-Liste). -->
+    <queries>
+        <package android:name="com.topjohnwu.magisk" />
+        <package android:name="io.github.vvb2060.magisk" />
+        <package android:name="me.weishu.kernelsu" />
+        <package android:name="me.bmax.apatch" />
+        <package android:name="eu.chainfire.supersu" />
+        <package android:name="com.koushikdutta.superuser" />
+        <package android:name="com.noshufou.android.su" />
+        <package android:name="de.robv.android.xposed.installer" />
+        <package android:name="org.lsposed.manager" />
+        <package android:name="com.saurik.substrate" />
+    </queries>
+
     <!-- Internet: nur für Update-Prüfung, Geräte-Sync (eigenes privates Repository), Wallet und Wechselkurse. Keine Kontakte, kein Standort, kein Speicherzugriff. -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- Erlaubt der App, fremde Overlays über sich auszublenden (Schutz vor Tapjacking, Android 12+). -->
