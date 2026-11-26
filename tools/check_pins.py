@@ -59,6 +59,6 @@ for h in HOSTS:
 
 if pins:
     print(f'\n{len(pins)} Pins in network_security_config.xml')
-if bad and not report:
+if bad and pins and not report:
     print('::error::Zertifikat-Pinning passt nicht zu: ' + ', '.join(bad)); sys.exit(1)
 print('Pinning geprüft' if pins else 'Noch kein Pinning eingetragen')
