@@ -2,6 +2,17 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.59.0
+- **Handy: Seiten sauber statt gequetscht.** Ein Fehler in der Darstellung liess auf dem Handy viele Bereiche in zwei schmalen Spalten nebeneinander stehen – Texte waren abgeschnitten oder lagen übereinander, manches war kaum zu sehen. Betroffen waren u. a. Startseite (Cockpit), Monat, Gönnen › Erlebnisse & Wünsche und die Buchungsliste im Monat. Jetzt steht alles untereinander in voller Breite.
+  - «Nächster Schritt» auf der Startseite war weiss auf weiss und damit unsichtbar – jetzt wieder gut lesbar.
+  - Titel oben wird neben der Monatswahl nicht mehr zu «Mo…» abgekürzt.
+  - Budget: Monat · Quartal · Jahr und die Monatswahl überlappen nicht mehr.
+  - Reiter oben (z. B. Analyse, Kommende Zahlungen): Ein Verlauf am Rand zeigt, dass es weitere Reiter gibt; der gewählte Reiter ist immer sichtbar.
+  - Analyse › Bericht: Ansichten in einer Zeile zum Wischen; Spaltenköpfe der Tabelle werden nicht mehr abgeschnitten.
+  - Muss · Brauch · Will und kleine Links sind grösser zum Antippen.
+  - Die Seite verschiebt sich nicht mehr seitwärts.
+- Die automatischen Tests prüfen neu jede Seite in Handygrösse.
+
 ## 1.58.1
 - **Berater: Punkte lassen sich abarbeiten.**
   - **Empfehlungen:** Jeder Punkt hat neu «✓ Erledigt» und «Später (2 Wochen)». Erledigtes verschwindet aus der Liste und steht unten unter «Erledigt und zurückgestellt» – mit «Wieder anzeigen». Trifft ein erledigter Punkt nach 60 Tagen immer noch zu, erscheint er wieder.
@@ -534,5 +545,3 @@ Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der A
 - Sperrt sich automatisch, wenn die App 1 Minute im Hintergrund war
 - Keine Screenshots, keine Vorschau in «Zuletzt verwendet»
 - Backup verschlüsselt speichern und teilen (z. B. Google Drive, Mail)
-- Topf «Unter Leuten», Wünsche mit Kategorien und Rangfolge
-- Update-Funktion: Die App meldet neue Versionen selbst
