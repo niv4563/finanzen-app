@@ -6,6 +6,7 @@ Geprüft wird:
   1. Verschlüsselung: PIN setzen, sperren, falsche PIN abgelehnt, richtige PIN öffnet,
      im Speicher steht nichts im Klartext.
   2. Jede Seite lässt sich ohne Fehler öffnen.
+  2b. Auf dem Handy: nichts breiter als der Bildschirm, keine gequetschten Spalten.
   3. Jeder Link/Knopf mit Ziel (data-go) führt auf eine existierende Seite und nicht auf
      die Seite, auf der er steht (Fehler aus 1.56.0).
   4. Jeder Knopf (data-act) lässt sich antippen, ohne dass ein Programmfehler entsteht.
@@ -88,6 +89,9 @@ with sync_playwright() as pw:
         e0 = len(errs)
         p.evaluate(OPEN, v); p.wait_for_timeout(120)
         if len(errs) > e0: fail(f'Seite «{v}»: {errs[-1][:160]}'); continue
+        w = p.evaluate("() => [document.documentElement.scrollWidth, innerWidth, [...document.querySelectorAll('#main .grid.g2')].filter(g => getComputedStyle(g).gridTemplateColumns.split(' ').length > 1).length]")
+        if w[0] > w[1] + 1: fail(f'Seite «{v}»: auf dem Handy breiter als der Bildschirm ({w[0]} statt {w[1]} px)')
+        if w[2]: fail(f'Seite «{v}»: {w[2]} Bereich(e) auf dem Handy gequetscht nebeneinander statt untereinander')
         for x in p.evaluate(ok_js, v): fail(f'Seite «{v}»: Ziel {x} fehlt oder zeigt auf dieselbe Seite')
     # Durchgang 2: jeden Knopf antippen
     for v in views:
