@@ -2,6 +2,9 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.67.1
+- **Budget auf 10 Franken genau** statt auf 50: Vorschläge aus «Budget aus Zahlungen» und alle Beträge des Fluss-Assistenten werden auf 10 Franken gerundet (Säule 3a abgerundet, damit das Jahresmaximum hält).
+
 ## 1.67.0
 - **Geldfluss: Die Anordnung bleibt, wie du sie gesetzt hast.** Neu angeordnet wird nur noch, wenn du «Anordnen» tippst. Kommen neue Kästchen dazu (z. B. durch «Muster erkennen», den Fluss-Assistenten oder einen Kasten), bekommen sie einen freien Platz in der passenden Spalte – alle anderen Kästchen bleiben, wo sie sind.
 - **Eingang auch oben:** Liegt die Quelle über dem Ziel, kommt der Draht neu von oben ins Kästchen (kleiner Ring zeigt den Eingang). Sonst bleibt der Eingang links. Der Ausgang wählt wie bisher die Seite, die zum Ziel zeigt.
