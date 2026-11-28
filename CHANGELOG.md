@@ -2,6 +2,16 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.70.0
+- **Geldfluss aus dem Budget aufbauen** (Geldfluss › Mehr › «Aus dem Budget aufbauen»): Der Geldfluss wird genau wie deine Budgettabelle aufgebaut.
+  - **Übergeordnet:** Einkommen aufs Hauptkonto (z. B. PostFinance Privatkonto); was nicht zugewiesen ist, bleibt dort als Restbetrag.
+  - **Fixe Ausgaben, Persönliche Ausgaben, Sparen / Anlagen:** jede Budget-Zeile ein eigenes Kästchen in der Reihenfolge der Tabelle, in farbigen Gruppen untereinander. Sparen geht als Übertrag aufs passende Konto (Sparkonto, Depot, Säule 3a); hat ein Sparziel wie «Eigenheim» kein eigenes Konto, wird es ein Topf auf dem Sparkonto.
+  - **Werte stimmen:** Oben steht für jeden Monat «Stimmt mit dem Budget» mit Fixen Ausgaben, Persönlichen Ausgaben, Sparen / Anlagen und Restbetrag (nicht zugewiesen) – oder genau, was abweicht. Was du effektiv ausgegeben hast (Wallet, Bankdateien), steht wie bisher in jedem Kästchen.
+  - Der bisherige Geldfluss lässt sich unter «Mehr» wiederherstellen. Dein Budget bleibt unverändert.
+- **Unregelmässige Ausgaben (bekannt) = deine Wünsche:** Im Kästchen stehen die eingeplanten Wünsche. «Wünsche einplanen» legt pro Wunsch den Monat fest; das Budget dieser Zeile wird in jedem Monat auf die Summe gesetzt (auf 10 Franken). «Unregelmässige Ausgaben (unbekannt)» ist als Puffer für Unvorhergesehenes markiert.
+- Lange Ausgaben-Gruppen werden beim Anordnen in mehrere Spalten umgebrochen.
+- «Abos (über Kreditkarte)» zählt nicht mehr als Schuld, sondern zu den Persönlichen Ausgaben.
+
 ## 1.69.0
 - **Geldfluss: Gruppen.** Ein Gruppenkasten ist ein farbiger Rahmen hinter zusammengehörigen Kästchen – mit Name und wie viel pro Monat hinein- oder hinausfliesst.
   - **Immer vorgebaut:** Einkommen · Zahlungskonten · Sparen & Anlagen · Fixe Ausgaben · Persönliche Ausgaben – wie in der Budgettabelle. Neue Kästchen kommen von selbst in die passende Gruppe (z. B. Miete, Krankenkasse und Steuern zu den Fixen Ausgaben, Lebensmittel und Abos zu den Persönlichen).
