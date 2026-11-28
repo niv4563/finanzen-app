@@ -1,40 +1,37 @@
-# Baut die Android-App in der Cloud von GitHub.
-# - Bei jedem Push: Prüfungen + Test-Build (ohne Veröffentlichung)
-# - Bei einem Tag «v1.2.3»: signierte App bauen und als Release veröffentlichen.
-#   Die installierte App findet dieses Release automatisch («Update verfügbar»).
-name: Android-App
+# Hält die App automatisch auf dem neusten Sicherheitsstand.
+#
+# 1. Dependabot (.github/dependabot.yml) schlägt neue Versionen der Bausteine vor – sofort bei bekannten
+#    Sicherheitslücken, sonst jeden Montag.
+# 2. «Prüfen»: Jeder Vorschlag wird hier vollständig getestet – Sicherheitsprüfung der Bausteine,
+#    Verschlüsselung, alle Seiten und Knöpfe (nur erfundene Testdaten) und ein Android-Test-Build.
+# 3. «Übernehmen»: Kleine Updates (Fehler- und Sicherheitskorrekturen, neue Funktionen ohne Brüche) werden
+#    nur nach bestandenen Tests automatisch übernommen. Grosse Versionssprünge und Updates der Build-Abläufe
+#    bleiben als Vorschlag offen – du bekommst eine Mitteilung von GitHub und entscheidest selbst.
+# 4. «Veröffentlichen»: Jede Nacht wird aus übernommenen Updates eine neue App-Version gebaut und
+#    veröffentlicht. Die App auf Handy und PC meldet das Update wie gewohnt.
+name: Sicherheits-Updates
 
 on:
-  push:
-    branches: [main]
-    tags: ['v*.*.*']
   pull_request:
+  schedule:
+    - cron: '17 2 * * *'        # täglich 03:17 Uhr Schweizer Winterzeit
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'Neue Version veröffentlichen, z. B. 1.0.1 (leer = nur Test-Build)'
-        required: false
-        default: ''
 
 permissions:
-  contents: read          # Standard: nur lesen. Nur der Release-Schritt bekommt Schreibrecht.
+  contents: read
 
 concurrency:
-  group: android-${{ github.ref }}
+  group: sicherheits-updates-${{ github.event.pull_request.number || 'release' }}
   cancel-in-progress: false
 
 jobs:
-  build:
+  pruefen:
+    if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     permissions:
-      contents: write     # nötig, um das Release anzulegen
-    env:
-      WANTS_RELEASE: ${{ startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.version != '') }}
-      HAS_KEY: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
-      INPUT_VERSION: ${{ inputs.version }}
+      contents: read
     steps:
-      # Alle Actions sind auf eine feste, geprüfte Version (Commit) festgenagelt – Schutz vor manipulierten Updates.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
@@ -43,54 +40,13 @@ jobs:
         run: |
           bad=$(git ls-files | grep -Ei '(Finanzen_Daten|\.xlsx$|\.xls$|backup.*\.json$|\.jks$|\.keystore$|\.p12$|\.p8$|\.mobileprovision$|walletToken)' || true)
           if [ -n "$bad" ]; then echo "::error::Diese Dateien gehören nicht ins Projekt: $bad"; exit 1; fi
-          if grep -RIl --exclude-dir=node_modules -E 'BEGIN (RSA |EC )?PRIVATE KEY' . ; then echo "::error::Privater Schlüssel im Projekt gefunden"; exit 1; fi
-
-      - name: Release möglich?
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          WANT="$WANTS_RELEASE"
-          # Push auf main: Ist oben in CHANGELOG.md eine neue Version eingetragen, wird sie automatisch veröffentlicht.
-          if [ "$GITHUB_EVENT_NAME" = "push" ] && [ "$GITHUB_REF" = "refs/heads/main" ]; then
-            CV=$(grep -m1 -E '^## [0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | awk '{print $2}' || true)
-            if [ -n "$CV" ] && ! gh release view "v$CV" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
-              echo "Neue Version $CV im CHANGELOG gefunden."
-              WANT=true; echo "CL_VERSION=$CV" >> "$GITHUB_ENV"
-            fi
-          fi
-          if [ "$WANT" = "true" ] && [ "$HAS_KEY" != "true" ]; then
-            echo "::warning::Signatur-Secrets fehlen noch (siehe ANLEITUNG-ANDROID.md, Schritt 4). Es wird nur ein Test-Build gemacht, keine Veröffentlichung."
-            WANT=false
-          fi
-          echo "IS_RELEASE=$WANT" >> "$GITHUB_ENV"
-
-      - name: Version bestimmen
-        id: ver
-        run: |
-          IV="${CL_VERSION:-$INPUT_VERSION}"
-          if [ -n "$IV" ]; then V="${IV#v}"
-          elif [ "$IS_RELEASE" = "true" ]; then V="${GITHUB_REF_NAME#v}"
-          else V="0.0.${GITHUB_RUN_NUMBER}"; fi
-          echo "$V" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$' || { echo "::error::Tag muss so aussehen: v1.2.3"; exit 1; }
-          IFS=. read -r MA MI PA <<< "$V"
-          CODE=$(( MA*1000000 + MI*1000 + PA ))
-          [ "$IS_RELEASE" = "true" ] || CODE=1
-          echo "version=$V" >> "$GITHUB_OUTPUT"; echo "code=$CODE" >> "$GITHUB_OUTPUT"
-          echo "Version $V (Code $CODE)"
-
-      - name: Version muss neuer sein als die veröffentlichte
-        if: env.IS_RELEASE == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          LAST=$(gh release view --repo "$GITHUB_REPOSITORY" --json tagName -q .tagName 2>/dev/null | sed 's/^v//' || true)
-          V="${{ steps.ver.outputs.version }}"
-          if [ -n "$LAST" ] && [ "$(printf '%s\n%s\n' "$LAST" "$V" | sort -V | tail -1)" != "$V" -o "$LAST" = "$V" ]; then
-            echo "::error::Version $V ist nicht neuer als die veröffentlichte Version $LAST"; exit 1; fi
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
       - uses: actions/setup-java@d1374f8ac74474200d16ef8ecee22c7ae7a51880 # v6.3.0
         with:
           distribution: temurin
@@ -99,136 +55,117 @@ jobs:
         with:
           gradle-version: '8.14.3'
       - uses: android-actions/setup-android@be39fa834029ff78f1a44aa3bb0819b8fc2bd8fd # v4.0.4
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
-        with:
-          python-version: '3.12'
 
-      - name: Abhängigkeiten (feste Versionen laut package.json) + Sicherheitsprüfung
+      - name: Bausteine laden + bekannte Sicherheitslücken prüfen
         run: |
           npm install --no-fund --no-audit
           npm audit --omit=dev --audit-level=high
 
-      - name: Web-Teil prüfen
-        run: |
-          python3 tools/build_www.py web 0.0.0 direct
-          node --check www/app.js
-
       - name: Automatische Tests (Verschlüsselung, alle Seiten und Knöpfe – nur erfundene Testdaten)
         run: |
-          set -o pipefail
-          mkdir -p dist
+          python3 tools/build_www.py web 0.0.0 web
+          node --check www/app.js
           pip install --quiet playwright==1.63.0
           python3 -m playwright install --with-deps chromium
-          python3 tools/build_www.py web 0.0.0 web
-          python3 tests/e2e_test.py www 2>&1 | tee dist/tests.log
+          python3 tests/e2e_test.py www
 
-      - name: Zertifikat-Pinning gegen die echten Server prüfen
+      - name: Android-Test-Build
         run: |
-          set -o pipefail
-          python3 tools/check_pins.py 2>&1 | tee dist/pins.log
-
-      - name: Signatur-Schlüssel bereitstellen
-        if: env.IS_RELEASE == 'true'
-        env:
-          KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
-        run: |
-          [ -n "$KEYSTORE_B64" ] || { echo "::error::Secret ANDROID_KEYSTORE_BASE64 fehlt (siehe ANLEITUNG-ANDROID.md)"; exit 1; }
-          echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/release.jks"
-          echo "ANDROID_KEYSTORE_FILE=$RUNNER_TEMP/release.jks" >> "$GITHUB_ENV"
-
-      - name: App bauen – direkte Installation (APK mit Update-Funktion)
-        env:
-          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
-          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
-          EXPECTED_CERT: ${{ secrets.ANDROID_CERT_SHA256 }}
-        run: |
-          set -o pipefail
-          mkdir -p dist
-          python3 tools/build_www.py web "${{ steps.ver.outputs.version }}" direct "$GITHUB_REPOSITORY" "$GITHUB_RUN_NUMBER"
+          python3 tools/build_www.py web 0.0.0 direct
           npx cap sync android
           python3 tools/harden_after_sync.py
-          cd android
-          gradle --no-daemon assembleRelease -PappVersionCode=${{ steps.ver.outputs.code }} -PappVersionName=${{ steps.ver.outputs.version }} 2>&1 | tee ../dist/gradle-apk.log
-          mkdir -p ../dist
-          cp app/build/outputs/apk/release/app-release*.apk ../dist/Finanzen-${{ steps.ver.outputs.version }}.apk
+          cd android && gradle --no-daemon assembleDebug
 
-      - name: App bauen – Google Play (AAB, Updates über den Play Store)
-        env:
-          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
-          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
-          EXPECTED_CERT: ${{ secrets.ANDROID_CERT_SHA256 }}
-        run: |
-          set -o pipefail
-          python3 tools/build_www.py web "${{ steps.ver.outputs.version }}" play "$GITHUB_REPOSITORY" "$GITHUB_RUN_NUMBER"
-          npx cap copy android
-          python3 tools/harden_after_sync.py
-          cd android
-          gradle --no-daemon bundleRelease -PappVersionCode=${{ steps.ver.outputs.code }} -PappVersionName=${{ steps.ver.outputs.version }} 2>&1 | tee ../dist/gradle-aab.log
-          cp app/build/outputs/bundle/release/app-release.aab ../dist/Finanzen-${{ steps.ver.outputs.version }}-play.aab
-
-      - name: Qualitätsprüfung (Android Lint)
-        continue-on-error: true
-        run: cd android && gradle --no-daemon lintRelease
-
-      - name: Sicherheitsprüfung (mobsfscan, OWASP-MASVS-Regeln)
-        continue-on-error: true
-        run: |
-          pip install --quiet mobsfscan
-          mobsfscan android/app/src/main web --json -o dist/mobsfscan.json || true
-          mobsfscan android/app/src/main web 2>&1 | tee dist/mobsfscan.log || true
-
-      - name: Signatur prüfen
-        if: env.IS_RELEASE == 'true'
-        env:
-          EXPECTED: ${{ secrets.ANDROID_CERT_SHA256 }}
-        run: |
-          BT=$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)
-          APK=dist/Finanzen-${{ steps.ver.outputs.version }}.apk
-          "$BT/apksigner" verify --min-sdk-version 29 --verbose --print-certs "$APK" | tee dist/signatur.txt
-          GOT=$(grep -m1 'certificate SHA-256 digest' dist/signatur.txt | awk '{print $NF}')
-          WANT=$(echo "$EXPECTED" | tr -d ': ' | tr 'A-F' 'a-f')
-          if [ -n "$WANT" ] && [ "$GOT" != "$WANT" ]; then echo "::error::Falscher Signatur-Schlüssel! Updates würden auf dem Handy abgelehnt."; exit 1; fi
-          ( cd dist && sha256sum *.apk *.aab > SHA256SUMS.txt )
-          rm -f "$RUNNER_TEMP/release.jks"
-
-      - name: Prüfberichte und Test-Build aufbewahren
-        if: always()
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+  uebernehmen:
+    needs: pruefen
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Art des Updates bestimmen
+        id: meta
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
         with:
-          name: finanzen-${{ steps.ver.outputs.version }}
-          path: |
-            dist/
-            android/app/build/reports/
-          retention-days: 30
+          github-token: ${{ github.token }}
 
-      - name: Versionshinweise zusammenstellen
-        if: env.IS_RELEASE == 'true'
-        run: |
-          V="${{ steps.ver.outputs.version }}"
-          awk -v v="$V" '$0 ~ "^## "v"( |$)" {f=1; next} /^## / {f=0} f' CHANGELOG.md > notes.md
-          [ -s notes.md ] || echo "Verbesserungen und Fehlerbehebungen." > notes.md
-          { echo; echo "---"; echo "**Prüfsummen (SHA-256)**"; echo '```'; cat dist/SHA256SUMS.txt; echo '```';
-            echo "Signatur-Zertifikat: \`$(grep -m1 'certificate SHA-256 digest' dist/signatur.txt | awk '{print $NF}')\`"; } >> notes.md
-
-      - name: Release veröffentlichen
-        if: env.IS_RELEASE == 'true'
-        uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3 # v3.0.4
-        with:
-          name: Finanzen ${{ steps.ver.outputs.version }}
-          tag_name: v${{ steps.ver.outputs.version }}
-          target_commitish: ${{ github.sha }}
-          make_latest: true
-          body_path: notes.md
-          files: |
-            dist/Finanzen-${{ steps.ver.outputs.version }}.apk
-            dist/Finanzen-${{ steps.ver.outputs.version }}-play.aab
-            dist/SHA256SUMS.txt
-
-      - name: Ergebnis im Zweig «ci-status» ablegen (nur Build-Protokolle, keine Daten)
-        if: always()
+      - name: Kleines Update übernehmen, grosses zur Prüfung offen lassen
         env:
           GH_TOKEN: ${{ github.token }}
-          JOB_STATUS: ${{ job.status }}
-        run: bash tools/ci_report.sh android
+          PR: ${{ github.event.pull_request.html_url }}
+          TYP: ${{ steps.meta.outputs.update-type }}
+          ART: ${{ steps.meta.outputs.package-ecosystem }}
+        run: |
+          if [ "$ART" = "github_actions" ]; then
+            gh pr comment "$PR" --body "Update der Build-Abläufe: Tests bestanden. GitHub erlaubt nur dir, Build-Abläufe zu ändern – bitte selbst mit «Merge» übernehmen."
+          elif [ "$TYP" = "version-update:semver-major" ]; then
+            gh pr comment "$PR" --body "Grosser Versionssprung: Die automatischen Tests sind bestanden, aber grosse Sprünge können das Verhalten ändern. Bitte kurz prüfen und selbst mit «Merge» übernehmen – oder Claude bitten, es anzuschauen."
+          else
+            gh pr merge "$PR" --squash --delete-branch
+            echo "Übernommen: $TYP"
+          fi
+
+  veroeffentlichen:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Übernommene Updates seit der letzten Version?
+        id: neu
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          LAST=$(gh release view --repo "$GITHUB_REPOSITORY" --json tagName -q .tagName 2>/dev/null || true)
+          [ -n "$LAST" ] || { echo "Noch keine Version veröffentlicht."; exit 0; }
+          git fetch --tags --quiet
+          LOG=$(git log "$LAST"..HEAD --format='%an|%s' || true)
+          [ -n "$LOG" ] || { echo "Nichts Neues seit $LAST."; exit 0; }
+          # Nur wenn ausschliesslich automatische Updates dazugekommen sind. Andere Änderungen kommen mit der nächsten normalen Version.
+          if echo "$LOG" | grep -vqE '^(dependabot\[bot\]|github-actions\[bot\])\|'; then
+            echo "Es gibt auch andere Änderungen seit $LAST – die kommen mit der nächsten normalen Version."; exit 0; fi
+          echo "$LOG" | grep -qE '^dependabot\[bot\]\|' || { echo "Keine übernommenen Updates seit $LAST."; exit 0; }
+          CV=$(grep -m1 -E '^## [0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | awk '{print $2}')
+          [ "v$CV" = "$LAST" ] || { echo "CHANGELOG hat schon eine neue Version ($CV)."; exit 0; }
+          IFS=. read -r MA MI PA <<< "${LAST#v}"
+          V="$MA.$MI.$((PA+1))"
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+          echo "$LOG" | grep -E '^dependabot\[bot\]\|' | cut -d'|' -f2- \
+            | sed -E 's/^Update:? //; s/^[Bb]ump //; s/ \(#[0-9]+\)$//; s/ from ([^ ]+) to ([^ ]+)/ \1 → \2/; s/^the ([^ ]+) group.* with ([0-9]+) updates?.*/Gruppe \1 (\2 Bausteine)/; s/ in \/[^ ]*$//' \
+            | sort -u | sed 's/^/  - /' > "$RUNNER_TEMP/liste.txt"
+          echo "Neue Version $V:"; cat "$RUNNER_TEMP/liste.txt"
+
+      - name: Neue Version eintragen und veröffentlichen
+        if: steps.neu.outputs.version != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          V: ${{ steps.neu.outputs.version }}
+        run: |
+          python3 - <<'PY'
+          import os
+          v = os.environ['V']; liste = open(os.environ['RUNNER_TEMP'] + '/liste.txt').read().rstrip()
+          p = 'CHANGELOG.md'; s = open(p, encoding='utf-8').read()
+          neu = (f"## {v}\n- **Sicherheits- und Wartungsupdate (automatisch):** Bausteine der App auf den neusten Stand gebracht. "
+                 "Vor der Veröffentlichung geprüft: bekannte Sicherheitslücken, Verschlüsselung, alle Seiten und Knöpfe.\n"
+                 + (liste + "\n" if liste else "") + "\n")
+          i = s.index('\n## ') + 1
+          open(p, 'w', encoding='utf-8').write(s[:i] + neu + s[i:])
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md
+          git commit -m "Version $V (automatisches Sicherheitsupdate)"
+          git push origin HEAD:main
+          # Builds starten (ein Push mit diesem Schlüssel startet sie nicht von selbst)
+          gh workflow run android.yml --ref main -f version="$V"
+          gh workflow run pages.yml --ref main
+          gh workflow run ios.yml --ref main 2>/dev/null || true
+          echo "Version $V wird gebaut und veröffentlicht."
