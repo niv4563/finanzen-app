@@ -34,7 +34,7 @@ function grpKind(n){
     const r = String(n.ref||''); if(r.startsWith('g:')){ const k = r.slice(2); return k==='spar' ? 'spar' : k==='fix' ? 'fix' : 'pers'; }
     const nx = ymAdd(TODAY,1), w = {fix:0, pers:0, spar:0};
     for(const cid of flExpCats(n)){ const c = D.cats.find(x=>x.id===cid); if(!c) continue; const s = gSec(c).k, v = (+(D.plan?.[cid]?.[nx]) || 0) + 0.01;
-      w[s==='spar' ? 'spar' : (s==='fix' || isDebtC(c) || isTaxC(c)) ? 'fix' : 'pers'] += v; }
+      w[s==='spar' ? 'spar' : (s==='fix' || c.group==='schulden' || isDebtC(c) || isTaxC(c)) ? 'fix' : 'pers'] += v; }
     return Object.entries(w).sort((a,b)=>b[1]-a[1])[0][1] > 0 ? Object.entries(w).sort((a,b)=>b[1]-a[1])[0][0] : 'pers';
   }
   return null;
@@ -44,7 +44,7 @@ function grpEnsure(){
   const F = FL(); if(!F.nodes.length || F.grpOff) return false; F.groups ??= []; F.grpDel ??= []; let ch = false;
   for(const d of GRP_DEF){ if(F.grpDel.includes(d.k) || F.groups.some(g=>g.k===d.k)) continue; F.groups.push({id:'g'+d.k, k:d.k, n:d.n, c:d.c}); ch = true; }
   for(const n of F.nodes){ if(n.g && F.groups.some(g=>g.id===n.g)) continue; if(n.g){ delete n.g; ch = true; } if(n.gm) continue;
-    const g = F.groups.find(x=>x.k===grpKind(n)); if(g){ n.g = g.id; ch = true; } }
+    const k = grpKind(n), g = F.groups.find(x=>x.k===k) || (k==='konto' ? F.groups.find(x=>x.k==='ein') : null); if(g){ n.g = g.id; ch = true; } }
   if(ch && F.grpHint==null) F.grpHint = 0;    // einmal zeigen: «Anordnen» ordnet nach Gruppen
   return ch;
 }
@@ -85,17 +85,20 @@ function flLayoutGrp(){
   const dep = {}; N.forEach(n=>dep[n.id] = n.t==='inc' ? 0 : null);
   for(let it=0; it<N.length+1; it++){ let ch = false; for(const e of F.edges){ const a = dep[e.f]; if(a==null) continue; if(dep[e.t]==null || dep[e.t] < a+1){ dep[e.t] = a+1; ch = true; } } if(!ch) break; }
   N.forEach(n=>{ if(dep[n.id]==null) dep[n.id] = n.t==='exp' ? 9 : 1; });
-  const stage = n => n.t==='inc' ? 0 : (n.t==='exp' || isColl(n)) ? 3 : grpKind(n)==='spar' ? 2 : 1;
+  // aus dem Budget aufgebaut (97): Sparen / Anlagen steht wie in der Tabelle bei den Ausgaben
+  const stage = n => n.t==='inc' ? 0 : (n.t==='exp' || isColl(n)) ? 3 : grpKind(n)==='spar' ? (F.bf && grpOf(n)?.k==='spar' ? 3 : 2) : 1;
   const RK = {alltag:0, haushalt:1, karte:2, sparen:3, invest:4, vorsorge:5};
   const rank = n => n.t==='acc' ? (RK[accGrp(flAccOf(n)||{})] ?? 0) : n.t==='pot' ? 6 : isExt(n) ? 2 : 1;
   // Blöcke: Gruppen und einzelne Kästchen ohne Gruppe
   const blocks = [], byG = {};
   for(const n of N){ const g = grpOn() ? grpOf(n) : null; if(g) (byG[g.id] ??= {g, mem:[]}).mem.push(n); else blocks.push({g:null, mem:[n]}); }
   blocks.unshift(...Object.values(byG));
-  const ord = b => b.g ? (GRP_DEF.findIndex(d=>d.k===b.g.k) + 1 || 6) : 7;
+  const ord = b => b.g ? ((F.bf ? F.groups.findIndex(g=>g.id===b.g.id) : GRP_DEF.findIndex(d=>d.k===b.g.k)) + 1 || 6) : 7;
   for(const b of blocks){ const st = b.mem.map(stage).sort((a,c)=>a-c); b.col = st[Math.floor((st.length-1)/2)];
     const keys = [...new Set(b.mem.map(n=>stage(n)===3 ? 99 : dep[n.id]))].sort((a,c)=>a-c);
-    b.sub = keys.map(k=>b.mem.filter(n=>(stage(n)===3 ? 99 : dep[n.id])===k).sort((a,c)=>rank(a)-rank(c) || flName(a).localeCompare(flName(c)))); }
+    b.sub = keys.map(k=>b.mem.filter(n=>(stage(n)===3 ? 99 : dep[n.id])===k).sort((a,c)=>rank(a)-rank(c) || (a.ord ?? 999) - (c.ord ?? 999) || flName(a).localeCompare(flName(c))));
+    // lange Ausgaben-Spalten in mehrere Spalten umbrechen (höchstens 5 untereinander)
+    b.sub = b.sub.flatMap(s=>{ if(s.length <= 6 || stage(s[0])!==3) return [s]; const k = Math.ceil(s.length/5), per = Math.ceil(s.length/k); return Array.from({length:k}, (_,i)=>s.slice(i*per, (i+1)*per)).filter(x=>x.length); }); }
   const pred = n => F.edges.filter(e=>e.t===n.id).map(e=>flN(e.f)).filter(Boolean);
   const bary = n => { const p = pred(n); return p.length ? p.reduce((a,o)=>a + o.y + flHt(o)/2, 0)/p.length : null; };
   const place = () => {
@@ -114,7 +117,7 @@ function flLayoutGrp(){
   let cols = place();
   for(let it=0; it<3; it++){
     // Kästchen und Blöcke nach der Lage ihrer Quellen sortieren, damit sich Drähte wenig kreuzen
-    for(const b of blocks) for(const s of b.sub) s.sort((a,c)=>(bary(a) ?? 1e9) - (bary(c) ?? 1e9) || rank(a)-rank(c));
+    for(const b of blocks) for(const s of b.sub) s.sort((a,c)=>(bary(a) ?? 1e9) - (bary(c) ?? 1e9) || rank(a)-rank(c) || (a.ord ?? 999) - (c.ord ?? 999));
     for(const L of Object.values(cols)) L.sort((a,c)=>{ const ba = a.mem.map(bary).filter(v=>v!=null), bc = c.mem.map(bary).filter(v=>v!=null);
       const va = ba.length ? ba.reduce((s,v)=>s+v,0)/ba.length : 1e9, vc = bc.length ? bc.reduce((s,v)=>s+v,0)/bc.length : 1e9;
       return a.g && c.g && a.col===3 && c.col===3 ? ord(a) - ord(c) : (va - vc) || ord(a) - ord(c); });
