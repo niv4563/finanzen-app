@@ -33,3 +33,15 @@ dialog.aiw{width:min(900px,96vw)}
 .fnv2.pos{color:var(--ok)}
 /* 1.66.0 – Drähte aus jeder Seite */
 .fwdot{pointer-events:none;stroke:var(--card);stroke-width:2}
+
+.fwdot.fwin{fill:var(--card);stroke-width:2.5}
+/* 1.67 Fluss-Assistent pro Draht */
+.aiown{display:flex;gap:14px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.aiown>.sp{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.aiown .aiin{width:120px;flex:none;text-align:right}
+.aiown.airest{border-bottom:0}
+.aiown.airest>b{flex:none;width:120px;text-align:right}
+.airec{margin-top:3px;padding:6px 8px;border-radius:8px;background:var(--bg)}
+.airec[hidden]{display:none}
+button.lnk{background:none;border:0;padding:0;color:var(--acc);font:inherit;cursor:pointer;text-decoration:underline}
+.aidet summary{cursor:pointer;margin:10px 0 6px;font-weight:600}
