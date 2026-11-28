@@ -2,6 +2,17 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.64.0
+- **Planen und Geldfluss sind verbunden – in beide Richtungen:**
+  - Änderst du unter «Budget › Planen» einen Betrag oder das Einkommen, rechnet der Geldfluss sofort mit. Die geplanten Überträge (Prognose, «Kommende Zahlungen») werden gleich nachgeführt – auch auf dem Handy.
+  - Unter «Budget › Planen» steht neu oben **«Überträge laut Geldfluss»**: alle Überträge zwischen deinen Konten mit Betrag für den gewählten Monat, dazu der Abzahlbetrag der Kreditkarte. Feste Beträge und Prozente änderst du direkt dort – nur für diesen Monat oder ab diesem Monat. Der Geldfluss übernimmt es sofort.
+  - Ein geplanter Übertrag aus dem Geldfluss unter «Kommende Zahlungen» öffnet beim Antippen den passenden Draht statt einer Kopie, die überschrieben würde.
+- **Neu: Fluss-Assistent** (im Geldfluss und unter Planen). Ein kleiner Assistent, der nur auf dem Gerät rechnet:
+  - Er nimmt dein Einkommen und dein Budget für Grundbedarf, Fixkosten, Wünsche und Freizeit – das bleibt gleich – und verteilt, was übrig ist, auf Kreditkarte, Notgroschen (3 Monatsausgaben), Steuern, Säule 3a und Sparkonto.
+  - Drei Varianten: **Schulden zuerst**, **Ausgewogen**, **Steuern sparen** – jede Monat für Monat über 24 Monate durchgerechnet, mit Kartenzins, Zins auf dem Sparkonto, 3a-Maximum pro Jahr und geschätzter Steuerersparnis. Wird Geld frei (Karte bezahlt, Notgroschen voll), fliesst es automatisch zum nächsten Ziel.
+  - Vergleich mit heute: wann die Karte schuldenfrei ist, wann der Notgroschen voll ist, wie viel Zins du zahlst und um wie viel dein Vermögen wächst. Die beste Variante ist markiert und begründet.
+  - «Übernehmen» stellt Geldfluss, Abzahlbetrag und die passenden Budget-Kategorien (z. B. Säule 3a, Sparen, Steuern) Monat für Monat ein. Die App bucht nichts selbst.
+
 ## 1.63.1
 - **Kreditkarte abzahlen – direkt bei der Karte:** Unter Kontoangaben der Kreditkarte steht neu zuoberst «Abzahlen pro Monat». Beim Eintippen siehst du sofort, wann die Karte schuldenfrei ist und wie viel Zins bis dahin noch anfällt. Es ist derselbe Betrag wie in «Mein Plan».
 - **Im Geldfluss eingerechnet:** Auf dem Draht zur Karte fliesst jeden Monat zusätzlich der Abzahlbetrag (z. B. «870 · davon 300 Abzahlung»), bis die Schuld weg ist – im letzten Monat nur noch der Rest, danach nur noch, was du neu mit der Karte zahlst. Die geplanten Überträge für Prognose und «Kommende Zahlungen» rechnen damit.
