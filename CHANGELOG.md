@@ -2,6 +2,17 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.61.0
+- **Neu: Geldfluss-Plan** (Budget › Geldfluss, in der PC-Version): Zeichne wie in Grasshopper mit Kästchen und Drähten, wie dein Geld fliesst.
+  - **Kästchen:** Einkommen (Lohn, Nebeneinkommen), deine Konten, **Töpfe** auf einem Konto (z. B. Eigenheim, Auto, Ferien – mit Stand und Ziel: «Ziel 80'000 erreicht im …») und Ausgaben-Bereiche (Grundbedürfnisse, Fixkosten, Sparen & Vorsorge, Persönliche Wünsche, Freizeit) oder einzelne Budget-Kategorien.
+  - **Verbinden:** vom Punkt rechts eines Kästchens zum Punkt links eines anderen ziehen. Auf jedem Draht steht der Betrag pro Monat: fester Betrag, «Rest», «deckt das Budget» bzw. was das Zielkonto weitergibt (z. B. Kreditkarte) oder direkt aus Budget-Kategorien. Jeder Monat kann einen eigenen Betrag haben. Dicke Drähte = viel Geld.
+  - **Aus der aktuellen Logik aufgebaut:** Ein Tipp baut den Plan aus deinen Konten, Daueraufträgen und dem Budget auf (Lohn → Privatkonto → Sparkonto, Kreditkarte, Ausgaben). Danach frei anpassen.
+  - **Plan und effektiv:** Echte Überträge, Lohneingänge und Ausgaben werden den Drähten zugeordnet – grün ✓, «kommt noch», orange «fehlt», rot «über Budget».
+  - **Ausgleich:** Fehlt Geld (z. B. CHF 400 statt 600 aufs Sparkonto), schlägt die App vor: den fehlenden Betrag als Übertrag vormerken, auf den nächsten Monat verschieben oder so lassen. Die App bucht nichts selbst.
+  - **Grundlage für die ganze App:** Überträge zwischen Konten werden zu geplanten Überträgen – Prognose, Kontotrend, Kalender und «Kommende Zahlungen» rechnen damit. Übernommene Daueraufträge zählen nicht doppelt.
+  - Oben: Einkommen, wie viel in Ausgaben geht, wie viel gespart wird und die Sparquote – für jeden Monat.
+  - Auf dem Handy (PC-Version im Browser) siehst du alle Verbindungen als Liste und kannst ausgleichen.
+
 ## 1.60.0
 - **Analyse › Bericht sieht aus wie in Wallet:**
   - **Filterleiste** links (auf dem Handy über «Filter» als ganze Seite): jedes Feld mit Symbol und Auswahlpfeil – Mein Filter (speichern), Suchen, Konten, Kategorien (mit Kategorie-Symbolen), Etiketten, Währungen, Eintragsarten, Überweisungen, Buchungsstatus, Zahlungsarten und «Filter zurücksetzen».
