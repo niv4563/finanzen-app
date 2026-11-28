@@ -2,6 +2,12 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.63.1
+- **Kreditkarte abzahlen – direkt bei der Karte:** Unter Kontoangaben der Kreditkarte steht neu zuoberst «Abzahlen pro Monat». Beim Eintippen siehst du sofort, wann die Karte schuldenfrei ist und wie viel Zins bis dahin noch anfällt. Es ist derselbe Betrag wie in «Mein Plan».
+- **Im Geldfluss eingerechnet:** Auf dem Draht zur Karte fliesst jeden Monat zusätzlich der Abzahlbetrag (z. B. «870 · davon 300 Abzahlung»), bis die Schuld weg ist – im letzten Monat nur noch der Rest, danach nur noch, was du neu mit der Karte zahlst. Die geplanten Überträge für Prognose und «Kommende Zahlungen» rechnen damit.
+- Im Kästchen der Karte stehen Schuld und «frei im …». Auf der Seite Konten zeigt die Karte «Kreditkarten & Kredite» den Abzahlplan oder einen Hinweis, wenn noch keiner festgelegt ist.
+- **Optimieren:** Kartenschuld ohne Abzahlplan erscheint zuoberst, mit «Abzahlbetrag festlegen».
+
 ## 1.63.0
 - **Kontoarten mit eigenen Angaben:** Jedes Konto hat je nach Art eigene Felder (Konto antippen › «Kontoangaben», oder Seite Konten › Kontoangaben):
   - Gewöhnliche Konten: Bank, Zins, Kontoführung, wie viel immer drauf bleiben soll, wofür.
