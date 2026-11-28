@@ -2,6 +2,17 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.69.0
+- **Geldfluss: Gruppen.** Ein Gruppenkasten ist ein farbiger Rahmen hinter zusammengehörigen Kästchen – mit Name und wie viel pro Monat hinein- oder hinausfliesst.
+  - **Immer vorgebaut:** Einkommen · Zahlungskonten · Sparen & Anlagen · Fixe Ausgaben · Persönliche Ausgaben – wie in der Budgettabelle. Neue Kästchen kommen von selbst in die passende Gruppe (z. B. Miete, Krankenkasse und Steuern zu den Fixen Ausgaben, Lebensmittel und Abos zu den Persönlichen).
+  - **Eigene Gruppen:** «+ Hinzufügen › Gruppe», z. B. «Wohnen» oder «Auto» – Name, Farbe und Kästchen wählen.
+  - **Bedienen:** am Kopf ziehen = ganze Gruppe verschieben · antippen = umbenennen, Farbe, Kästchen wählen, auflösen · ein Kästchen in einen anderen Rahmen ziehen = umteilen.
+  - **«Anordnen» ordnet nach Gruppen:** jede Gruppe als eigener Block, Blöcke in Flussrichtung, innerhalb so sortiert, dass sich Drähte möglichst wenig kreuzen. Deine Anordnung bleibt sonst, wie sie ist; neue Kästchen kommen unten in ihre Gruppe, die Gruppen darunter rücken nach. Wird ein Kästchen höher, rutscht das darunter nach, statt es zu überdecken.
+  - Unter «Mehr»: Gruppen neu vorschlagen, Gruppen ausblenden.
+- **Seite aufgeräumt:** eine Werkzeugleiste mit Fluss-Assistent, Muster erkennen, «+ Hinzufügen» (Kästchen, Kasten zum Zurücklegen, Empfänger, Gruppe), Anordnen, Einpassen und «Mehr». Die Legende liegt aufklappbar in der Fläche, die Liste aller Verbindungen ist eingeklappt – so bleibt mehr Platz für den Plan.
+- **Schätzen auch für einzelne Kategorien:** Unter «Budget» eine Kategorie antippen › «Schätzen – aus Vorjahren, Jahres- und Monatskosten», ebenso in der Kategorie-Übersicht.
+- Menü links: lange Namen wie «Kommende Zahlungen» werden nicht mehr abgeschnitten.
+
 ## 1.68.0
 - **Kasten schätzen:** Tippst du im Geldfluss auf einen Kasten (Ausgaben, Empfänger, Sammel-Kasten oder Konto), steht neu «Schätzen – aus Vorjahren, Jahres- und Monatskosten». Für jede Kategorie im Kasten siehst du:
   - was du in den Vorjahren bezahlt hast (bis 3 Jahre zurück) und in den letzten 12 Monaten,
