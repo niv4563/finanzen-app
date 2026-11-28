@@ -2,6 +2,14 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.67.0
+- **Geldfluss: Die Anordnung bleibt, wie du sie gesetzt hast.** Neu angeordnet wird nur noch, wenn du «Anordnen» tippst. Kommen neue Kästchen dazu (z. B. durch «Muster erkennen», den Fluss-Assistenten oder einen Kasten), bekommen sie einen freien Platz in der passenden Spalte – alle anderen Kästchen bleiben, wo sie sind.
+- **Eingang auch oben:** Liegt die Quelle über dem Ziel, kommt der Draht neu von oben ins Kästchen (kleiner Ring zeigt den Eingang). Sonst bleibt der Eingang links. Der Ausgang wählt wie bisher die Seite, die zum Ziel zeigt.
+- **Fluss-Assistent: Betrag pro Draht selbst festlegen.** Für jeden Draht – z. B. «Allgemein Konto → Kreditkarte», «→ Sparkonto», «→ Säule 3a», Steuern – trägst du ein, wie viel pro Monat fliessen soll. Der Rest geht aufs Sparkonto. Das Ergebnis (schuldenfrei im …, Notgroschen voll im …, Kartenzins, Vermögen in 24 Monaten) rechnet sofort mit.
+  - **Empfehlung nur, wenn du willst:** «Empfehlung zeigen» blendet bei jedem Draht den empfohlenen Betrag mit Begründung ein – einzeln oder alle übernehmen. Die drei Varianten lassen sich unter «Varianten vergleichen» weiter ansehen und in die eigene Verteilung übernehmen.
+- **Gilt ab Januar 2027:** Was der Fluss-Assistent und «Budget aus Zahlungen» übernehmen, gilt ab einem wählbaren Monat – vorgewählt ist Januar 2027. Bis dahin bleiben Drähte, Budget und Abzahlbetrag der Kreditkarte wie jetzt.
+- **Budget auf 50 Franken genau:** Vorschläge aus «Budget aus Zahlungen» und alle Beträge des Fluss-Assistenten werden auf 50 Franken gerundet (Säule 3a abgerundet, damit das Jahresmaximum hält).
+
 ## 1.66.0
 - **Geldfluss: Drähte aus jeder Seite.** Der Eingang eines Kästchens bleibt links, der Ausgang nimmt die Seite, die zum Ziel zeigt: rechts, wenn das Ziel daneben liegt, unten, wenn es darunter liegt, oben, wenn es darüber liegt. Mehrere Drähte auf derselben Seite werden nebeneinander verteilt, und ein kleiner farbiger Punkt zeigt, wo ein Draht das Kästchen verlässt. So kreuzen sich weniger Drähte und jeder Fluss ist leichter zu verfolgen – auch beim Verschieben eines Kästchens.
 
