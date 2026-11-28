@@ -1,0 +1,33 @@
+/* 1.63.0 – Kontoarten, Empfänger ausserhalb, Plan im Geldfluss, Optimieren */
+.fnic{display:inline-flex;width:18px;height:18px;flex:none}.fnic .aic{width:18px;height:18px;stroke:#fff}
+.fnf{padding:0 10px 4px;font-size:11.5px;color:var(--muted);line-height:1.35}
+.fnode.ak-sparen{border-radius:18px}.fnode.ak-sparen .fnh{border-radius:16px 16px 0 0}
+.fnode.ak-haushalt{border-width:2px}
+.fnode.ak-karte .fnh{background:repeating-linear-gradient(135deg,var(--nc) 0 8px,color-mix(in srgb,var(--nc) 82%,#000) 8px 16px)}
+.fnode.ak-invest{box-shadow:inset 0 -3px 0 var(--nc),0 6px 18px -10px rgba(0,0,0,.35)}
+.fnode.ak-vorsorge{border-style:double;border-width:4px}
+.fnode.fn-ext{border:1.5px dashed color-mix(in srgb,var(--nc) 80%,var(--line));background:color-mix(in srgb,var(--card) 86%,var(--bg));box-shadow:none}
+.fnode.fn-ext .fnh{background:transparent;color:var(--ink);border-bottom:1px dashed color-mix(in srgb,var(--nc) 60%,transparent)}
+.fnode.fn-ext .fnh .fnb{background:color-mix(in srgb,var(--ink) 8%,transparent);color:var(--ink)}
+.fnode.fn-ext .fnic .aic{stroke:var(--nc)}
+.fnode.fn-ext .fpin{border-style:dashed}
+.fllegend{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 -4px}
+.fllegend span{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;background:var(--card);border:1.5px solid var(--nc);border-radius:999px;padding:1px 8px 1px 5px}
+.fllegend span.ext{border-style:dashed}
+.fllegend .aic{width:14px;height:14px;stroke:var(--nc)}
+.akchip{display:inline-flex;align-items:center;gap:4px;color:var(--nc);font-weight:600}.akchip .aic{width:15px;height:15px;stroke:var(--nc)}
+.adgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+@media (max-width:620px){.adgrid{grid-template-columns:1fr}}
+.adgh{display:flex;align-items:center;gap:6px;margin:12px 0 2px;font-weight:600;color:var(--nc);font-size:14px}.adgh .aic{width:17px;height:17px;stroke:var(--nc)}
+.adrow{display:flex;gap:10px;align-items:center;padding:8px 0 8px 10px;border-top:1px solid var(--line);border-left:3px solid transparent;cursor:pointer}
+.adrow:hover{background:var(--acc-soft)}
+.adrow .sp{display:flex;flex-direction:column;gap:2px;min-width:0}
+.xcl{max-height:190px;overflow:auto;border:1px solid var(--line);border-radius:10px;padding:4px 10px;margin-bottom:8px}
+.xcl .chk{display:flex;gap:8px;align-items:center;padding:4px 0}
+.flbud{border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:8px 0}
+.flbr{display:flex;align-items:center;gap:10px;padding:3px 0}.flbr span{flex:1;font-size:13.5px}.flbr input{width:120px;min-height:34px;text-align:right}
+.flcov h3{font-size:15px}
+.flcb{flex:1;min-width:120px;max-width:260px;height:8px;border-radius:99px;background:var(--bg);overflow:hidden}.flcb i{display:block;height:100%;background:var(--ok);border-radius:99px}
+.flopt summary{cursor:pointer;list-style:none}.flopt summary::-webkit-details-marker{display:none}
+.floi{display:flex;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.floi .sp{display:flex;flex-direction:column;gap:2px;min-width:240px;flex:1}
