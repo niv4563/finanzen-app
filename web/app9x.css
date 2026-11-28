@@ -60,3 +60,10 @@
 .flst.st-vor{color:var(--muted)}
 .flli{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--line);cursor:pointer}
 .flli .sp{display:flex;flex-direction:column;gap:2px;min-width:0}
+/* 1.62.0 – Muster erkennen, Kontorollen, Verbindungen in Übersicht und Planen */
+.fnrole{font-size:10.5px;font-weight:600;background:rgba(255,255,255,.22);border-radius:999px;padding:1px 7px;margin-right:2px;white-space:nowrap}
+.fnrole.r-durchlauf{background:rgba(255,255,255,.95);color:var(--nc)}
+.flph{margin:14px 0 2px;font-size:15px}
+.flpr em{white-space:normal}
+.fltag{display:inline-block;font-size:11.5px;font-weight:500;color:var(--acc);background:var(--acc-soft);border-radius:999px;padding:1px 8px;margin:0 6px;white-space:nowrap;cursor:pointer;vertical-align:middle}
+main.wide .flc{height:calc(100vh - 210px)}
