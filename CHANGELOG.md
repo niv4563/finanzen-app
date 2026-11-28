@@ -2,6 +2,9 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.66.0
+- **Geldfluss: Drähte aus jeder Seite.** Der Eingang eines Kästchens bleibt links, der Ausgang nimmt die Seite, die zum Ziel zeigt: rechts, wenn das Ziel daneben liegt, unten, wenn es darunter liegt, oben, wenn es darüber liegt. Mehrere Drähte auf derselben Seite werden nebeneinander verteilt, und ein kleiner farbiger Punkt zeigt, wo ein Draht das Kästchen verlässt. So kreuzen sich weniger Drähte und jeder Fluss ist leichter zu verfolgen – auch beim Verschieben eines Kästchens.
+
 ## 1.65.0
 - **Übersicht, Planen und Geldfluss stimmen überein.** Grundlage ist immer das Budget unter «Planen»; Übersicht und Geldfluss rechnen daraus. Oben auf allen drei Seiten steht die **Abstimmung** für den Monat: Einkommen, Budget, davon Sparen, noch nicht verteilt – und ein grünes «stimmen überein» oder jede Abweichung mit Grund. **«Alles abgleichen»** behebt sie:
   - Budget-Kategorien und Einkommen, die im Geldfluss fehlen, werden verbunden.
