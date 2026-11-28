@@ -37,3 +37,16 @@ nav.side a .lbl{white-space:normal;overflow:visible;text-overflow:clip;line-heig
 .flbf.bad>span:first-child{color:var(--bad);font-weight:600;flex-basis:100%}
 .fnwish{margin:6px 10px 8px;padding:5px 8px;border-radius:8px;background:color-mix(in srgb,#d9822b 12%,var(--card));cursor:pointer;line-height:1.3}
 .fnwish.muted{background:var(--bg);cursor:default}
+
+/* 1.71: Monate gezielt ändern */
+.mgsc{margin:4px 0 2px}
+.mgsc .mgm{max-width:260px}
+.mgsc .scope{margin:2px 0 0}
+.mgsc .mghint{margin:2px 0 6px}
+.mggrid{margin:6px 0 4px}
+.mggrid .mgyr{align-items:center;gap:6px;margin-bottom:4px}
+.mggrid .flmg label.mgnow span{font-weight:650;color:var(--acc,inherit)}
+.mgdet,#mgdet{margin:6px 0 8px}
+@media(min-width:600px){.mggrid .flmg{grid-template-columns:repeat(4,1fr)}}
+.mggrid .flmg label{min-width:0}
+.mggrid .flmg input{min-width:0;width:100%;box-sizing:border-box}
