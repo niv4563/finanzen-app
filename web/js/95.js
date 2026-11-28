@@ -63,8 +63,8 @@ function schCalc(cats){
   });
 }
 
-function schDialog(nid){
-  const n = flN(nid), cats = schCats(n);
+function schDialog(nid, cs, title){
+  const n = nid ? flN(nid) : null, cats = cs || schCats(n);
   if(!cats.length){ toastMsg('Dieser Kasten hat keine Budget-Kategorien – zuerst Kategorien zuordnen'); return; }
   const dl = $('#dlg'); dl.classList.add('aiw'); dl.addEventListener('close', ()=>dl.classList.remove('aiw'), {once:true});
   const rows = schCalc(cats), from = geltAb(), Y = +TODAY.slice(0,4), fm = schPaid().first;
@@ -79,8 +79,8 @@ function schDialog(nid){
     ${ys.map(y=>yrCell(x, y)).join('')}<td class="num">${x.l12>1?chf0(x.l12):'–'}</td><td class="num">${x.cur?chf0(x.cur):'–'}</td>
     <td class="num"><input class="bvi" data-schi="${i}" inputmode="decimal" value="${x.est||''}" placeholder="0" aria-label="Schätzung ${esc(x.name)} pro Monat"></td></tr>`;
   const sum = () => [...document.querySelectorAll('[data-schi]')].reduce((a,i)=>a + (parseNum(i.value)||0), 0);
-  dialog(`<h3>Schätzen: ${esc(flName(n))}</h3>
-    <p class="small muted" style="margin-top:-6px">Betrag pro Monat für jede Kategorie in diesem Kasten – aus deinen Zahlungen der Vorjahre und der letzten 12 Monate, bekannten Jahreskosten (÷ 12) und Monatskosten (Daueraufträge, Abos). Tippe auf einen Wert, um ihn zu übernehmen, oder trag selbst etwas ein. Ein leeres Feld lässt das Budget, wie es ist. Auf 10 Franken gerundet.</p>
+  dialog(`<h3>Schätzen: ${esc(title || flName(n))}</h3>
+    <p class="small muted" style="margin-top:-6px">Betrag pro Monat ${cats.length===1 ? '' : `für jede Kategorie ${n ? 'in diesem Kasten ' : ''}`}– aus deinen Zahlungen der Vorjahre und der letzten 12 Monate, bekannten Jahreskosten (÷ 12) und Monatskosten (Daueraufträge, Abos). Tippe auf einen Wert, um ihn zu übernehmen, oder trag selbst etwas ein. Ein leeres Feld lässt das Budget, wie es ist. Auf 10 Franken gerundet.</p>
     <div class="row" style="gap:8px;align-items:center;margin-bottom:8px"><label class="small" for="schfrom">Gilt ab</label><select id="schfrom" class="sm">${geltAbOpts(from)}</select></div>
     <div class="aitbl"><table><thead><tr><th>Kategorie</th>${ys.map(y=>`<th class="num">${y}${fm.startsWith(y+'-') && fm.slice(5,7)!=='01' ? `<br><span class="small muted">ab ${MN[+fm.slice(5,7)-1]}</span>` : ''}</th>`).join('')}<th class="num">letzte 12 Mt.</th><th class="num">Budget bisher</th><th class="num">Schätzung / Monat</th></tr></thead>
     <tbody>${rows.map(tr).join('')}</tbody><tfoot><tr><td><b>Zusammen pro Monat</b></td>${ys.map(()=>'<td></td>').join('')}<td></td><td class="num">${chf0(rows.reduce((a,x)=>a+x.cur,0))}</td><td class="num"><b id="schsum"></b></td></tr></tfoot></table></div>
@@ -108,3 +108,15 @@ extDialog = (prev => function(nid){ const r = prev.apply(this, arguments); try{ 
 collDialog = (prev => function(nid){ const r = prev.apply(this, arguments); try{ if(nid) schLink(nid); }catch(e){} return r; })(collDialog);
 window.addEventListener('click', ev=>{ const a = ev.target.closest?.('[data-act="flsch"]'); if(!a || !D) return; ev.stopPropagation(); ev.preventDefault();
   const id = a.dataset.id; $('#dlg')?.close(); setTimeout(()=>schDialog(id), 30); }, true);
+
+// 1.69: auch für eine einzelne Budget-Kategorie (Budget › Übersicht und Planen, Kategorie-Übersicht)
+var schCatOk = c => { const x = D.cats.find(y=>y.id===c); return !!x && !x.archived && x.group!=='inc' && x.group!=='spar' && !isDebtC(x) && x.id!=='rueck'; };
+budgetDialog = (prev => function(c, ym){ const r = prev.apply(this, arguments);
+  try{ const ac = document.querySelector('#dlgbody .acts'); if(ac && schCatOk(c) && !document.querySelector('#dlgbody .schlink'))
+    ac.insertAdjacentHTML('beforebegin', `<p class="small schlink"><a class="link" data-act="catsch" data-c="${esc(c)}">Schätzen – aus Vorjahren, Jahres- und Monatskosten ›</a></p>`); }catch(e){}
+  return r; })(budgetDialog);
+vKat = (prev => function(){ let h = prev(); const c = S.katId;
+  if(schCatOk(c)) h = h.replace(/(<p class="small"><a class="link" data-act="katback">)/, `<p class="small"><button class="btn sm" data-act="catsch" data-c="${esc(c)}">Budget schätzen – aus Vorjahren, Jahres- und Monatskosten</button></p>$1`);
+  return h; })(vKat);
+window.addEventListener('click', ev=>{ const a = ev.target.closest?.('[data-act="catsch"]'); if(!a || !D) return; ev.stopPropagation(); ev.preventDefault();
+  const c = a.dataset.c; $('#dlg')?.close(); setTimeout(()=>schDialog(null, [c], catName(c)), 30); }, true);

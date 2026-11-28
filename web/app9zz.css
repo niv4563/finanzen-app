@@ -1,0 +1,32 @@
+/* 1.69.0 – Gruppen im Geldfluss, Seite aufgeräumt */
+.fgrp{position:absolute;border:2px solid color-mix(in srgb,var(--gc) 50%,transparent);background:color-mix(in srgb,var(--gc) 7%,transparent);border-radius:18px;pointer-events:none}
+.fgh{position:absolute;left:12px;top:7px;display:flex;align-items:baseline;gap:8px;max-width:calc(100% - 24px);pointer-events:auto;cursor:grab;padding:3px 12px;border-radius:999px;background:color-mix(in srgb,var(--gc) 18%,var(--card));border:1px solid color-mix(in srgb,var(--gc) 45%,transparent);white-space:nowrap;overflow:hidden}
+.fgh:active{cursor:grabbing}
+.fgh b{font-size:13px;color:color-mix(in srgb,var(--gc) 70%,var(--ink))}
+.fgh span{font-size:11.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis}
+.flbar{row-gap:8px}
+.flacts{display:flex;flex-wrap:wrap;gap:8px;align-items:center;width:100%;padding-top:8px;border-top:1px solid var(--line)}
+.flmenu{position:relative}
+.flmenu>summary{list-style:none;cursor:pointer}
+.flmenu>summary::-webkit-details-marker{display:none}
+.flmenu>summary::after{content:' ▾';font-size:11px}
+.flmp{position:absolute;z-index:30;top:calc(100% + 6px);left:0;min-width:280px;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px -12px rgba(0,0,0,.35);padding:6px;display:flex;flex-direction:column}
+.flmi{display:flex;flex-direction:column;align-items:flex-start;gap:1px;text-align:left;background:none;border:0;border-radius:8px;padding:8px 10px;cursor:pointer;color:var(--ink);font:inherit}
+.flmi:hover,.flmi:focus-visible{background:var(--bg)}
+.flmi b{font-size:14px}.flmi span{font-size:12px;color:var(--muted)}
+.flgrphint{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;font-size:13.5px}
+.flleg{position:absolute;z-index:5;left:10px;top:10px;max-width:min(560px,calc(100% - 20px));background:color-mix(in srgb,var(--card) 94%,transparent);border:1px solid var(--line);border-radius:10px;padding:4px 10px;font-size:13px}
+.flleg>summary{cursor:pointer;font-weight:600}
+.flleg .fllegend{margin:6px 0 0}.flleg .flwlg{margin:6px 0 0}
+.fllistd>summary{cursor:pointer;list-style:none}.fllistd>summary::-webkit-details-marker{display:none}
+.fllistd>summary h3{display:inline;margin:0}.fllistd>summary::before{content:'▸ ';color:var(--muted)}.fllistd[open]>summary::before{content:'▾ '}
+.fllistd[open]>summary{margin-bottom:8px}
+.grpcols{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.grpcols label{cursor:pointer}.grpcols input{position:absolute;opacity:0}
+.grpcols i{display:block;width:28px;height:28px;border-radius:50%;background:var(--gc);border:3px solid var(--card);box-shadow:0 0 0 1px var(--line)}
+.grpcols input:checked+i{box-shadow:0 0 0 2px var(--ink)}
+.grpcols input:focus-visible+i{outline:2px solid var(--acc);outline-offset:2px}
+.grpli{max-height:280px;overflow:auto;border:1px solid var(--line);border-radius:10px;padding:6px 10px;margin-top:4px}
+.grpli .chk{margin:4px 0}
+/* Menü links: lange Namen nicht abschneiden */
+nav.side a .lbl{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.25}
