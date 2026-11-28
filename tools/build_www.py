@@ -38,7 +38,7 @@ for lic in ['tesseract.js/LICENSE.md', 'tesseract.js-core/LICENSE', 'jsqr/LICENS
     if (nm / lic).is_file(): shutil.copy(nm / lic, out / 'vendor' / (lic.split('/')[0] + '-LICENSE.txt'))
 (out / 'vendor' / 'qrcode-generator-LICENSE.txt').write_text('QR Code Generator for JavaScript\nCopyright (c) 2009 Kazuhiko Arase\nLicensed under the MIT license: https://opensource.org/licenses/MIT\nThe word "QR Code" is a registered trademark of DENSO WAVE INCORPORATED.\n', encoding='utf-8')
 # app.js wird aus web/js/01.js, 02.js, … zusammengesetzt (kleinere Dateien = einfacher zu prüfen und zu aktualisieren)
-parts = sorted((src / 'js').glob('[0-9][0-9].js'))
+parts = sorted((src / 'js').glob('[0-9][0-9]*.js'))
 assert parts, 'web/js/*.js fehlt'
 (out / 'app.js').write_text(''.join(p.read_text(encoding='utf-8') for p in parts), encoding='utf-8')
 info = {'version': version, 'channel': channel, 'repo': repo, 'build': build}
