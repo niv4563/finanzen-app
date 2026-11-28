@@ -2,6 +2,18 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.72.0
+- **Kategorien prüfen** (Kategorien & Regeln › Zuordnen, Hinweis auch bei den Buchungen und in der Kategorie-Übersicht): Die App prüft jede Buchung der letzten 24 Monate, ob die Kategorie wirklich passt – mit Grund und Vorschlag, «Ändern» oder «Stimmt so».
+  - **Krankenkasse nur für Prämien:** Kostenbeteiligung, Franchise, Selbstbehalt und Rückerstattungen der Krankenkasse sowie Arzt, Apotheke und Spital gehören zu den Gesundheitskosten. Weicht ein Betrag deutlich von deiner üblichen Prämie ab, wird er zum Prüfen gezeigt. Prämienverbilligung bleibt bei der Krankenkasse.
+  - Zahlungen an eine Krankenkasse unter einer anderen Kategorie werden zur Krankenkasse vorgeschlagen; Buchungen ohne Krankenkasse im Text (z. B. ein Einkauf) zur passenden Kategorie.
+  - Bekannte Schweizer Händler und Dienste in einer unpassenden Kategorie (z. B. Swisscom unter Restaurant). Deine eigene Gewohnheit beim Händler hat Vorrang.
+  - Grundlage: Verzeichnis der zugelassenen Krankenversicherer des BAG (2026, inkl. Marken wie Arcosana, Intras, Avenir, Vivao) und bekannte Schweizer Händler. Geprüft wird nur auf dem Gerät – deine Buchungen gehen nicht ins Internet.
+- **Planen:** Ein Betrag direkt im Feld gilt für den gezeigten Monat. Danach fragt eine Meldung «Auch ab … für alle folgenden» – ein Tipp übernimmt ihn für alle folgenden Monate.
+- Überall gleich vorgewählt: «nur dieser Monat» (Draht, Kästchen, Planen).
+- **Geldfluss übersichtlicher:** Der Plan steht gleich unter der Werkzeugleiste; «Ausgleich nötig» und «Optimieren» stehen darunter. Abweichungen der Abstimmung sind aufklappbar.
+- Abstimmung: Eine Kategorie ohne Budget im Monat zählt nicht mehr als Abweichung – Abstimmung und Prüfzeile im Geldfluss sagen dasselbe.
+- «1 Wünsche» heisst jetzt «1 Wunsch».
+
 ## 1.71.0
 - **Monate gezielt ändern – nichts mehr überall gleichzeitig.**
   - **Draht im Geldfluss:** Nach dem Betrag wählst du den **Monat** und **Gilt für**: «nur März 2027», «ab März 2027 und alle folgenden Monate» oder «ganzes Jahr 2027». Frühere Monate bleiben, wie sie waren. Das geht bei jeder Art – fest, Rest, deckt das Budget, aus Budget-Kategorien, Prozent. Ein leerer Betrag heisst: ab hier wieder automatisch.
