@@ -31,3 +31,5 @@ dialog.aiw{width:min(900px,96vw)}
 .flwlg{margin:4px 0 -6px}
 .fnode.fn-coll{border:2px dashed #1aa39a;background:color-mix(in srgb,#1aa39a 6%,var(--card))}
 .fnv2.pos{color:var(--ok)}
+/* 1.66.0 – Drähte aus jeder Seite */
+.fwdot{pointer-events:none;stroke:var(--card);stroke-width:2}
