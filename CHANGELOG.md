@@ -2,6 +2,22 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.65.0
+- **Übersicht, Planen und Geldfluss stimmen überein.** Grundlage ist immer das Budget unter «Planen»; Übersicht und Geldfluss rechnen daraus. Oben auf allen drei Seiten steht die **Abstimmung** für den Monat: Einkommen, Budget, davon Sparen, noch nicht verteilt – und ein grünes «stimmen überein» oder jede Abweichung mit Grund. **«Alles abgleichen»** behebt sie:
+  - Budget-Kategorien und Einkommen, die im Geldfluss fehlen, werden verbunden.
+  - Spar-Kategorien (z. B. Säule 3a, Reserve) werden im Geldfluss zu Überträgen auf das passende Konto statt zu Ausgaben.
+  - Feste Überträge aufs Spar-, Vorsorge- oder Investkonto, die im Budget fehlten, bekommen eine eigene Budget-Kategorie.
+  - Die Abzahlung der Kreditkarte steht im Budget und im Geldfluss gleich – und zählt nie doppelt.
+- **Budget aus deinen Zahlungen** (Knopf in der Abstimmung): schlägt für jede Kategorie einen Betrag vor – mit Begründung und Aufschlüsselung.
+  - **Bekannte Preise** zuerst: Daueraufträge, Jahreskosten und Abos werden direkt übernommen (genauer als ein Schnitt).
+  - Regelmässiges: Schnitt der letzten 12 Monate, die letzten 6 Monate zählen mehr.
+  - Einmal oder wenige Male im Jahr, z. B. **Gemeinde-, Staats- und Bundessteuer**: Jahresbetrag geteilt durch 12, mit den Zahlungsmonaten (bei Steuern auch das Vorjahr).
+  - Einkommen mit Sonderzahlungen wie dem 13. Monatslohn im gleichen Monat wie letztes Jahr.
+  - Monate vor deiner ersten Buchung zählen nicht. «Alle übernehmen» oder einzeln anhaken; Planen, Übersicht und Geldfluss werden gleich nachgeführt.
+- **Neu: Sammel-Kasten zum Zurücklegen** (Geldfluss › «+ Kasten», z. B. **Steuern**): ein fiktiver Kasten, kein eigenes Konto. Jeden Monat fliesst das Budget der gewählten Kategorien hinein, die Rechnungen werden daraus bezahlt – in den Monaten, in denen sie letztes Jahr fällig waren. Der Kasten zeigt Stand, nächste Zahlung und ob es reicht («fehlt im März CHF 400»). Zurücklegen zählt wie im Budget als Ausgabe, nicht als Sparen.
+- **Übersichtlichere Anordnung:** Spalten mit Überschrift (Einkommen · Konten · Weitere Konten & Kästen · Ausgaben & Empfänger), Konten nach Art geordnet, Ausgaben nach dem Konto gruppiert, das sie bezahlt. Die Ansicht passt sich der Breite an, damit alles lesbar bleibt. Drähte sind beschriftet (fest, Rest, ⇆, Budget) und unter der Legende erklärt.
+- **Für alle Nutzer:** Wer noch keinen Geldfluss hat, sieht in Übersicht und Planen «Übersicht, Planen und Geldfluss verbinden» – ein Tipp baut alles aus Konten, Daueraufträgen und Budget auf und gleicht ab. Funktioniert auch mit nur einem Konto, ohne Kreditkarte, ohne Säule 3a und ohne Buchungen.
+
 ## 1.64.0
 - **Planen und Geldfluss sind verbunden – in beide Richtungen:**
   - Änderst du unter «Budget › Planen» einen Betrag oder das Einkommen, rechnet der Geldfluss sofort mit. Die geplanten Überträge (Prognose, «Kommende Zahlungen») werden gleich nachgeführt – auch auf dem Handy.
