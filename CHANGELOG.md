@@ -2,6 +2,21 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.63.0
+- **Kontoarten mit eigenen Angaben:** Jedes Konto hat je nach Art eigene Felder (Konto antippen › «Kontoangaben», oder Seite Konten › Kontoangaben):
+  - Gewöhnliche Konten: Bank, Zins, Kontoführung, wie viel immer drauf bleiben soll, wofür.
+  - Sparkonten: Zins, Zinsstufe («Zins gilt bis CHF …» und Zins darüber), Bezug ohne Kündigung, Kündigungsfrist, Ziel.
+  - Haushaltkonten: gemeinsames Konto und dein Anteil, Puffer, wofür (z. B. Hypothek, Nebenkosten).
+  - Investkonten: Depotgebühr, Produktkosten (TER), Gebühr pro Kauf, erwartete Rendite.
+  - Langfristige Konten: Art (Säule 3a Konto oder Wertschriften, Freizügigkeit, Pensionskasse), Zins bzw. Rendite, Kosten, gebunden bis.
+  - Kreditkarten und Kredite wie bisher.
+- **Jede Kontoart sieht im Geldfluss anders aus:** eigene Farbe, eigenes Symbol und eigene Form (Sparkonto rund, Karte gestreift, Vorsorge doppelt umrandet), dazu die wichtigsten Angaben wie Zins, Ziel oder «gebunden». Eine Legende oben erklärt die Arten.
+- **Empfänger ausserhalb deiner Konten:** Geld, das deine Konten verlässt, geht an einen Empfänger: Hypothek (Bank), Vermieter, Krankenkasse, Versicherung, Steuern, Energie, Telefon & Internet, Abo, Person. Empfänger gehören nicht dir und sind gestrichelt dargestellt. Sie haben Vertragsangaben (Zins, offene Schuld, läuft bis, Kündigungsfrist) und den Betrag aus ihren Budget-Kategorien oder aus Abos. Neu über «+ Empfänger»; «Muster erkennen» schlägt sie aus deinem Budget und deinen Abos vor.
+- **Ganzer Plan im Geldfluss:** Oben steht, wie viel vom Budget im Geldfluss verbunden ist (z. B. «Plan im Geldfluss: 92 %») und was noch fehlt – Budget-Kategorien, Daueraufträge, Einkommen, Konten. «Alles verbinden» übernimmt es mit einem Tipp.
+- **Budget direkt im Geldfluss ändern:** Ausgaben-Kästchen oder Empfänger antippen › «Budget ändern» – für einen Monat oder ab diesem Monat.
+- **Optimieren:** Hinweise aus deinen Zahlen und Kontoangaben, nach möglichem Gewinn sortiert – zu viel Geld auf dem Alltagskonto, besserer Zins auf einem anderen Sparkonto, Zinsstufe überschritten, teure Kartenschuld neben Erspartem, Konto- und Anlagekosten, Säule 3a bis 31.12., jeden Monat unverteiltes Geld (mit «Rest-Draht anlegen»), Hypothekarzins und auslaufende Verträge, Abokosten. Mit einem Tipp einplanen oder für 60 Tage ausblenden. Die App bucht nichts selbst.
+- Übersicht und Planen zeigen bei Kategorien auch den Empfänger, z. B. «↳ Haushaltkonto → Hypothek».
+
 ## 1.62.0
 - **Geldfluss: Muster erkennen.** Ein kleiner Assistent wertet deine Buchungen der letzten 12 Monate aus – nur auf dem Gerät – und schlägt vor, wie dein Geld tatsächlich fliesst. Übernommen wird nur, was du anhakst:
   - **Überträge zwischen Konten:** fester Betrag (z. B. «Allgemein → Haushaltkonto: fest CHF 1'950, 12 von 12 Monaten»), **Prozent vom Lohn** (wenn der Betrag mit dem Lohn schwankt), **nur in bestimmten Monaten** (z. B. Säule 3a im Dezember) oder «deckt, was weitergeht» bei Karten- und Durchlaufkonten.
