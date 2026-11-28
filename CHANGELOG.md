@@ -2,6 +2,14 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.71.0
+- **Monate gezielt ändern – nichts mehr überall gleichzeitig.**
+  - **Draht im Geldfluss:** Nach dem Betrag wählst du den **Monat** und **Gilt für**: «nur März 2027», «ab März 2027 und alle folgenden Monate» oder «ganzes Jahr 2027». Frühere Monate bleiben, wie sie waren. Das geht bei jeder Art – fest, Rest, deckt das Budget, aus Budget-Kategorien, Prozent. Ein leerer Betrag heisst: ab hier wieder automatisch.
+  - **Einzelne Monate:** Unter dem Betrag stehen alle 12 Monate des Jahres zum direkten Eintragen, mit ‹ › zum Blättern ins nächste Jahr. Jeder Eintrag gilt nur für seinen Monat; leer = automatisch.
+  - **Kästchen › Budget ändern:** gleiche Auswahl (Monat, nur dieser Monat · ab diesem Monat · ganzes Jahr) und darunter die 12 Monate pro Kategorie. Vorgewählt ist neu «nur dieser Monat».
+  - **Budget › Planen:** Im Fenster einer Kategorie neu «Einzelne Monate eintragen».
+- Fester Betrag eines Drahts ändert nicht mehr rückwirkend vergangene Monate.
+
 ## 1.70.0
 - **Geldfluss aus dem Budget aufbauen** (Geldfluss › Mehr › «Aus dem Budget aufbauen»): Der Geldfluss wird genau wie deine Budgettabelle aufgebaut.
   - **Übergeordnet:** Einkommen aufs Hauptkonto (z. B. PostFinance Privatkonto); was nicht zugewiesen ist, bleibt dort als Restbetrag.
