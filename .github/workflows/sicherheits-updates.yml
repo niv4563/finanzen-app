@@ -1,0 +1,234 @@
+# Baut die Android-App in der Cloud von GitHub.
+# - Bei jedem Push: Prüfungen + Test-Build (ohne Veröffentlichung)
+# - Bei einem Tag «v1.2.3»: signierte App bauen und als Release veröffentlichen.
+#   Die installierte App findet dieses Release automatisch («Update verfügbar»).
+name: Android-App
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*.*.*']
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Neue Version veröffentlichen, z. B. 1.0.1 (leer = nur Test-Build)'
+        required: false
+        default: ''
+
+permissions:
+  contents: read          # Standard: nur lesen. Nur der Release-Schritt bekommt Schreibrecht.
+
+concurrency:
+  group: android-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write     # nötig, um das Release anzulegen
+    env:
+      WANTS_RELEASE: ${{ startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.version != '') }}
+      HAS_KEY: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
+      INPUT_VERSION: ${{ inputs.version }}
+    steps:
+      # Alle Actions sind auf eine feste, geprüfte Version (Commit) festgenagelt – Schutz vor manipulierten Updates.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Schutz – keine persönlichen Daten im Projekt
+        run: |
+          bad=$(git ls-files | grep -Ei '(Finanzen_Daten|\.xlsx$|\.xls$|backup.*\.json$|\.jks$|\.keystore$|\.p12$|\.p8$|\.mobileprovision$|walletToken)' || true)
+          if [ -n "$bad" ]; then echo "::error::Diese Dateien gehören nicht ins Projekt: $bad"; exit 1; fi
+          if grep -RIl --exclude-dir=node_modules -E 'BEGIN (RSA |EC )?PRIVATE KEY' . ; then echo "::error::Privater Schlüssel im Projekt gefunden"; exit 1; fi
+
+      - name: Release möglich?
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          WANT="$WANTS_RELEASE"
+          # Push auf main: Ist oben in CHANGELOG.md eine neue Version eingetragen, wird sie automatisch veröffentlicht.
+          if [ "$GITHUB_EVENT_NAME" = "push" ] && [ "$GITHUB_REF" = "refs/heads/main" ]; then
+            CV=$(grep -m1 -E '^## [0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | awk '{print $2}' || true)
+            if [ -n "$CV" ] && ! gh release view "v$CV" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              echo "Neue Version $CV im CHANGELOG gefunden."
+              WANT=true; echo "CL_VERSION=$CV" >> "$GITHUB_ENV"
+            fi
+          fi
+          if [ "$WANT" = "true" ] && [ "$HAS_KEY" != "true" ]; then
+            echo "::warning::Signatur-Secrets fehlen noch (siehe ANLEITUNG-ANDROID.md, Schritt 4). Es wird nur ein Test-Build gemacht, keine Veröffentlichung."
+            WANT=false
+          fi
+          echo "IS_RELEASE=$WANT" >> "$GITHUB_ENV"
+
+      - name: Version bestimmen
+        id: ver
+        run: |
+          IV="${CL_VERSION:-$INPUT_VERSION}"
+          if [ -n "$IV" ]; then V="${IV#v}"
+          elif [ "$IS_RELEASE" = "true" ]; then V="${GITHUB_REF_NAME#v}"
+          else V="0.0.${GITHUB_RUN_NUMBER}"; fi
+          echo "$V" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$' || { echo "::error::Tag muss so aussehen: v1.2.3"; exit 1; }
+          IFS=. read -r MA MI PA <<< "$V"
+          CODE=$(( MA*1000000 + MI*1000 + PA ))
+          [ "$IS_RELEASE" = "true" ] || CODE=1
+          echo "version=$V" >> "$GITHUB_OUTPUT"; echo "code=$CODE" >> "$GITHUB_OUTPUT"
+          echo "Version $V (Code $CODE)"
+
+      - name: Version muss neuer sein als die veröffentlichte
+        if: env.IS_RELEASE == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          LAST=$(gh release view --repo "$GITHUB_REPOSITORY" --json tagName -q .tagName 2>/dev/null | sed 's/^v//' || true)
+          V="${{ steps.ver.outputs.version }}"
+          if [ -n "$LAST" ] && [ "$(printf '%s\n%s\n' "$LAST" "$V" | sort -V | tail -1)" != "$V" -o "$LAST" = "$V" ]; then
+            echo "::error::Version $V ist nicht neuer als die veröffentlichte Version $LAST"; exit 1; fi
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - uses: actions/setup-java@d1374f8ac74474200d16ef8ecee22c7ae7a51880 # v6.3.0
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: gradle/actions/setup-gradle@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
+        with:
+          gradle-version: '8.14.3'
+      - uses: android-actions/setup-android@be39fa834029ff78f1a44aa3bb0819b8fc2bd8fd # v4.0.4
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+
+      - name: Abhängigkeiten (feste Versionen laut package.json) + Sicherheitsprüfung
+        run: |
+          npm install --no-fund --no-audit
+          npm audit --omit=dev --audit-level=high
+
+      - name: Web-Teil prüfen
+        run: |
+          python3 tools/build_www.py web 0.0.0 direct
+          node --check www/app.js
+
+      - name: Automatische Tests (Verschlüsselung, alle Seiten und Knöpfe – nur erfundene Testdaten)
+        run: |
+          set -o pipefail
+          mkdir -p dist
+          pip install --quiet playwright==1.63.0
+          python3 -m playwright install --with-deps chromium
+          python3 tools/build_www.py web 0.0.0 web
+          python3 tests/e2e_test.py www 2>&1 | tee dist/tests.log
+
+      - name: Zertifikat-Pinning gegen die echten Server prüfen
+        run: |
+          set -o pipefail
+          python3 tools/check_pins.py 2>&1 | tee dist/pins.log
+
+      - name: Signatur-Schlüssel bereitstellen
+        if: env.IS_RELEASE == 'true'
+        env:
+          KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        run: |
+          [ -n "$KEYSTORE_B64" ] || { echo "::error::Secret ANDROID_KEYSTORE_BASE64 fehlt (siehe ANLEITUNG-ANDROID.md)"; exit 1; }
+          echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/release.jks"
+          echo "ANDROID_KEYSTORE_FILE=$RUNNER_TEMP/release.jks" >> "$GITHUB_ENV"
+
+      - name: App bauen – direkte Installation (APK mit Update-Funktion)
+        env:
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          EXPECTED_CERT: ${{ secrets.ANDROID_CERT_SHA256 }}
+        run: |
+          set -o pipefail
+          mkdir -p dist
+          python3 tools/build_www.py web "${{ steps.ver.outputs.version }}" direct "$GITHUB_REPOSITORY" "$GITHUB_RUN_NUMBER"
+          npx cap sync android
+          python3 tools/harden_after_sync.py
+          cd android
+          gradle --no-daemon assembleRelease -PappVersionCode=${{ steps.ver.outputs.code }} -PappVersionName=${{ steps.ver.outputs.version }} 2>&1 | tee ../dist/gradle-apk.log
+          mkdir -p ../dist
+          cp app/build/outputs/apk/release/app-release*.apk ../dist/Finanzen-${{ steps.ver.outputs.version }}.apk
+
+      - name: App bauen – Google Play (AAB, Updates über den Play Store)
+        env:
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          EXPECTED_CERT: ${{ secrets.ANDROID_CERT_SHA256 }}
+        run: |
+          set -o pipefail
+          python3 tools/build_www.py web "${{ steps.ver.outputs.version }}" play "$GITHUB_REPOSITORY" "$GITHUB_RUN_NUMBER"
+          npx cap copy android
+          python3 tools/harden_after_sync.py
+          cd android
+          gradle --no-daemon bundleRelease -PappVersionCode=${{ steps.ver.outputs.code }} -PappVersionName=${{ steps.ver.outputs.version }} 2>&1 | tee ../dist/gradle-aab.log
+          cp app/build/outputs/bundle/release/app-release.aab ../dist/Finanzen-${{ steps.ver.outputs.version }}-play.aab
+
+      - name: Qualitätsprüfung (Android Lint)
+        continue-on-error: true
+        run: cd android && gradle --no-daemon lintRelease
+
+      - name: Sicherheitsprüfung (mobsfscan, OWASP-MASVS-Regeln)
+        continue-on-error: true
+        run: |
+          pip install --quiet mobsfscan
+          mobsfscan android/app/src/main web --json -o dist/mobsfscan.json || true
+          mobsfscan android/app/src/main web 2>&1 | tee dist/mobsfscan.log || true
+
+      - name: Signatur prüfen
+        if: env.IS_RELEASE == 'true'
+        env:
+          EXPECTED: ${{ secrets.ANDROID_CERT_SHA256 }}
+        run: |
+          BT=$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)
+          APK=dist/Finanzen-${{ steps.ver.outputs.version }}.apk
+          "$BT/apksigner" verify --min-sdk-version 29 --verbose --print-certs "$APK" | tee dist/signatur.txt
+          GOT=$(grep -m1 'certificate SHA-256 digest' dist/signatur.txt | awk '{print $NF}')
+          WANT=$(echo "$EXPECTED" | tr -d ': ' | tr 'A-F' 'a-f')
+          if [ -n "$WANT" ] && [ "$GOT" != "$WANT" ]; then echo "::error::Falscher Signatur-Schlüssel! Updates würden auf dem Handy abgelehnt."; exit 1; fi
+          ( cd dist && sha256sum *.apk *.aab > SHA256SUMS.txt )
+          rm -f "$RUNNER_TEMP/release.jks"
+
+      - name: Prüfberichte und Test-Build aufbewahren
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: finanzen-${{ steps.ver.outputs.version }}
+          path: |
+            dist/
+            android/app/build/reports/
+          retention-days: 30
+
+      - name: Versionshinweise zusammenstellen
+        if: env.IS_RELEASE == 'true'
+        run: |
+          V="${{ steps.ver.outputs.version }}"
+          awk -v v="$V" '$0 ~ "^## "v"( |$)" {f=1; next} /^## / {f=0} f' CHANGELOG.md > notes.md
+          [ -s notes.md ] || echo "Verbesserungen und Fehlerbehebungen." > notes.md
+          { echo; echo "---"; echo "**Prüfsummen (SHA-256)**"; echo '```'; cat dist/SHA256SUMS.txt; echo '```';
+            echo "Signatur-Zertifikat: \`$(grep -m1 'certificate SHA-256 digest' dist/signatur.txt | awk '{print $NF}')\`"; } >> notes.md
+
+      - name: Release veröffentlichen
+        if: env.IS_RELEASE == 'true'
+        uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3 # v3.0.4
+        with:
+          name: Finanzen ${{ steps.ver.outputs.version }}
+          tag_name: v${{ steps.ver.outputs.version }}
+          target_commitish: ${{ github.sha }}
+          make_latest: true
+          body_path: notes.md
+          files: |
+            dist/Finanzen-${{ steps.ver.outputs.version }}.apk
+            dist/Finanzen-${{ steps.ver.outputs.version }}-play.aab
+            dist/SHA256SUMS.txt
+
+      - name: Ergebnis im Zweig «ci-status» ablegen (nur Build-Protokolle, keine Daten)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+        run: bash tools/ci_report.sh android
