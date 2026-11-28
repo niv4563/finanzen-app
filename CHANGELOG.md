@@ -2,6 +2,15 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.68.0
+- **Kasten schätzen:** Tippst du im Geldfluss auf einen Kasten (Ausgaben, Empfänger, Sammel-Kasten oder Konto), steht neu «Schätzen – aus Vorjahren, Jahres- und Monatskosten». Für jede Kategorie im Kasten siehst du:
+  - was du in den Vorjahren bezahlt hast (bis 3 Jahre zurück) und in den letzten 12 Monaten,
+  - bekannte **Jahreskosten** (z. B. Gemeindesteuer, ÷ 12) und **Monatskosten** (Daueraufträge, Abos),
+  - in welchen Monaten Einmaliges bezahlt wurde (z. B. Steuern im März und September).
+  - Daraus eine **Schätzung pro Monat**, auf 10 Franken gerundet: bekannte Preise zuerst, bei Steuern und Jahresrechnungen der höhere Wert aus Vorjahr und letzten 12 Monaten, sonst der Schnitt. Kosten, die erst im Lauf des Vorjahres begonnen haben, werden nur über die Monate seit Beginn gerechnet.
+  - Jede Grundlage (Vorjahr, Schnitt der Vorjahre, letzte 12 Monate, Jahres- & Monatskosten) lässt sich mit einem Tipp übernehmen oder selbst überschreiben. Ein leeres Feld lässt das Budget, wie es ist.
+- «Schätzung übernehmen» setzt das Budget ab dem gewählten Monat (vorgewählt Januar 2027); Planen, Übersicht und Geldfluss rechnen gleich damit.
+
 ## 1.67.1
 - **Budget auf 10 Franken genau** statt auf 50: Vorschläge aus «Budget aus Zahlungen» und alle Beträge des Fluss-Assistenten werden auf 10 Franken gerundet (Säule 3a abgerundet, damit das Jahresmaximum hält).
 
