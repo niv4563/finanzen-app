@@ -2,6 +2,18 @@
 
 Neue Einträge immer oben anfügen. Der Abschnitt der Version erscheint in der App unter «Was ist neu?».
 
+## 1.62.0
+- **Geldfluss: Muster erkennen.** Ein kleiner Assistent wertet deine Buchungen der letzten 12 Monate aus – nur auf dem Gerät – und schlägt vor, wie dein Geld tatsächlich fliesst. Übernommen wird nur, was du anhakst:
+  - **Überträge zwischen Konten:** fester Betrag (z. B. «Allgemein → Haushaltkonto: fest CHF 1'950, 12 von 12 Monaten»), **Prozent vom Lohn** (wenn der Betrag mit dem Lohn schwankt), **nur in bestimmten Monaten** (z. B. Säule 3a im Dezember) oder «deckt, was weitergeht» bei Karten- und Durchlaufkonten.
+  - **Wer bezahlt was:** erkennt, welches Konto welche Ausgaben bezahlt – z. B. «Hypothek» und «Gas & Strom» vom Haushaltkonto – und hängt sie dort an. Wird ein Bereich teilweise mit der Kreditkarte bezahlt, entsteht ein Draht mit dem passenden Prozentanteil.
+  - **Sparen:** Budget-Kategorien wie «Säule 3a» oder «Sparen» werden mit dem passenden Konto verbunden und zählen als gespart (Sparquote).
+  - **Aufräumen:** Verbindungen, die in deinen Buchungen nie vorkommen, und leere Kästchen.
+- **Rolle jedes Kontos** im Kästchen: «Durchlauf» (Geld geht weiter, z. B. Haushaltkonto), «sammelt», «wird aufgebraucht» oder «Karte».
+- **Neue Art für Drähte: Prozent** – vom Zufluss des Kontos, vom ganzen Einkommen oder vom Bedarf des Ziels.
+- **Anordnen:** ordnet alle Kästchen in Flussrichtung – Einkommen links, dann die Konten Stufe für Stufe, Ausgaben rechts.
+- Der Geldfluss nutzt am PC die ganze Fensterbreite.
+- **Übersicht und Planen zeigen die Verbindungen:** Bei jeder Kategorie steht, von welchem Konto sie laut Geldfluss bezahlt wird (z. B. «↳ Haushaltkonto», «↳ Kreditkarte») bzw. auf welches Konto gespart wird («→ Säule 3a»). Antippen öffnet den Geldfluss.
+
 ## 1.61.0
 - **Neu: Geldfluss-Plan** (Budget › Geldfluss, in der PC-Version): Zeichne wie in Grasshopper mit Kästchen und Drähten, wie dein Geld fliesst.
   - **Kästchen:** Einkommen (Lohn, Nebeneinkommen), deine Konten, **Töpfe** auf einem Konto (z. B. Eigenheim, Auto, Ferien – mit Stand und Ziel: «Ziel 80'000 erreicht im …») und Ausgaben-Bereiche (Grundbedürfnisse, Fixkosten, Sparen & Vorsorge, Persönliche Wünsche, Freizeit) oder einzelne Budget-Kategorien.
