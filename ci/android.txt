@@ -1,0 +1,493 @@
+Build: android
+Status: success
+Commit: 0597032c2ffdbdde22286dcad59f786893523ea9
+Lauf: https://github.com/niv4563/finanzen-app/actions/runs/46186517875
+Zeit: 2026-11-28T20:32:10Z
+
+===== dist/gradle-aab.log (letzte 150 Zeilen) =====
+> Task :capacitor-filesystem:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :capacitor-share:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :capacitor-android:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :app:processReleaseJavaRes NO-SOURCE
+> Task :app:mergeReleaseGlobalSynthetics UP-TO-DATE
+> Task :capacitor-android:processReleaseJavaRes NO-SOURCE
+> Task :capacitor-app:processReleaseJavaRes NO-SOURCE
+> Task :capacitor-cordova-android-plugins:processReleaseJavaRes NO-SOURCE
+> Task :capacitor-filesystem:processReleaseJavaRes UP-TO-DATE
+> Task :capacitor-share:processReleaseJavaRes NO-SOURCE
+> Task :app:mergeReleaseJavaResource UP-TO-DATE
+> Task :app:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :capacitor-android:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :capacitor-android:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-android:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :capacitor-app:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :capacitor-app:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-app:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-cordova-android-plugins:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :capacitor-filesystem:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :capacitor-filesystem:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-filesystem:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :capacitor-share:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :capacitor-share:mergeReleaseNativeLibs NO-SOURCE
+> Task :capacitor-share:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :app:mergeReleaseNativeLibs NO-SOURCE
+> Task :app:stripReleaseDebugSymbols NO-SOURCE
+> Task :app:writeReleaseAppMetadata UP-TO-DATE
+> Task :app:buildReleasePreBundle
+> Task :capacitor-android:prepareReleaseArtProfile UP-TO-DATE
+> Task :capacitor-app:prepareReleaseArtProfile UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:prepareReleaseArtProfile UP-TO-DATE
+> Task :capacitor-filesystem:prepareReleaseArtProfile UP-TO-DATE
+> Task :capacitor-share:prepareReleaseArtProfile UP-TO-DATE
+> Task :app:mergeReleaseArtProfile UP-TO-DATE
+> Task :app:compileReleaseArtProfile UP-TO-DATE
+> Task :app:collectReleaseDependencies
+> Task :app:configureReleaseDependencies
+> Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+> Task :app:extractProguardFiles UP-TO-DATE
+> Task :capacitor-android:createFullJarRelease UP-TO-DATE
+> Task :capacitor-android:extractProguardFiles UP-TO-DATE
+> Task :capacitor-android:generateReleaseLintModel UP-TO-DATE
+> Task :capacitor-android:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-app:createFullJarRelease UP-TO-DATE
+> Task :capacitor-app:extractProguardFiles UP-TO-DATE
+> Task :capacitor-app:generateReleaseLintModel UP-TO-DATE
+> Task :capacitor-app:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:createFullJarRelease UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:extractProguardFiles UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:generateReleaseLintModel UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-filesystem:createFullJarRelease UP-TO-DATE
+> Task :capacitor-filesystem:extractProguardFiles UP-TO-DATE
+> Task :capacitor-filesystem:generateReleaseLintModel UP-TO-DATE
+> Task :capacitor-filesystem:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-share:createFullJarRelease UP-TO-DATE
+> Task :capacitor-share:extractProguardFiles UP-TO-DATE
+> Task :capacitor-share:generateReleaseLintModel UP-TO-DATE
+> Task :capacitor-share:prepareLintJarForPublish UP-TO-DATE
+> Task :app:generateReleaseLintVitalReportModel
+> Task :capacitor-app:checkReleaseAarMetadata UP-TO-DATE
+> Task :capacitor-app:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-app:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :capacitor-app:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :capacitor-app:extractReleaseAnnotations UP-TO-DATE
+> Task :capacitor-app:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :capacitor-app:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :capacitor-app:mergeReleaseJavaResource UP-TO-DATE
+> Task :capacitor-app:syncReleaseLibJars UP-TO-DATE
+> Task :capacitor-app:bundleReleaseLocalLintAar UP-TO-DATE
+> Task :capacitor-filesystem:checkReleaseAarMetadata UP-TO-DATE
+> Task :capacitor-filesystem:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-filesystem:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :capacitor-filesystem:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :capacitor-filesystem:extractReleaseAnnotations UP-TO-DATE
+> Task :capacitor-filesystem:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :capacitor-filesystem:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :capacitor-filesystem:mergeReleaseJavaResource UP-TO-DATE
+> Task :capacitor-filesystem:syncReleaseLibJars UP-TO-DATE
+> Task :capacitor-filesystem:bundleReleaseLocalLintAar UP-TO-DATE
+> Task :capacitor-share:checkReleaseAarMetadata UP-TO-DATE
+> Task :capacitor-share:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-share:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :capacitor-share:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :capacitor-share:extractReleaseAnnotations UP-TO-DATE
+> Task :capacitor-share:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :capacitor-share:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :capacitor-share:mergeReleaseJavaResource UP-TO-DATE
+> Task :capacitor-share:syncReleaseLibJars UP-TO-DATE
+> Task :capacitor-share:bundleReleaseLocalLintAar UP-TO-DATE
+> Task :capacitor-android:checkReleaseAarMetadata UP-TO-DATE
+> Task :capacitor-android:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-android:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :capacitor-android:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :capacitor-android:extractReleaseAnnotations UP-TO-DATE
+> Task :capacitor-android:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :capacitor-android:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :capacitor-android:mergeReleaseJavaResource UP-TO-DATE
+> Task :capacitor-android:syncReleaseLibJars UP-TO-DATE
+> Task :capacitor-android:bundleReleaseLocalLintAar UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:checkReleaseAarMetadata UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-cordova-android-plugins:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:extractReleaseAnnotations UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeReleaseJavaResource UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:syncReleaseLibJars UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:bundleReleaseLocalLintAar UP-TO-DATE
+> Task :capacitor-android:lintVitalAnalyzeRelease UP-TO-DATE
+> Task :capacitor-android:writeReleaseLintModelMetadata UP-TO-DATE
+> Task :capacitor-app:lintVitalAnalyzeRelease UP-TO-DATE
+> Task :capacitor-app:writeReleaseLintModelMetadata UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:lintVitalAnalyzeRelease UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:writeReleaseLintModelMetadata UP-TO-DATE
+> Task :capacitor-filesystem:lintVitalAnalyzeRelease UP-TO-DATE
+> Task :capacitor-filesystem:writeReleaseLintModelMetadata UP-TO-DATE
+> Task :capacitor-share:lintVitalAnalyzeRelease UP-TO-DATE
+> Task :capacitor-share:writeReleaseLintModelMetadata UP-TO-DATE
+> Task :capacitor-android:generateReleaseLintVitalModel UP-TO-DATE
+> Task :capacitor-app:generateReleaseLintVitalModel UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:generateReleaseLintVitalModel UP-TO-DATE
+> Task :capacitor-filesystem:generateReleaseLintVitalModel UP-TO-DATE
+> Task :capacitor-share:generateReleaseLintVitalModel UP-TO-DATE
+> Task :app:parseReleaseIntegrityConfig
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease UP-TO-DATE
+> Task :app:lintVitalRelease
+> Task :app:packageReleaseBundle
+> Task :app:signReleaseBundle
+> Task :app:produceReleaseBundleIdeListingFile
+> Task :app:createReleaseBundleListingFileRedirect
+> Task :app:bundleRelease
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_10-1795897832591.json
+
+[Incubating] Problems report is available at: file:///home/runner/work/finanzen-app/finanzen-app/android/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 18s
+228 actionable tasks: 14 executed, 214 up-to-date
+
+===== dist/gradle-apk.log (letzte 150 Zeilen) =====
+> Task :capacitor-app:processReleaseJavaRes NO-SOURCE
+> Task :capacitor-app:createFullJarRelease
+> Task :capacitor-app:extractProguardFiles
+> Task :app:compressReleaseAssets
+> Task :capacitor-app:generateReleaseLintModel
+> Task :capacitor-app:prepareLintJarForPublish
+> Task :capacitor-cordova-android-plugins:processReleaseJavaRes NO-SOURCE
+> Task :capacitor-cordova-android-plugins:createFullJarRelease
+> Task :capacitor-cordova-android-plugins:extractProguardFiles
+> Task :app:mergeExtDexRelease
+> Task :capacitor-cordova-android-plugins:generateReleaseLintModel
+> Task :capacitor-cordova-android-plugins:prepareLintJarForPublish
+> Task :capacitor-filesystem:extractProguardFiles
+> Task :capacitor-filesystem:prepareLintJarForPublish
+> Task :capacitor-share:processReleaseJavaRes NO-SOURCE
+> Task :capacitor-share:createFullJarRelease
+> Task :capacitor-share:extractProguardFiles
+> Task :capacitor-share:generateReleaseLintModel
+> Task :capacitor-share:prepareLintJarForPublish
+> Task :capacitor-app:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-app:checkReleaseAarMetadata
+> Task :capacitor-app:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-app:extractDeepLinksForAarRelease
+> Task :capacitor-app:extractReleaseAnnotations
+> Task :capacitor-app:mergeReleaseGeneratedProguardFiles
+> Task :capacitor-app:mergeReleaseConsumerProguardFiles
+> Task :capacitor-filesystem:checkReleaseAarMetadata
+> Task :capacitor-filesystem:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-filesystem:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-filesystem:extractDeepLinksForAarRelease
+> Task :capacitor-share:checkReleaseAarMetadata
+> Task :capacitor-share:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-app:mergeReleaseJavaResource
+> Task :capacitor-share:extractDeepLinksForAarRelease
+> Task :capacitor-share:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-app:syncReleaseLibJars
+> Task :capacitor-app:bundleReleaseLocalLintAar
+> Task :capacitor-share:extractReleaseAnnotations
+> Task :capacitor-share:mergeReleaseGeneratedProguardFiles
+> Task :capacitor-share:mergeReleaseConsumerProguardFiles
+> Task :capacitor-share:mergeReleaseJavaResource
+> Task :capacitor-android:checkReleaseAarMetadata
+> Task :capacitor-share:syncReleaseLibJars
+> Task :capacitor-share:bundleReleaseLocalLintAar
+> Task :capacitor-android:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-android:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-android:extractDeepLinksForAarRelease
+> Task :capacitor-android:extractReleaseAnnotations
+> Task :capacitor-android:mergeReleaseGeneratedProguardFiles
+> Task :capacitor-android:mergeReleaseConsumerProguardFiles
+> Task :capacitor-android:mergeReleaseJavaResource
+> Task :capacitor-cordova-android-plugins:checkReleaseAarMetadata
+> Task :capacitor-android:syncReleaseLibJars
+> Task :capacitor-android:bundleReleaseLocalLintAar
+> Task :capacitor-cordova-android-plugins:stripReleaseDebugSymbols NO-SOURCE
+> Task :capacitor-cordova-android-plugins:copyReleaseJniLibsProjectAndLocalJars
+> Task :capacitor-cordova-android-plugins:extractDeepLinksForAarRelease
+> Task :capacitor-cordova-android-plugins:extractReleaseAnnotations
+> Task :capacitor-cordova-android-plugins:mergeReleaseGeneratedProguardFiles
+> Task :capacitor-cordova-android-plugins:mergeReleaseConsumerProguardFiles
+> Task :capacitor-cordova-android-plugins:mergeReleaseJavaResource
+> Task :capacitor-cordova-android-plugins:syncReleaseLibJars
+> Task :capacitor-cordova-android-plugins:bundleReleaseLocalLintAar
+> Task :capacitor-android:writeReleaseLintModelMetadata
+> Task :capacitor-app:writeReleaseLintModelMetadata
+> Task :capacitor-cordova-android-plugins:writeReleaseLintModelMetadata
+> Task :capacitor-filesystem:writeReleaseLintModelMetadata
+> Task :capacitor-share:writeReleaseLintModelMetadata
+> Task :capacitor-android:generateReleaseLintVitalModel
+> Task :capacitor-app:generateReleaseLintVitalModel
+> Task :capacitor-cordova-android-plugins:generateReleaseLintVitalModel
+> Task :capacitor-share:generateReleaseLintVitalModel
+> Task :app:processReleaseJavaRes NO-SOURCE
+> Task :app:optimizeReleaseResources
+> Task :app:writeReleaseAppMetadata
+> Task :app:writeReleaseSigningConfigVersions
+> Task :capacitor-android:bundleReleaseAar
+> Task :capacitor-android:mapReleaseSourceSetPaths
+> Task :capacitor-android:mergeReleaseResources
+> Task :capacitor-android:verifyReleaseResources
+> Task :capacitor-android:assembleRelease
+> Task :capacitor-app:bundleReleaseAar
+> Task :capacitor-app:mapReleaseSourceSetPaths
+> Task :capacitor-app:mergeReleaseResources
+> Task :capacitor-filesystem:compileReleaseKotlin
+> Task :capacitor-filesystem:compileReleaseJavaWithJavac NO-SOURCE
+> Task :capacitor-filesystem:bundleLibRuntimeToDirRelease
+> Task :capacitor-filesystem:bundleLibCompileToJarRelease
+> Task :capacitor-app:verifyReleaseResources
+
+> Task :app:compileReleaseJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :app:dexBuilderRelease
+> Task :capacitor-filesystem:bundleLibRuntimeToJarRelease
+> Task :app:mergeReleaseGlobalSynthetics
+> Task :app:mergeDexRelease
+> Task :capacitor-filesystem:processReleaseJavaRes
+> Task :capacitor-filesystem:createFullJarRelease
+> Task :capacitor-filesystem:generateReleaseLintModel
+> Task :app:generateReleaseLintVitalReportModel
+> Task :capacitor-filesystem:extractReleaseAnnotations
+> Task :capacitor-filesystem:mergeReleaseGeneratedProguardFiles
+> Task :capacitor-filesystem:mergeReleaseConsumerProguardFiles
+> Task :capacitor-filesystem:mergeReleaseJavaResource
+> Task :capacitor-filesystem:syncReleaseLibJars
+> Task :capacitor-filesystem:bundleReleaseLocalLintAar
+> Task :app:compileReleaseArtProfile
+> Task :capacitor-filesystem:generateReleaseLintVitalModel
+> Task :capacitor-app:assembleRelease
+> Task :capacitor-cordova-android-plugins:bundleReleaseAar
+> Task :capacitor-cordova-android-plugins:mapReleaseSourceSetPaths
+> Task :app:mergeReleaseJavaResource
+> Task :capacitor-cordova-android-plugins:mergeReleaseResources
+> Task :capacitor-filesystem:bundleReleaseAar
+> Task :capacitor-filesystem:mapReleaseSourceSetPaths
+> Task :capacitor-app:lintVitalAnalyzeRelease
+> Task :capacitor-cordova-android-plugins:verifyReleaseResources
+> Task :capacitor-filesystem:mergeReleaseResources
+> Task :capacitor-cordova-android-plugins:assembleRelease
+> Task :capacitor-share:bundleReleaseAar
+> Task :capacitor-share:mapReleaseSourceSetPaths
+> Task :capacitor-share:mergeReleaseResources
+> Task :capacitor-cordova-android-plugins:lintVitalAnalyzeRelease
+> Task :capacitor-filesystem:verifyReleaseResources
+> Task :capacitor-filesystem:assembleRelease
+> Task :capacitor-share:verifyReleaseResources
+> Task :capacitor-share:assembleRelease
+> Task :capacitor-android:lintVitalAnalyzeRelease
+> Task :capacitor-share:lintVitalAnalyzeRelease
+> Task :capacitor-filesystem:lintVitalAnalyzeRelease
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease
+> Task :app:lintVitalRelease
+> Task :app:packageRelease
+> Task :app:createReleaseApkListingFileRedirect
+> Task :app:assembleRelease
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run_9-1795897787591.json
+
+[Incubating] Problems report is available at: file:///home/runner/work/finanzen-app/finanzen-app/android/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 44s
+243 actionable tasks: 243 executed
+
+===== dist/mobsfscan.log (letzte 150 Zeilen) =====
+│              │ ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤ │
+│              │ │ Line Number(s) │ 83                                                                                                                                                                                                                                                                                                           │ │
+│              │ ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤ │
+│              │ │ Match String   │ b.outerHTML = mgGridHtml(G)                                                                                                                                                                                                                                                                                  │ │
+│              │ ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤ │
+│              │ │ File           │ web/js/98.js                                                                                                                                                                                                                                                                                                 │ │
+│              │ ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤ │
+│              │ │ Match Position │ 10725 - 10752                                                                                                                                                                                                                                                                                                │ │
+│              │ ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤ │
+│              │ │ Line Number(s) │ 115                                                                                                                                                                                                                                                                                                          │ │
+│              │ ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤ │
+│              │ │ Match String   │ b.outerHTML = mgGridHtml(G)                                                                                                                                                                                                                                                                                  │ │
+│              │ ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤ │
+│              │ │ File           │ web/js/98a.js                                                                                                                                                                                                                                                                                                │ │
+│              │ ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤ │
+│              │ │ Match Position │ 1291 - 1462                                                                                                                                                                                                                                                                                                  │ │
+│              │ ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤ │
+│              │ │ Line Number(s) │ 20                                                                                                                                                                                                                                                                                                           │ │
+│              │ ├────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤ │
+│              │ │ Match String   │ el.innerHTML = `<span>${esc(msg)}</span><button type="button" class="btn sm">${esc(label)}</button><button type="button" class="ibtn" aria-label="Schliessen">✕</button>`                                                                                                                                    │ │
+│              │ ╘════════════════╧══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╛ │
+╘══════════════╧═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╛[0m
+[33m╒══════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╕
+│ RULE ID      │ js_cleartext_http_traffic                                                                                                                  │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CVSS         │ 5.3                                                                                                                                        │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CWE          │ CWE-319: Cleartext Transmission of Sensitive Information                                                                                   │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ OWASP-MOBILE │ M3: Insecure Communication                                                                                                                 │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ MASVS        │ MSTG-NETWORK-1                                                                                                                             │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DESCRIPTION  │ Cleartext HTTP URL detected in JavaScript code. Network traffic over HTTP is vulnerable to eavesdropping and tampering; use HTTPS instead. │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ SEVERITY     │ WARNING                                                                                                                                    │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ FILES        │ ╒════════════════╤═══════════════════════════════════════════════════════════════════════╕                                                 │
+│              │ │ File           │ android/app/src/main/assets/public/app.js                             │                                                 │
+│              │ ├────────────────┼───────────────────────────────────────────────────────────────────────┤                                                 │
+│              │ │ Match Position │ 227121 - 227190                                                       │                                                 │
+│              │ ├────────────────┼───────────────────────────────────────────────────────────────────────┤                                                 │
+│              │ │ Line Number(s) │ 2395                                                                  │                                                 │
+│              │ ├────────────────┼───────────────────────────────────────────────────────────────────────┤                                                 │
+│              │ │ Match String   │ 'http://schemas.openxmlformats.org/officeDocument/2006/relationships' │                                                 │
+│              │ ├────────────────┼───────────────────────────────────────────────────────────────────────┤                                                 │
+│              │ │ File           │ web/js/07.js                                                          │                                                 │
+│              │ ├────────────────┼───────────────────────────────────────────────────────────────────────┤                                                 │
+│              │ │ Match Position │ 43177 - 43246                                                         │                                                 │
+│              │ ├────────────────┼───────────────────────────────────────────────────────────────────────┤                                                 │
+│              │ │ Line Number(s) │ 438                                                                   │                                                 │
+│              │ ├────────────────┼───────────────────────────────────────────────────────────────────────┤                                                 │
+│              │ │ Match String   │ 'http://schemas.openxmlformats.org/officeDocument/2006/relationships' │                                                 │
+│              │ ╘════════════════╧═══════════════════════════════════════════════════════════════════════╛                                                 │
+╘══════════════╧════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╛[0m
+[31m╒══════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╕
+│ RULE ID      │ android_task_hijacking1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CWE          │ cwe-1021                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ OWASP-MOBILE │ m1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ MASVS        │ platform-1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ REFERENCE    │ https://github.com/OWASP/owasp-mastg/blob/master/Document/0x05a-Platform-Overview.md                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DESCRIPTION  │ The Activity should not be having the launch mode attribute set to "singleTask". It is then possible for other applications to place a malicious activity on top of the activity stack resulting in Task Hijacking/StrandHogg 1.0 vulnerability. This makes the application an easy target for phishing attacks. The vulnerability can be remediated by setting the launch mode attribute to "singleInstance" or by setting an empty taskAffinity (taskAffinity="") attribute. You can also update the target SDK version (26) of the app to 28 or higher to fix this issue at platform level. │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ SEVERITY     │ ERROR                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ FILES        │ ╒════════════════╤══════════════════════════════════════════╕                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  │
+│              │ │ File           │ android/app/src/main/AndroidManifest.xml │                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  │
+│              │ ├────────────────┼──────────────────────────────────────────┤                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  │
+│              │ │ Match Position │ 1 - 1                                    │                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  │
+│              │ ├────────────────┼──────────────────────────────────────────┤                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  │
+│              │ │ Line Number(s) │ 1                                        │                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  │
+│              │ ├────────────────┼──────────────────────────────────────────┤                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  │
+│              │ │ Match String   │ launchMode=singleTask and targetSdk<28   │                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  │
+│              │ ╘════════════════╧══════════════════════════════════════════╛                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  │
+╘══════════════╧════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╛[0m
+[31m╒══════════════╤══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╕
+│ RULE ID      │ android_task_hijacking2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  │
+├──────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CWE          │ cwe-1021                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 │
+├──────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ OWASP-MOBILE │ m1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       │
+├──────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ MASVS        │ platform-1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               │
+├──────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ REFERENCE    │ https://github.com/OWASP/owasp-mastg/blob/master/Document/0x05a-Platform-Overview.md                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     │
+├──────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DESCRIPTION  │ Activity is found to be vulnerable to StrandHogg 2.0 task hijacking vulnerability. When vulnerable, it is possible for other applications to place a malicious activity on top of the activity stack of the vulnerable application. This makes the application an easy target for phishing attacks. The vulnerability can be remediated by setting the launch mode attribute to "singleInstance" and by setting an empty taskAffinity (taskAffinity=""). You can also update the target SDK version (26) of the app to 29 or higher to fix this issue at platform level. │
+├──────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ SEVERITY     │ ERROR                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    │
+├──────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ FILES        │ ╒════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════╕                                                                                                                                                                                                                                                                                                                                                                                                                                                       │
+│              │ │ File           │ android/app/src/main/AndroidManifest.xml                                                      │                                                                                                                                                                                                                                                                                                                                                                                                                                                       │
+│              │ ├────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────┤                                                                                                                                                                                                                                                                                                                                                                                                                                                       │
+│              │ │ Match Position │ 1 - 1                                                                                         │                                                                                                                                                                                                                                                                                                                                                                                                                                                       │
+│              │ ├────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────┤                                                                                                                                                                                                                                                                                                                                                                                                                                                       │
+│              │ │ Line Number(s) │ 1                                                                                             │                                                                                                                                                                                                                                                                                                                                                                                                                                                       │
+│              │ ├────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────┤                                                                                                                                                                                                                                                                                                                                                                                                                                                       │
+│              │ │ Match String   │ Activity exported, targetSdk<29 and launchMode != singleInstance or taskAffinity is not empty │                                                                                                                                                                                                                                                                                                                                                                                                                                                       │
+│              │ ╘════════════════╧═══════════════════════════════════════════════════════════════════════════════════════════════╛                                                                                                                                                                                                                                                                                                                                                                                                                                                       │
+╘══════════════╧══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╛[0m
+[36m╒══════════════╤══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╕
+│ RULE ID      │ android_safetynet_api                                                                                                                                                                                                                                        │
+├──────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CWE          │ CWE-353: Missing Support for Integrity Check                                                                                                                                                                                                                 │
+├──────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ OWASP-MOBILE │ M8: Code Tampering                                                                                                                                                                                                                                           │
+├──────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ MASVS        │ MSTG-RESILIENCE-1                                                                                                                                                                                                                                            │
+├──────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ REFERENCE    │ https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-root-detection-mstg-resilience-1                                                                                                    │
+├──────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DESCRIPTION  │ This app does not uses SafetyNet Attestation API that provides cryptographically-signed attestation, assessing the device's integrity. This check helps to ensure that the servers are interacting with the genuine app running on a genuine Android device. │
+├──────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ SEVERITY     │ INFO                                                                                                                                                                                                                                                         │
+╘══════════════╧══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╛[0m
+[36m╒══════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╕
+│ RULE ID      │ android_certificate_pinning                                                                                                                                                                                        │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CWE          │ CWE-295: Improper Certificate Validation                                                                                                                                                                           │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ OWASP-MOBILE │ M3: Insecure Communication                                                                                                                                                                                         │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ MASVS        │ MSTG-NETWORK-4                                                                                                                                                                                                     │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ REFERENCE    │ https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05g-Testing-Network-Communication.md#testing-custom-certificate-stores-and-certificate-pinning-mstg-network-4                                           │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DESCRIPTION  │ This app does not use a TLS/SSL certificate or public key pinning in code to detect or prevent MITM attacks in secure communication channel. Please verify if pinning is enabled in `network_security_config.xml`. │
+├──────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ SEVERITY     │ INFO                                                                                                                                                                                                               │
+╘══════════════╧════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╛[0m
+[36m╒══════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╕
+│ RULE ID      │ android_certificate_transparency                                                                                                                                                                                                        │
+├──────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ CWE          │ CWE-295: Improper Certificate Validation                                                                                                                                                                                                │
+├──────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ OWASP-MOBILE │ M3: Insecure Communication                                                                                                                                                                                                              │
+├──────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ MASVS        │ MSTG-NETWORK-4                                                                                                                                                                                                                          │
+├──────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ REFERENCE    │ https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05g-Testing-Network-Communication.md#testing-custom-certificate-stores-and-certificate-pinning-mstg-network-4                                                                │
+├──────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ DESCRIPTION  │ This app does not enforce TLS Certificate Transparency that helps to detect SSL certificates that have been mistakenly issued by a certificate authority or maliciously acquired from an otherwise unimpeachable certificate authority. │
+├──────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ SEVERITY     │ INFO                                                                                                                                                                                                                                    │
+╘══════════════╧═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╛[0m
+
+===== dist/pins.log (letzte 150 Zeilen) =====
+
+api.github.com
+      P5437A6f5e2OnunPOzNhRV2iWeOE1XGTN9xskQ53yTk=  CN=*.github.com
+      ZSagvDzjltLkewXEBuDxIzpW/dpVw1Juvvmd0hhkzdY=  CN=Sectigo Public Server Authentication CA DV E36,O=Sectigo Limited,C=GB
+      sLVjNUaFYfW7n6EtgBeEpjOlcnBdNPMrZDRF36iwBdE=  CN=Sectigo Public Server Authentication Root E46,O=Sectigo Limited,C=GB
+      ICGRfpgmOUXIWcQ/HXPLQTkFPEFPoDyjvH7ohhQpjzs=  CN=USERTrust ECC Certification Authority,O=The USERTRUST Network,L=Jersey City,ST=New Jers
+
+rest.budgetbakers.com
+      xaVOV4ZOjrZyQIPfaHQVywMN5rwUjDY4GMTc2TYGeEU=  CN=*.budgetbakers.com
+      a9khLOZJxlnJyrxstg/P+seiDCm+Yf3OsrXyFocBaI0=  CN=Sectigo Public Server Authentication CA DV R36,O=Sectigo Limited,C=GB
+      Douxi77vs4G+Ib/BogbTFymEYq0QSFXwSgVCaZcI09Q=  CN=Sectigo Public Server Authentication Root R46,O=Sectigo Limited,C=GB
+      x4QzPSC810K5/cMjb05Qm4k3Bw5zBn4lTdO/nEW/Td4=  CN=USERTrust RSA Certification Authority,O=The USERTRUST Network,L=Jersey City,ST=New Jers
+
+api.frankfurter.dev
+      WUkHOdDMq77fgQD7FNxeTJf+wueSpUS6p5meWknIKxM=  CN=frankfurter.dev
+      kIdp6NNEd8wsugYyyIYFsi1ylMCED3hZbSR8ZFsa/A4=  CN=WE1,O=Google Trust Services,C=US
+      mEflZT5enoR1FuXLgYYGqnVEoZvmf9c2bVBpiOjYQ0c=  CN=GTS Root R4,O=Google Trust Services LLC,C=US
+
+ntfy.sh
+      LSJlMcPf4r8PZoZ1aQkr73aEt/ZHwXy9vWv628NO3dM=  CN=ntfy.sh
+      brzvtCELCIZUo4sD/qPX0ccRtPsd3DY6RfmxpOU9oB4=  CN=YE1,O=Let's Encrypt,C=US
+      sCkq5UWXjg+7mKu9lMhhYF5bGLsy7VI/UNW3tccdR7w=  CN=Root YE,O=ISRG,C=US
+      diGVwiVYbubAI3RW4hB9xU8e/CH2GnkuvVFZE8zmgzI=  CN=ISRG Root X2,O=Internet Security Research Group,C=US
+      C5+lpZ7tcVwmwQIMcRtPbsQtWLABXhQzejna0wHFr8M=  CN=ISRG Root X1,O=Internet Security Research Group,C=US
+Noch kein Pinning eingetragen
+
+===== dist/tests.log (letzte 150 Zeilen) =====
+Verschlüsselung geprüft: {'plain': False, 'locked': True, 'wrong': False, 'right': True, 'back': True}
+37 Seiten und 291 Knöpfe geprüft
+Alle Tests bestanden
