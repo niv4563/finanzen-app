@@ -41,7 +41,7 @@ jobs:
 
       - name: Schutz – keine persönlichen Daten im Projekt
         run: |
-          bad=$(git ls-files | grep -Ei '(Finanzen_Daten|\.xlsx$|\.xls$|backup.*\.json$|\.jks$|\.keystore$|\.p12$|walletToken)' || true)
+          bad=$(git ls-files | grep -Ei '(Finanzen_Daten|\.xlsx$|\.xls$|backup.*\.json$|\.jks$|\.keystore$|\.p12$|\.p8$|\.mobileprovision$|walletToken)' || true)
           if [ -n "$bad" ]; then echo "::error::Diese Dateien gehören nicht ins Projekt: $bad"; exit 1; fi
           if grep -RIl --exclude-dir=node_modules -E 'BEGIN (RSA |EC )?PRIVATE KEY' . ; then echo "::error::Privater Schlüssel im Projekt gefunden"; exit 1; fi
 
@@ -113,6 +113,20 @@ jobs:
           python3 tools/build_www.py web 0.0.0 direct
           node --check www/app.js
 
+      - name: Automatische Tests (Verschlüsselung, alle Seiten und Knöpfe – nur erfundene Testdaten)
+        run: |
+          set -o pipefail
+          mkdir -p dist
+          pip install --quiet playwright==1.63.0
+          python3 -m playwright install --with-deps chromium
+          python3 tools/build_www.py web 0.0.0 web
+          python3 tests/e2e_test.py www 2>&1 | tee dist/tests.log
+
+      - name: Zertifikat-Pinning gegen die echten Server prüfen
+        run: |
+          set -o pipefail
+          python3 tools/check_pins.py 2>&1 | tee dist/pins.log
+
       - name: Signatur-Schlüssel bereitstellen
         if: env.IS_RELEASE == 'true'
         env:
@@ -127,12 +141,15 @@ jobs:
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          EXPECTED_CERT: ${{ secrets.ANDROID_CERT_SHA256 }}
         run: |
+          set -o pipefail
+          mkdir -p dist
           python3 tools/build_www.py web "${{ steps.ver.outputs.version }}" direct "$GITHUB_REPOSITORY" "$GITHUB_RUN_NUMBER"
           npx cap sync android
           python3 tools/harden_after_sync.py
           cd android
-          gradle --no-daemon assembleRelease -PappVersionCode=${{ steps.ver.outputs.code }} -PappVersionName=${{ steps.ver.outputs.version }}
+          gradle --no-daemon assembleRelease -PappVersionCode=${{ steps.ver.outputs.code }} -PappVersionName=${{ steps.ver.outputs.version }} 2>&1 | tee ../dist/gradle-apk.log
           mkdir -p ../dist
           cp app/build/outputs/apk/release/app-release*.apk ../dist/Finanzen-${{ steps.ver.outputs.version }}.apk
 
@@ -141,12 +158,14 @@ jobs:
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          EXPECTED_CERT: ${{ secrets.ANDROID_CERT_SHA256 }}
         run: |
+          set -o pipefail
           python3 tools/build_www.py web "${{ steps.ver.outputs.version }}" play "$GITHUB_REPOSITORY" "$GITHUB_RUN_NUMBER"
           npx cap copy android
           python3 tools/harden_after_sync.py
           cd android
-          gradle --no-daemon bundleRelease -PappVersionCode=${{ steps.ver.outputs.code }} -PappVersionName=${{ steps.ver.outputs.version }}
+          gradle --no-daemon bundleRelease -PappVersionCode=${{ steps.ver.outputs.code }} -PappVersionName=${{ steps.ver.outputs.version }} 2>&1 | tee ../dist/gradle-aab.log
           cp app/build/outputs/bundle/release/app-release.aab ../dist/Finanzen-${{ steps.ver.outputs.version }}-play.aab
 
       - name: Qualitätsprüfung (Android Lint)
@@ -158,7 +177,7 @@ jobs:
         run: |
           pip install --quiet mobsfscan
           mobsfscan android/app/src/main web --json -o dist/mobsfscan.json || true
-          mobsfscan android/app/src/main web || true
+          mobsfscan android/app/src/main web 2>&1 | tee dist/mobsfscan.log || true
 
       - name: Signatur prüfen
         if: env.IS_RELEASE == 'true'
@@ -206,3 +225,10 @@ jobs:
             dist/Finanzen-${{ steps.ver.outputs.version }}.apk
             dist/Finanzen-${{ steps.ver.outputs.version }}-play.aab
             dist/SHA256SUMS.txt
+
+      - name: Ergebnis im Zweig «ci-status» ablegen (nur Build-Protokolle, keine Daten)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+        run: bash tools/ci_report.sh android
