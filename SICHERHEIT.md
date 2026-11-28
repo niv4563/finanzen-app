@@ -61,6 +61,7 @@ Niemand ausser dir hat den Schlüssel.
 | Aktuelle Plattform | Android: Ziel API 36 (Android 16), Mindestens Android 10. iPhone: ab iOS 15. |
 | Updates nur echt | Android installiert ein Update nur mit demselben Signatur-Schlüssel; die App lädt Updates nur aus dem eigenen GitHub-Projekt. Im Release stehen SHA-256-Prüfsummen und der Zertifikats-Fingerabdruck. |
 | Abhängigkeiten | Feste Versionen, `npm audit` bei jedem Build, alle GitHub Actions auf einen Commit festgenagelt. |
+| Automatische Sicherheits-Updates | Dependabot meldet bekannte Lücken sofort und schlägt jede Woche neue Versionen vor (mit 5 Tagen Wartezeit gegen manipulierte Veröffentlichungen). Jeder Vorschlag durchläuft Sicherheitsprüfung, alle Tests und einen Android-Build. Nur kleine Updates werden automatisch übernommen und nachts als neue Version veröffentlicht; grosse Sprünge und Änderungen an den Build-Abläufen brauchen die Freigabe des Besitzers. |
 | Automatische Tests | `tests/e2e_test.py` prüft bei jedem Build mit erfundenen Daten: Verschlüsselung (falsche PIN abgelehnt, nichts im Klartext, nach dem Sperren nichts im Speicher), jede Seite und jeden Knopf. Fehler stoppen den Build und die Veröffentlichung der PC-Version. (Aktiv, sobald die Abläufe aus `tools/workflows/` eingeschaltet sind.) |
 | Statische Prüfung | Android Lint und mobsfscan (OWASP-Regeln) bei jedem Build. |
 

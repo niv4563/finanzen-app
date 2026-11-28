@@ -1,0 +1,48 @@
+# Automatische Sicherheits- und Wartungs-Updates (Dependabot von GitHub).
+# Dependabot prüft jede Woche alle Bausteine der App und schlägt neue Versionen als Pull Request vor.
+# Bekannte Sicherheitslücken meldet GitHub sofort (unabhängig vom Wochenrhythmus).
+# Der Ablauf «Sicherheits-Updates» (tools/workflows/sicherheits-updates.yml) testet jeden Vorschlag und
+# übernimmt kleine Updates automatisch. Grosse Versionssprünge warten auf deine Freigabe.
+version: 2
+updates:
+  # Bausteine der App (Capacitor, Texterkennung, PDF, QR)
+  - package-ecosystem: npm
+    directory: /
+    schedule: {interval: weekly, day: monday, time: "04:00", timezone: Europe/Zurich}
+    open-pull-requests-limit: 10
+    cooldown:                 # neue Versionen erst nach ein paar Tagen übernehmen – Schutz vor manipulierten Veröffentlichungen
+      default-days: 5
+      semver-major-days: 30
+    groups:
+      capacitor:
+        patterns: ["@capacitor/*"]
+      texterkennung:
+        patterns: ["tesseract.js*", "@tesseract.js-data/*"]
+    labels: [sicherheit-update]
+    commit-message: {prefix: "Update"}
+
+  # Android-Bausteine (Gradle, AndroidX)
+  - package-ecosystem: gradle
+    directory: /android
+    schedule: {interval: weekly, day: monday, time: "04:00", timezone: Europe/Zurich}
+    open-pull-requests-limit: 5
+    cooldown:
+      default-days: 5
+      semver-major-days: 30
+    groups:
+      android:
+        patterns: ["*"]
+    labels: [sicherheit-update]
+    commit-message: {prefix: "Update"}
+
+  # Bausteine der Build-Abläufe (GitHub Actions, auf feste geprüfte Versionen festgenagelt)
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: {interval: weekly, day: monday, time: "04:00", timezone: Europe/Zurich}
+    cooldown:
+      default-days: 5
+    groups:
+      actions:
+        patterns: ["*"]
+    labels: [sicherheit-update]
+    commit-message: {prefix: "Update"}

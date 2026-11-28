@@ -1,0 +1,171 @@
+# Hält die App automatisch auf dem neusten Sicherheitsstand.
+#
+# 1. Dependabot (.github/dependabot.yml) schlägt neue Versionen der Bausteine vor – sofort bei bekannten
+#    Sicherheitslücken, sonst jeden Montag.
+# 2. «Prüfen»: Jeder Vorschlag wird hier vollständig getestet – Sicherheitsprüfung der Bausteine,
+#    Verschlüsselung, alle Seiten und Knöpfe (nur erfundene Testdaten) und ein Android-Test-Build.
+# 3. «Übernehmen»: Kleine Updates (Fehler- und Sicherheitskorrekturen, neue Funktionen ohne Brüche) werden
+#    nur nach bestandenen Tests automatisch übernommen. Grosse Versionssprünge und Updates der Build-Abläufe
+#    bleiben als Vorschlag offen – du bekommst eine Mitteilung von GitHub und entscheidest selbst.
+# 4. «Veröffentlichen»: Jede Nacht wird aus übernommenen Updates eine neue App-Version gebaut und
+#    veröffentlicht. Die App auf Handy und PC meldet das Update wie gewohnt.
+name: Sicherheits-Updates
+
+on:
+  pull_request:
+  schedule:
+    - cron: '17 2 * * *'        # täglich 03:17 Uhr Schweizer Winterzeit
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sicherheits-updates-${{ github.event.pull_request.number || 'release' }}
+  cancel-in-progress: false
+
+jobs:
+  pruefen:
+    if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Schutz – keine persönlichen Daten im Projekt
+        run: |
+          bad=$(git ls-files | grep -Ei '(Finanzen_Daten|\.xlsx$|\.xls$|backup.*\.json$|\.jks$|\.keystore$|\.p12$|\.p8$|\.mobileprovision$|walletToken)' || true)
+          if [ -n "$bad" ]; then echo "::error::Diese Dateien gehören nicht ins Projekt: $bad"; exit 1; fi
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@d1374f8ac74474200d16ef8ecee22c7ae7a51880 # v6.3.0
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: gradle/actions/setup-gradle@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
+        with:
+          gradle-version: '8.14.3'
+      - uses: android-actions/setup-android@be39fa834029ff78f1a44aa3bb0819b8fc2bd8fd # v4.0.4
+
+      - name: Bausteine laden + bekannte Sicherheitslücken prüfen
+        run: |
+          npm install --no-fund --no-audit
+          npm audit --omit=dev --audit-level=high
+
+      - name: Automatische Tests (Verschlüsselung, alle Seiten und Knöpfe – nur erfundene Testdaten)
+        run: |
+          python3 tools/build_www.py web 0.0.0 web
+          node --check www/app.js
+          pip install --quiet playwright==1.63.0
+          python3 -m playwright install --with-deps chromium
+          python3 tests/e2e_test.py www
+
+      - name: Android-Test-Build
+        run: |
+          python3 tools/build_www.py web 0.0.0 direct
+          npx cap sync android
+          python3 tools/harden_after_sync.py
+          cd android && gradle --no-daemon assembleDebug
+
+  uebernehmen:
+    needs: pruefen
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Art des Updates bestimmen
+        id: meta
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
+        with:
+          github-token: ${{ github.token }}
+
+      - name: Kleines Update übernehmen, grosses zur Prüfung offen lassen
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.html_url }}
+          TYP: ${{ steps.meta.outputs.update-type }}
+          ART: ${{ steps.meta.outputs.package-ecosystem }}
+        run: |
+          if [ "$ART" = "github_actions" ]; then
+            gh pr comment "$PR" --body "Update der Build-Abläufe: Tests bestanden. GitHub erlaubt nur dir, Build-Abläufe zu ändern – bitte selbst mit «Merge» übernehmen."
+          elif [ "$TYP" = "version-update:semver-major" ]; then
+            gh pr comment "$PR" --body "Grosser Versionssprung: Die automatischen Tests sind bestanden, aber grosse Sprünge können das Verhalten ändern. Bitte kurz prüfen und selbst mit «Merge» übernehmen – oder Claude bitten, es anzuschauen."
+          else
+            gh pr merge "$PR" --squash --delete-branch
+            echo "Übernommen: $TYP"
+          fi
+
+  veroeffentlichen:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Übernommene Updates seit der letzten Version?
+        id: neu
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          LAST=$(gh release view --repo "$GITHUB_REPOSITORY" --json tagName -q .tagName 2>/dev/null || true)
+          [ -n "$LAST" ] || { echo "Noch keine Version veröffentlicht."; exit 0; }
+          git fetch --tags --quiet
+          LOG=$(git log "$LAST"..HEAD --format='%an|%s' || true)
+          [ -n "$LOG" ] || { echo "Nichts Neues seit $LAST."; exit 0; }
+          # Nur wenn ausschliesslich automatische Updates dazugekommen sind. Andere Änderungen kommen mit der nächsten normalen Version.
+          if echo "$LOG" | grep -vqE '^(dependabot\[bot\]|github-actions\[bot\])\|'; then
+            echo "Es gibt auch andere Änderungen seit $LAST – die kommen mit der nächsten normalen Version."; exit 0; fi
+          echo "$LOG" | grep -qE '^dependabot\[bot\]\|' || { echo "Keine übernommenen Updates seit $LAST."; exit 0; }
+          CV=$(grep -m1 -E '^## [0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | awk '{print $2}')
+          [ "v$CV" = "$LAST" ] || { echo "CHANGELOG hat schon eine neue Version ($CV)."; exit 0; }
+          IFS=. read -r MA MI PA <<< "${LAST#v}"
+          V="$MA.$MI.$((PA+1))"
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+          echo "$LOG" | grep -E '^dependabot\[bot\]\|' | cut -d'|' -f2- \
+            | sed -E 's/^Update:? //; s/^[Bb]ump //; s/ \(#[0-9]+\)$//; s/ from ([^ ]+) to ([^ ]+)/ \1 → \2/; s/^the ([^ ]+) group.* with ([0-9]+) updates?.*/Gruppe \1 (\2 Bausteine)/; s/ in \/[^ ]*$//' \
+            | sort -u | sed 's/^/  - /' > "$RUNNER_TEMP/liste.txt"
+          echo "Neue Version $V:"; cat "$RUNNER_TEMP/liste.txt"
+
+      - name: Neue Version eintragen und veröffentlichen
+        if: steps.neu.outputs.version != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          V: ${{ steps.neu.outputs.version }}
+        run: |
+          python3 - <<'PY'
+          import os
+          v = os.environ['V']; liste = open(os.environ['RUNNER_TEMP'] + '/liste.txt').read().rstrip()
+          p = 'CHANGELOG.md'; s = open(p, encoding='utf-8').read()
+          neu = (f"## {v}\n- **Sicherheits- und Wartungsupdate (automatisch):** Bausteine der App auf den neusten Stand gebracht. "
+                 "Vor der Veröffentlichung geprüft: bekannte Sicherheitslücken, Verschlüsselung, alle Seiten und Knöpfe.\n"
+                 + (liste + "\n" if liste else "") + "\n")
+          i = s.index('\n## ') + 1
+          open(p, 'w', encoding='utf-8').write(s[:i] + neu + s[i:])
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md
+          git commit -m "Version $V (automatisches Sicherheitsupdate)"
+          git push origin HEAD:main
+          # Builds starten (ein Push mit diesem Schlüssel startet sie nicht von selbst)
+          gh workflow run android.yml --ref main -f version="$V"
+          gh workflow run pages.yml --ref main
+          gh workflow run ios.yml --ref main 2>/dev/null || true
+          echo "Version $V wird gebaut und veröffentlicht."
