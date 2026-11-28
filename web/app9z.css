@@ -17,3 +17,17 @@
 dialog.aiw{width:min(900px,96vw)}
 .aitbl{overflow-x:auto;margin:0 -4px}
 .aitbl table{min-width:640px}
+/* 1.65.0 – Abstimmung, Budget aus Zahlungen */
+.synccard.ok{padding-top:12px;padding-bottom:12px}
+.syncok{color:var(--ok)}
+.syncnums{display:flex;flex-wrap:wrap;gap:4px 16px;color:var(--muted);margin:6px 0 2px}.syncnums b{color:var(--ink);font-variant-numeric:tabular-nums}
+.syncrow{display:flex;flex-direction:column;gap:2px;padding:8px 0;border-top:1px solid var(--line)}
+.bvg{margin-left:6px}
+.bvsub{margin-top:2px;color:var(--ink)}
+.bvtax td:first-child b{color:var(--acc)}
+.aitbl td{vertical-align:top}
+.bvi{width:96px;min-height:34px;text-align:right}
+.flcolh{position:absolute;width:220px;font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.01em;border-bottom:2px solid var(--line);padding-bottom:4px}
+.flwlg{margin:4px 0 -6px}
+.fnode.fn-coll{border:2px dashed #1aa39a;background:color-mix(in srgb,#1aa39a 6%,var(--card))}
+.fnv2.pos{color:var(--ok)}
